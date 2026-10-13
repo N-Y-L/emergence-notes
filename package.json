@@ -2,7 +2,7 @@
   "name": "emergence-notes",
   "version": "1.0.0",
   "private": true,
-  "description": "A bounded atlas of 100 emergent phenomena, with connected explanations and reproducible interactive models",
+  "description": "Notes cataloging interesting emergent properties, with explanations and reproducible interactive models",
   "author": "Neil Yuanting Li",
   "license": "MIT AND CC-BY-4.0",
   "scripts": {
@@ -11,6 +11,11 @@
     "check": "node scripts/check-site.mjs",
     "start": "python3 -m http.server 8000 --bind 127.0.0.1"
   },
-  "engines": {"node": ">=22"},
-  "devDependencies": {"katex": "0.19.0", "marked": "17.0.5"}
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "katex": "0.19.0",
+    "marked": "17.0.5"
+  }
 }

@@ -20,5 +20,5 @@ for(const [path,{text}] of documents)for(const match of text.matchAll(/\b(?:href
 const ex=documents.get(resolve(root,'experiments.html')).text;
 if((ex.match(/data-lab="/g)||[]).length!==6||(ex.match(/<svg /g)||[]).length!==6)errors.push('Missing saved model figures');
 for(const name of await readdir(resolve(root,'assets/figures'))){const s=await readFile(resolve(root,'assets/figures',name),'utf8');if(/<(?:image|script|foreignObject)\b|data:image/i.test(s))errors.push('Non-vector or active content: '+name);}
-const summary=JSON.parse(await readFile(resolve(root,'docs/content-summary.json'),'utf8'));if(summary.entries!==100||summary.chapters!==10)errors.push('Wrong atlas size');
+const summary=JSON.parse(await readFile(resolve(root,'docs/content-summary.json'),'utf8'));if(summary.entries!==100||summary.chapters!==10)errors.push('Wrong entry or chapter count');
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}else console.log(`Checked ${pages.length} pages, ${links} local links, 100 entries, math markup, anchors, and six genuine vector figures.`);

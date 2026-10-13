@@ -1,12 +1,13 @@
-# Emergence: one hundred ways a world appears
+# Notes on emergent properties
 
 **[Read the notes](https://n-y-l.github.io/emergence-notes/)** ·
 [Start here](https://n-y-l.github.io/emergence-notes/start.html) ·
 [Reading paths](https://n-y-l.github.io/emergence-notes/routes.html) ·
 [Six interactive models](https://n-y-l.github.io/emergence-notes/experiments.html)
 
-A first-person atlas of 100 emergent phenomena: what the parts do, what appears
-collectively, why the new description works, and where it stops working.
+In these notes we catalog some interesting emergent properties: what the parts
+do, what appears collectively, why the larger-scale description works, and where
+it stops working. There are 100 examples, each with a question to explore.
 The intended reader knows graduate physics and mathematics; specialized
 biology, neuroscience, economics, and computing vocabulary is introduced locally.
 
@@ -25,8 +26,8 @@ notes, search, use the models, or render equations. External sources require
 internet. Default figures and accessible mathematical markup are saved in the
 HTML, so the notes also remain readable without JavaScript.
 
-The [single-page atlas](all.html) is convenient for printing. The generated
-[Markdown reading copy](docs/atlas.md) includes the introduction, all entries,
+The [complete reading page](all.html) is convenient for printing. The generated
+[Markdown reading copy](docs/notes.md) includes the introduction, all entries,
 and concluding connections. The [glossary](glossary.html) collects recurring terms.
 
 ## What the models calculate
@@ -68,7 +69,7 @@ npm run check
 The documentation dependencies are pinned. The build typesets equations with
 local KaTeX, creates static figure defaults, and generates all reading copies.
 Edit `content/*.json` for prose; the JSON strings contain ordinary Markdown and
-LaTeX. Do not edit generated HTML or `docs/atlas.md` directly.
+LaTeX. Do not edit generated HTML or `docs/notes.md` directly.
 
 | Location | Purpose |
 |---|---|
