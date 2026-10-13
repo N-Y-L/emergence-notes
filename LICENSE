@@ -1,0 +1,20 @@
+Licensing for Emergence: one hundred ways a world appears
+Copyright (c) 2026 Neil Yuanting Li
+
+Original explanatory text, original diagrams and plotted figures are licensed
+under Creative Commons Attribution 4.0 International (CC BY 4.0).
+The complete license is in LICENSE-CONTENT and at
+https://creativecommons.org/licenses/by/4.0/legalcode.en
+
+Original JavaScript, CSS, build scripts, tests and other software are licensed
+under the MIT License in LICENSE-CODE. This includes the reusable structure
+of generated HTML; the prose and figures inside it retain CC BY 4.0.
+
+Third-party software in vendor/ retains its own licenses. KaTeX is MIT licensed;
+its license is included in vendor/katex/LICENSE. No rights in externally linked
+articles, websites or their illustrations are granted by this repository.
+
+Suggested attribution for the notes or figures:
+Neil Yuanting Li, “Emergence: one hundred ways a world appears”,
+https://github.com/N-Y-L/emergence-notes, CC BY 4.0.
+Indicate modifications when adapting the content.

@@ -1,0 +1,243 @@
+{
+  "number": 3,
+  "slug": "quantum",
+  "title": "Quantum matter makes new excitations",
+  "intro": "The useful particles inside matter need not be the particles from which the matter was assembled. A phonon adds a quantum of coordinated atomic motion without adding an atom. A Fermi-liquid quasiparticle retains an electron's charge while acquiring a different dispersion and lifetime. A fractional quantum Hall quasihole goes further: its charge and exchange behavior belong to a rearrangement of a correlated state. I will distinguish those constructions rather than use “quasiparticle” as an explanation by itself.\n\nThe chapter starts with durable low-energy excitations, then turns to macroscopic quantum organization. Bose condensation concerns occupation of a one-particle state; superfluidity concerns phase rigidity and persistent flow; superconductivity adds the electromagnetic response of charged pairs. Their connections are powerful, but their definitions and experimental tests are different.\n\nMott insulation and Anderson localization show two distinct ways to prevent transport, one driven by interactions and the other by coherent scattering from disorder. The final entries ask how quantum states can carry structure beyond ordinary local order parameters, and how a bulk topological distinction constrains a boundary. The common question is operational: which excitation, response, or state distinction becomes reliable at low energy? Each answer requires its own gap, symmetry, dimensionality, or time-scale assumptions. Quantum mechanics supplies the framework, while collective organization determines what its effective objects actually are.",
+  "entries": [
+    {
+      "id": "fermi-liquid",
+      "title": "Why interacting electrons can look nearly free",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "constraints",
+        "collective-modes"
+      ],
+      "body": "Electrons in a metal repel one another strongly, yet many low-temperature measurements look remarkably like those of an ideal electron gas with altered parameters. I would not infer that the repulsion has disappeared. Landau's Fermi-liquid description says that the low-energy excitations can instead behave like long-lived particles dressed by the response of their neighbors.\n\nFermions obey the Pauli exclusion principle: identical fermions cannot occupy the same one-particle quantum state. At zero temperature, a noninteracting gas fills momentum states up to a boundary called the Fermi surface. In a Fermi liquid, a corresponding surface remains, and adding a particle near it creates a quasiparticle, an excitation with a sufficiently sharp energy and long lifetime to admit a particle description. It carries the electron's charge and spin, but its velocity and interactions need not equal those of a bare electron.\n\nLandau organizes a small change of the many-body energy in terms of occupation changes $\\delta n_{\\mathbf p}$:\n\n$$\\delta E=\\sum_{\\mathbf p}\\epsilon^*_{\\mathbf p}\\delta n_{\\mathbf p}+\\frac{1}{2V}\\sum_{\\mathbf p,\\mathbf p'}f_{\\mathbf p\\mathbf p'}\\delta n_{\\mathbf p}\\delta n_{\\mathbf p'}.$$\n\nHere $V$ is volume, $\\epsilon^*_{\\mathbf p}$ is the quasiparticle energy, and $f$ parametrizes residual interactions; spin labels are suppressed. This is an effective expansion near the ground state, not a replacement of the full electronic Hamiltonian. The interaction term explains why compressibility and magnetic response are not fixed by a renormalized mass alone.\n\nWhy can a quasiparticle survive? Near the Fermi surface, occupied states block most final scattering states. In a conventional three-dimensional Fermi liquid, its energy width scales as $\\Gamma\\propto\\epsilon^2+(\\pi k_BT)^2$, with $\\epsilon$ measured from the chemical potential, the energy cost of adding a particle, $T$ temperature, and $k_B$ Boltzmann's constant. Thus $\\Gamma/|\\epsilon|$ vanishes as $\\epsilon\\to0$ at zero temperature. The excitation becomes better defined at lower energy. This supports a heat capacity proportional to temperature, with a coefficient determined by the quasiparticle density of states.\n\nThe description can fail in one-dimensional interacting conductors, near certain quantum critical points, or when another ordered phase intervenes. It is not a claim that every metal is a Fermi liquid. Its striking content is that interactions can reorganize the many-body state while leaving a tractable low-energy particle language. The test is the sharpness and consistency of the excitations, not whether the microscopic force happens to be weak.",
+      "question": "What observation would show that an apparent electronic effective mass is no longer associated with a long-lived quasiparticle?",
+      "sources": [
+        {
+          "title": "Shankar (1994), Renormalization-group approach to interacting fermions",
+          "url": "https://arxiv.org/abs/cond-mat/9307009",
+          "note": "Author’s research account of the Fermi-liquid fixed point and instabilities; dimensional and low-energy restrictions matter."
+        },
+        {
+          "title": "Coleman, Many-Body Physics: The Unfinished Frontier",
+          "url": "https://www.physics.rutgers.edu/~coleman/620/mbody/unfinished_frontier.pdf",
+          "note": "Authoritative lecture treatment of dressed fermionic quasiparticles and their low-energy description."
+        }
+      ]
+    },
+    {
+      "id": "phonons",
+      "title": "A particle made from many moving atoms",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "collective-modes",
+        "coarse-graining"
+      ],
+      "body": "A neutron can scatter from a crystal and lose a sharply defined amount of energy even though it has not created or removed an atom. The crystal has absorbed a phonon, one quantum of a collective vibrational mode. I want to see exactly what is quantized, because picturing a phonon as a tiny atomlike object hides the useful physics.\n\nTake a periodic chain of atoms of mass $M$, spacing $a$, and nearest-neighbor spring constant $\\kappa$. Let $u_j$ be atom $j$'s displacement and $p_j$ its conjugate momentum. In the harmonic approximation, which keeps terms quadratic in the displacements,\n\n$$H=\\sum_j\\left[\\frac{p_j^2}{2M}+\\frac\\kappa2(u_{j+1}-u_j)^2\\right],\\qquad \\omega_k=2\\sqrt{\\frac\\kappa M}\\left|\\sin\\frac{ka}{2}\\right|.$$\n\nThe allowed wave numbers $k$ label normal modes, coordinated displacement patterns that oscillate independently in this approximation. Transforming to these coordinates turns the Hamiltonian into a sum of harmonic oscillators. Quantization gives mode energies $\\hbar\\omega_k(n_k+1/2)$, with integer occupation $n_k\\geq0$ and reduced Planck constant $\\hbar$. Increasing $n_k$ by one adds a phonon and energy $\\hbar\\omega_k$.\n\nA normal mode extends through the chain, but a superposition of nearby wave numbers can make a localized excitation packet. It propagates with group velocity $d\\omega_k/dk$ when the packet is sufficiently narrow in wave number. No atom accompanies it across the crystal. A one-phonon number state has zero mean displacement; its extra energy appears in displacement and momentum fluctuations. A classical sound wave corresponds instead to a suitable coherent superposition of occupation numbers, which can have an oscillating mean displacement. These are related quantum states, not identical pictures.\n\nAt small $|k|a$, the dispersion becomes $\\omega_k\\simeq a\\sqrt{\\kappa/M}|k|$, connecting the microscopic chain to continuum sound. Anharmonic interactions let phonons scatter and decay; disorder can also disrupt their motion. The phonon language remains most useful when the mode width is small relative to its frequency. Its crystal momentum $\\hbar k$ is defined modulo a reciprocal-lattice vector and should not automatically be identified with the total mechanical momentum of the sample. The emerging particle is a durable pattern of excitation in the same atomic system.",
+      "question": "Which measurement would distinguish a single-phonon packet from a classical lattice wave carrying the same mean energy?",
+      "sources": [
+        {
+          "title": "Tong, Solid State Physics, Ch. 4: Phonons",
+          "url": "https://www.damtp.cam.ac.uk/user/tong/aqm/solid4.pdf",
+          "note": "Authoritative normal-mode and quantum-vibration construction; the packet and number-state distinctions are explicitly explained in this entry."
+        }
+      ]
+    },
+    {
+      "id": "bose-condensation",
+      "title": "When one quantum state becomes macroscopic",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "constraints",
+        "collective-modes"
+      ],
+      "body": "Cooling a gas normally narrows its momentum distribution smoothly. For bosons, particles whose many-body state is symmetric under exchange, a different possibility appears: a single one-particle state can acquire an occupation proportional to the total particle number. That is Bose–Einstein condensation. The atoms remain distinct constituents of a many-body system; they do not become one larger atom.\n\nI start with an ideal uniform three-dimensional gas of particles of mass $m$ and density $n$. Excited states have mean occupation $[e^{(\\epsilon-\\mu)/(k_BT)}-1]^{-1}$, where $\\epsilon$ is single-particle energy, $\\mu$ the chemical potential or particle-addition energy, $T$ temperature, and $k_B$ Boltzmann's constant. Set the lowest energy to zero. As $\\mu$ approaches zero from below, the excited states can accommodate at most\n\n$$n_{\\rm ex}=\\frac{\\zeta(3/2)}{\\lambda_T^3},\\qquad \\lambda_T=\\sqrt{\\frac{2\\pi\\hbar^2}{mk_BT}}.$$\n\nHere $\\hbar$ is reduced Planck's constant, $\\lambda_T$ is the thermal wavelength, and $\\zeta(3/2)=\\sum_{j=1}^{\\infty}j^{-3/2}$. Below the temperature $T_c$ at which $n\\lambda_T^3=\\zeta(3/2)$, the excess particles occupy the ground state macroscopically. In this model $N_0/N=1-(T/T_c)^{3/2}$, with $N_0$ the ground-state population.\n\nThe mechanism is a saturation of available thermal occupations under Bose statistics. It requires no attraction in the ideal-gas calculation, although interactions and collisions matter for preparing and equilibrating real atomic samples. In a nonuniform or interacting system, a more general definition uses the one-particle density matrix, the amplitude correlation for removing a particle at one position and adding it at another. Condensation means that this matrix has an eigenvalue proportional to $N$. The associated eigenfunction identifies the macroscopically occupied orbital without assuming it is a zero-momentum plane wave.\n\nTrapped rubidium experiments established condensation through a narrow component and its temperature-dependent occupation. The precise uniform-gas formulas above do not apply unchanged to a trap. Dimensionality matters too: a uniform ideal gas in one or two dimensions has no finite-temperature condensation in the thermodynamic limit. Finally, condensation and superfluidity are different questions. Occupation measures a property of the equilibrium state; persistent flow and phase rigidity concern response and dynamics. Their close connection in many interacting gases should not be used to make them identical by definition.",
+      "question": "Why can a change in trap geometry alter the condensation threshold even when the atomic species and total particle number stay fixed?",
+      "sources": [
+        {
+          "title": "Tong, Statistical Physics, §3.5: Bose–Einstein Condensation",
+          "url": "https://www.damtp.cam.ac.uk/user/tong/statphys/statmechhtml/S3.html",
+          "note": "Lecture derivation of ideal-gas excited-state saturation and dimensional dependence."
+        },
+        {
+          "title": "Anderson et al. (1995), Observation of Bose-Einstein Condensation in a Dilute Atomic Vapor",
+          "url": "https://doi.org/10.1126/science.269.5221.198",
+          "note": "Primary trapped-rubidium experiment; its evidence is not represented as a test of the uniform-gas condensate-fraction formula."
+        }
+      ]
+    },
+    {
+      "id": "superfluidity",
+      "title": "When flow cannot easily shed its energy",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "collective-modes",
+        "constraints"
+      ],
+      "body": "A current normally decays because its organized motion excites other degrees of freedom. A superfluid can sustain persistent flow under appropriate conditions. I want to locate the obstruction to decay rather than describe the liquid as having no interactions. Interactions are precisely what can give the collective phase a stiffness and reshape the excitation spectrum so that slow flow cannot readily lose momentum.\n\nConsider a homogeneous fluid moving relative to a weak obstacle. Creating an excitation with momentum $\\mathbf p$ and rest-frame energy $\\epsilon(\\mathbf p)$ changes the relevant energy by $\\epsilon(\\mathbf p)-\\mathbf v\\cdot\\mathbf p$. If this is positive for every excitation, that emission channel cannot lower the energy. For an isotropic spectrum, Landau's criterion is\n\n$$v<v_L,\\qquad v_L=\\min_{p>0}\\frac{\\epsilon(p)}p.$$\n\nThis is an energetic criterion for the specified excitation process. It does not prove that every real flow below $v_L$ is immune to all dissipation.\n\nA weakly interacting dilute Bose gas illustrates why interactions matter. With repulsive contact coupling $g>0$ and number density $n$, Bogoliubov's approximation gives $\\epsilon(p)=\\sqrt{[p^2/(2m)][p^2/(2m)+2gn]}$, where $m$ is particle mass. At low momentum, $\\epsilon(p)\\simeq cp$ with sound speed $c=\\sqrt{gn/m}$, so this excitation spectrum has $v_L=c$. An ideal gas instead has quadratic excitations and zero value of this Landau threshold. Macroscopic ground-state occupation alone has not supplied protection for flow.\n\nThe superfluid velocity is related to an order-parameter phase by $\\mathbf v_s=(\\hbar/m)\\nabla\\theta$ for a neutral condensate of particles of mass $m$, with reduced Planck's constant $\\hbar$ and $h=2\\pi\\hbar$. Single-valuedness gives circulation in integer multiples of $h/m$ around a loop that avoids vortex cores. Changing that winding requires a phase-slip process, such as a vortex crossing, rather than an arbitrarily small smooth relaxation. Obstacles, boundaries, temperature, and vortex nucleation can therefore set observed critical velocities below the simple spectral value. The superfluid fraction, defined through response to flow or rotation, also need not equal the condensate fraction. The emergent behavior is a constrained collective dynamics whose persistence depends on both the excitation spectrum and the accessible paths between flowing states.",
+      "question": "Why can two channels containing the same superfluid have different measured critical velocities?",
+      "sources": [
+        {
+          "title": "Dalibard (2016), Interacting gases and the Landau criterion, Collège de France",
+          "url": "https://www.college-de-france.fr/en/agenda/lecture/quantum-coherence-and-superfluidity-in-atomic-gases/interacting-gases-and-the-landau-criterion",
+          "note": "Authoritative lecture on interactions, metastable currents, Bogoliubov theory, and the Landau condition."
+        },
+        {
+          "title": "Floerchinger, Quantum Field Theory 1, Lecture 14",
+          "url": "https://www.tpi.uni-jena.de/~floerchinger/qft1/lecture14/",
+          "note": "Authoritative derivation of the Bogoliubov dispersion and its Landau sound-speed threshold."
+        }
+      ]
+    },
+    {
+      "id": "superconductivity",
+      "title": "A current-carrying state with magnetic rigidity",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "collective-modes",
+        "symmetry"
+      ],
+      "body": "A perfect conductor would preserve a current once started. A superconductor does more: in the appropriate equilibrium regime it expels magnetic flux from its interior, the Meissner effect. I therefore need a theory of collective electronic response, not merely a story in which scattering happens to stop. The central ingredients are correlated electron pairing and stiffness against spatial changes of the pair phase.\n\nIn conventional superconductors, lattice vibrations can mediate an effective attraction between electrons in a restricted energy range. A Cooper pair is a correlated pair of electrons, often with opposite momenta and spin in the simplest case. In the Bardeen–Cooper–Schrieffer description, many overlapping pairs participate in one coherent many-body state. They are not generally small isolated molecules. Its fermionic excitation spectrum is\n\n$$E_{\\mathbf k}=\\sqrt{\\xi_{\\mathbf k}^2+|\\Delta|^2},$$\n\nwhere $\\xi_{\\mathbf k}$ is normal-state energy relative to the chemical potential, the particle-addition energy, and $\\Delta$ the pairing gap for an isotropic fully gapped state. Creating these excitations costs energy, but an energy gap alone does not explain every aspect of superconducting transport.\n\nTo see the magnetic response, write a long-wavelength pair field as $\\Psi=\\sqrt{n_p}e^{i\\theta}$. Its gauge-invariant momentum is $\\hbar\\nabla\\theta-q_p\\mathbf A$, where $\\hbar$ is reduced Planck's constant, $q_p=-2e$ is pair charge with $e>0$ the elementary charge, and $\\mathbf A$ the electromagnetic vector potential. A positive free-energy cost for this combination gives, in a simple local model, $\\mathbf j=(n_pq_p/m_p)(\\hbar\\nabla\\theta-q_p\\mathbf A)$, with effective pair mass $m_p$. Taking a curl in a vortex-free region yields $\\nabla\\times\\mathbf j=-(n_pq_p^2/m_p)\\mathbf B$. Combined with Maxwell's equations, it gives magnetic penetration over a finite length. The phase alone is gauge dependent; the physical stiffness is not.\n\nTemperature, strong current, magnetic fields, and phase slips can destroy or dissipate the ordered response. Some superconductors admit quantized flux vortices rather than completely excluding flux, and unconventional pairing may have nodes where the excitation gap vanishes. The simple phonon-mediated isotropic model is therefore a specific mechanism, not a universal microscopic explanation. What the phases share is a coherent charge-carrying collective response with sharply constrained electromagnetic behavior, whose robustness must be assessed in the actual geometry and field regime.",
+      "question": "Which magnetic experiment separates an equilibrium superconductor from a hypothetical conductor whose resistance is merely zero?",
+      "sources": [
+        {
+          "title": "Bardeen, Cooper and Schrieffer (1957), Theory of Superconductivity",
+          "url": "https://doi.org/10.1103/PhysRev.108.1175",
+          "note": "Primary microscopic pairing theory for conventional superconductivity; the isotropic gap formula is used within that scope."
+        },
+        {
+          "title": "MIT, Applied Superconductivity, Lecture 10",
+          "url": "https://ocw.mit.edu/courses/6-763-applied-superconductivity-fall-2005/resources/lecture10/",
+          "note": "Official lecture on the supercurrent equation, London equations, fluxoid quantization, and vortices."
+        }
+      ]
+    },
+    {
+      "id": "mott-insulator",
+      "title": "An insulator made by the cost of sharing a site",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "constraints",
+        "collective-modes"
+      ],
+      "body": "A simple band calculation can predict that electrons should conduct, yet the material is insulating. I consider the case in which the missing ingredient is the interaction cost of putting two electrons on the same local orbital. A Mott insulator is an interaction-driven insulating state whose charge gap cannot be understood from the corresponding partially filled noninteracting band alone.\n\nThe one-orbital Hubbard model isolates the competition:\n\n$$H=-t\\sum_{\\langle ij\\rangle,\\sigma}(c^\\dagger_{i\\sigma}c_{j\\sigma}+\\mathrm{h.c.})+U\\sum_i n_{i\\uparrow}n_{i\\downarrow}.$$\n\nHere $c^\\dagger_{i\\sigma}$ creates an electron of spin $\\sigma$ on site $i$, $n_{i\\sigma}=c^\\dagger_{i\\sigma}c_{i\\sigma}$ counts it, and “h.c.” adds the reverse hopping term. The parameter $t$ is a hopping energy and $U>0$ the cost of double occupation. Neighboring pairs of sites are denoted by $\\langle ij\\rangle$. At one electron per site, hopping gains kinetic energy but tends to create an empty site and a doubly occupied site, costing interaction energy.\n\nIn the atomic limit $t=0$, this charge cost is explicit. For $U$ large compared with the bandwidth, the spread of noninteracting band energies, charge motion remains suppressed even when $t$ is nonzero. The charge gap can be characterized by $\\Delta_c=E_0(N+1)+E_0(N-1)-2E_0(N)$, where $E_0(N)$ is the ground-state energy at electron number $N$. A positive thermodynamic-limit gap means that changing the particle number costs a finite energy. Virtual hopping still generates spin interactions on the smaller scale $4t^2/U$, so electrically insulating does not mean dynamically inert.\n\nThis separation between charge and spin scales makes the emergent description useful: low-energy variables may be local moments rather than mobile electrons. Magnetic order can accompany a Mott state, but interaction-driven localization and the gap caused by a simple ordering-induced band reconstruction are distinct mechanisms. Real materials add orbitals, lattice distortions, and screening. Bosonic atoms in optical lattices, periodic light-induced potentials, provide a separate controllable realization of interaction-driven suppression of number fluctuations at integer filling. The Hubbard argument is strongest when filling and energy scales are specified; “strong interactions” alone do not guarantee insulation away from those conditions.",
+      "question": "What observation would show that charge is frozen while low-energy spin degrees of freedom remain active?",
+      "sources": [
+        {
+          "title": "Hubbard (1963), Electron correlations in narrow energy bands",
+          "url": "https://doi.org/10.1098/rspa.1963.0204",
+          "note": "Primary model of on-site electronic correlations and the atomic-to-band limits."
+        },
+        {
+          "title": "Greiner et al. (2002), Quantum phase transition from a superfluid to a Mott insulator in a gas of ultracold atoms",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11780110/",
+          "note": "Primary bosonic optical-lattice experiment; explicitly distinguished from an electronic Hubbard material."
+        }
+      ]
+    },
+    {
+      "id": "anderson-localization",
+      "title": "When scattering prevents a wave from spreading",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "disorder",
+        "information"
+      ],
+      "body": "Random scattering usually suggests slow diffusion. A coherent quantum wave can do something more restrictive: it can remain localized indefinitely in an ideal static disordered system. The reason is interference between multiple scattering paths, not necessarily a high classical barrier around every localized region. Anderson localization is the absence of ordinary spreading caused by this coherent wave mechanism.\n\nI use a one-dimensional lattice with a single-particle amplitude $\\psi_j$ at site $j$:\n\n$$E\\psi_j=-t(\\psi_{j+1}+\\psi_{j-1})+V_j\\psi_j.$$\n\nThe hopping energy $t$ connects neighboring sites, while independent random on-site energies $V_j$ supply disorder. Without disorder the eigenstates are extended waves. Under the standard short-range, uncorrelated-disorder assumptions, generic one-dimensional eigenstates are exponentially localized, with an envelope $|\\psi_j|\\sim e^{-|j-j_0|a/\\xi}$ around some center $j_0$. Here $a$ is lattice spacing and $\\xi$ the localization length. Weak disorder may make $\\xi$ so large that a finite sample appears extended.\n\nA particle initially near one site is a superposition of these eigenstates. If the contributing states are localized, their time-dependent phases do not supply an ordinary channel for indefinite diffusion. This contrasts with replacing each scattering event by an independent classical probability: that replacement erases the phase relations that create localization. In three dimensions, localized and extended states can coexist at different energies, separated by a mobility edge. Dimensionality and symmetry determine which conclusions survive; the one-dimensional statement should not be transplanted to every disordered medium.\n\nI can look for localization through saturated wave-packet expansion or exponentially suppressed transmission, but finite-time trapping and absorption can imitate parts of those observations. A localization claim should distinguish loss of transmitted intensity from redistribution of a conserved wave. Interactions, temporal disorder, and inelastic processes can destroy single-particle coherence or enable transport. Many-body localization, a possible failure of thermalization in interacting disordered systems, is a separate and more delicate problem. The present example already shows an important boundary of “collective”: a single coherent wave spread across many scattering sites can develop an emergent length scale and transport law. Many particles are not required for every useful effective phenomenon.",
+      "question": "How would you distinguish coherent localization from a wave that simply loses intensity through absorption?",
+      "sources": [
+        {
+          "title": "Anderson (1958), Absence of Diffusion in Certain Random Lattices",
+          "url": "https://doi.org/10.1103/PhysRev.109.1492",
+          "note": "Primary demonstration that randomness can prevent quantum diffusion; the one-dimensional specialization is stated with its standard assumptions."
+        },
+        {
+          "title": "Abrahams et al. (1979), Scaling Theory of Localization: Absence of Quantum Diffusion in Two Dimensions",
+          "url": "https://doi.org/10.1103/PhysRevLett.42.673",
+          "note": "Primary scaling account of dimensional differences in noninteracting disordered transport; assumptions about symmetry and coherence remain essential."
+        }
+      ]
+    },
+    {
+      "id": "fractionalization-anyons",
+      "title": "A fraction of charge without a fraction of an electron",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "topology",
+        "collective-modes"
+      ],
+      "body": "Every electron carries charge $-e$, yet a two-dimensional electron fluid can support localized excitations carrying charge $+e/3$. I should not picture an electron being cut into three pieces. The excitation is a rearrangement of a correlated many-electron state. Fractionalization means that such an emergent excitation carries quantum numbers that differ from those of the microscopic constituents.\n\nA concrete example is the Laughlin phase at filling $\\nu=1/m$, with odd integer $m$, in a strong perpendicular magnetic field. Filling is the electron number divided by the degeneracy of one Landau level, a quantized cyclotron-energy level. Using complex electron coordinates $z_j=x_j+iy_j$ and magnetic length $\\ell_B=\\sqrt{\\hbar/(e|B|)}$, with reduced Planck's constant $\\hbar$ and field magnitude $|B|$, a suitable field convention gives the trial state\n\n$$\\Psi_m\\propto\\prod_{i<j}(z_i-z_j)^m\\exp\\!\\left[-\\sum_i\\frac{|z_i|^2}{4\\ell_B^2}\\right].$$\n\nThe extra zeros suppress close electron pairs and lower repulsive interaction energy. Multiplying by $\\prod_i(z_i-\\eta)$ creates a quasihole near position $\\eta$: a localized electron-density deficit with charge $+e/m$ in the screened Laughlin-fluid regime. The number of electron coordinates has not changed. Compensating charge lies elsewhere, for example near a finite droplet's edge.\n\nTransporting two well-separated quasiholes around one another changes the many-electron state. After removing ordinary dynamical and electromagnetic phases, a full winding contributes a statistical phase of magnitude $2\\pi/m$, with sign fixed by orientation and field convention. An elementary exchange has magnitude $\\pi/m$ for the elementary Laughlin quasihole. Particles with such exchange behavior are Abelian anyons: “Abelian” means that these scalar exchange operations commute. Charge and statistics are properties of the emergent excitation, not of an individual electron's exchange rule.\n\nThe mechanism relies on a gapped correlated bulk, meaning a finite energy cost for creating unwanted bulk excitations, and on sufficiently separated, slowly transported quasiholes. The Laughlin wavefunction is exact for special interactions and a trial representative for more realistic ones. Interference experiments at $\\nu=1/3$ find phase slips consistent with the predicted braiding phase, with charging effects and device operation included in the interpretation. The particle description is therefore both constructive and testable: I specify the density disturbance, its transport, and the observable phase difference instead of assigning a new particle name to an unexplained signal.",
+      "question": "What comparison of interference histories would isolate a quasihole’s statistical phase from its ordinary magnetic-flux phase?",
+      "sources": [
+        {
+          "title": "Laughlin (1983), Anomalous Quantum Hall Effect: An Incompressible Quantum Fluid with Fractionally Charged Excitations",
+          "url": "https://doi.org/10.1103/PhysRevLett.50.1395",
+          "note": "Primary trial-state and fractionally charged quasihole construction."
+        },
+        {
+          "title": "Arovas, Schrieffer and Wilczek (1984), Fractional Statistics and the Quantum Hall Effect",
+          "url": "https://doi.org/10.1103/PhysRevLett.53.722",
+          "note": "Primary adiabatic Berry-phase calculation of fractional statistics."
+        },
+        {
+          "title": "Nakamura et al. (2020), Direct observation of anyonic braiding statistics",
+          "url": "https://arxiv.org/abs/2006.14115",
+          "note": "Primary interferometry evidence at filling 1/3; the measured full-winding phase is distinguished from an exchange phase."
+        }
+      ]
+    },
+    {
+      "id": "topological-order",
+      "title": "Distinct states that local measurements cannot tell apart",
+      "status": "Model result",
+      "mechanisms": [
+        "topology",
+        "constraints"
+      ],
+      "body": "Two ground states can agree on every sufficiently local observable and still differ physically. This is difficult to express using an ordinary magnetization or density pattern. Intrinsic topological order describes a class of interacting quantum phases whose distinctions include nonlocal state structure and fractionalized excitations, rather than only a broken ordinary symmetry. I use an exactly solvable model to make those statements concrete.\n\nPlace a spin-$1/2$ degree of freedom on each edge of a square lattice with periodic boundaries in both directions, giving the topology of a torus. Kitaev's toric-code Hamiltonian is\n\n$$H=-J_e\\sum_s A_s-J_m\\sum_p B_p.$$\n\nThe vertex operator $A_s$ multiplies Pauli $X$ operators on the four edges meeting vertex $s$; $X$ flips a spin in its $Z$ basis. The plaquette operator $B_p$ multiplies Pauli $Z$ operators around square $p$; $Z$ has eigenvalues $\\pm1$. All these operators commute, and positive couplings $J_e,J_m$ favor $A_s=B_p=+1$. Local conditions therefore specify the ground-state sector without selecting a unique state.\n\nOn a torus, two independent loop directions leave four ground states. Operators supported on a small contractible region cannot distinguish them; loops winding around the system can. A string of local spin operations creates violated constraints only at its endpoints. Those endpoints are excitations that can be separated without an energy cost growing with their separation. Moving an electric-type endpoint around a magnetic-type endpoint contributes a phase of $-1$, providing an explicit form of mutual anyonic statistics. “Electric” and “magnetic” label constraint violations here, not literal electromagnetic charges. No single spin carried those exchange properties before the collective constraints were imposed.\n\nThe exact fourfold degeneracy belongs to this ideal Hamiltonian and topology. Weak local perturbations that preserve the bulk gap generally produce a finite-size splitting that becomes exponentially small with system size. This is robustness within a phase, not immunity to arbitrary disturbance. Thermal excitations can move around noncontractible loops, and the two-dimensional toric code is not a passively stable memory at arbitrary nonzero temperature. Nor does every topological band insulator possess this intrinsic order. The model establishes a precise possibility: local interactions can organize quantum states whose decisive labels and excitations are nonlocal, so a conventional local order parameter does not exhaust the observable structure.",
+      "question": "Which operation can distinguish toric-code ground states while every measurement in a small patch fails?",
+      "sources": [
+        {
+          "title": "Kitaev (2003; preprint 1997), Fault-tolerant quantum computation by anyons",
+          "url": "https://arxiv.org/abs/quant-ph/9707021",
+          "note": "Primary solvable lattice construction, nonlocal ground-state structure, and anyonic excitations; the entry concerns the model, not a claim of its realization in a natural material."
+        },
+        {
+          "title": "Castelnovo and Chamon (2007), Entanglement and topological entropy of the toric code at finite temperature",
+          "url": "https://arxiv.org/abs/0704.3616",
+          "note": "Primary finite-temperature analysis clarifying the distinction between finite-size low-temperature behavior and the thermodynamic limit; supports the thermal limitation."
+        }
+      ]
+    },
+    {
+      "id": "protected-boundaries",
+      "title": "Why an insulating interior can require a conducting edge",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "topology",
+        "symmetry"
+      ],
+      "body": "An insulator can block low-energy charge motion through its interior yet conduct along its boundary. A surface imperfection alone would not make that surprising; it might simply create accidental electronic states. The stronger question is why some boundary states cannot be removed by any sufficiently gentle local change that preserves specified bulk conditions.\n\nFor a two-dimensional noninteracting band insulator, a filled band is a family of quantum states over crystal momentum. Its Berry curvature $\\Omega_n(\\mathbf k)$ measures the geometric phase accumulated by band $n$ around a small loop in momentum space. Integrating over the Brillouin zone, one fundamental region of crystal momenta, gives the total Chern number\n\n$$C=\\frac1{2\\pi}\\sum_{n\\,\\mathrm{occupied}}\\int_{\\rm BZ}\\Omega_n(\\mathbf k)\\,d^2k,\\qquad \\sigma_{xy}=C\\frac{e^2}{h}.$$\n\nHere $e>0$ is the elementary charge and $h$ Planck's constant. The integer $C$ cannot change smoothly while occupied and empty bands remain separated by an energy gap. The second equation is the zero-temperature Hall conductivity for this ideal insulating setting, with sign fixed by the chosen orientation. Haldane's lattice model shows that a nonzero value can occur without a net magnetic field through a unit cell.\n\nAt an interface between regions with different $C$, the difference fixes a net number of directed boundary branches in the noninteracting description. Such an edge is chiral: there is an imbalance between modes traveling in opposite directions. Ordinary static disorder cannot backscatter a lone branch into a missing reverse-moving partner at the same edge. This is bulk–boundary correspondence, a connection between a bulk invariant and boundary behavior, not a claim that any possible contact resistance vanishes.\n\nProtection can instead depend on symmetry. A quantum spin Hall insulator has opposite-moving edge partners related by time reversal, the transformation reversing motion and spin. For a single pair, time-reversal-preserving single-particle disorder cannot produce ordinary elastic backscattering between the partners. Breaking that symmetry, coupling opposite edges, or introducing suitable interaction and inelastic processes changes the conclusion. Experiments in mercury-telluride quantum wells support this boundary-conduction picture. Band topology can thus reorganize the allowed boundary dynamics without creating fractional charge or the torus degeneracy of intrinsic topological order. I must name the invariant, the symmetry, and the perturbations before calling a boundary protected.",
+      "question": "Which perturbation should remove a time-reversal-protected edge while leaving a chiral Chern edge possible?",
+      "sources": [
+        {
+          "title": "Haldane (1988), Model for a Quantum Hall Effect without Landau Levels",
+          "url": "https://doi.org/10.1103/PhysRevLett.61.2015",
+          "note": "Primary noninteracting lattice model with quantized Hall response and no net flux."
+        },
+        {
+          "title": "Kane and Mele (2005), Z2 Topological Order and the Quantum Spin Hall Effect",
+          "url": "https://arxiv.org/abs/cond-mat/0506581",
+          "note": "Primary time-reversal-invariant band classification and gapless edge prediction; historical title is not identified with intrinsic topological order."
+        },
+        {
+          "title": "König et al. (2007), Quantum Spin Hall Insulator State in HgTe Quantum Wells",
+          "url": "https://arxiv.org/abs/0710.0582",
+          "note": "Primary transport evidence for edge conduction and sensitivity to time-reversal breaking."
+        }
+      ]
+    }
+  ]
+}

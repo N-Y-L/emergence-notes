@@ -1,0 +1,204 @@
+{
+  "number": 4,
+  "slug": "patterns",
+  "title": "Rhythms, patterns, and failure",
+  "intro": "I begin with a fluid heated from below. Before the temperature difference becomes large enough, heat passes through an almost motionless layer. Afterward, organized circulation can appear. The molecular laws have not changed; the stability of a collective state has. This gives me a concrete route into patterns: identify a reference state, disturb it, and ask which disturbances grow.\n\nThat route is powerful, but it is not the whole chapter. Synchronization aligns pre-existing rhythms, whereas a chemical oscillator generates a rhythm through reactions. A Turing instability produces spatial structure; deterministic chaos limits trajectory prediction. A soliton persists through a balance between nonlinear steepening and dispersion, while turbulence distributes motion across scales. Avalanches, jamming, and fracture bring constraints and disorder to the foreground, showing that collective behavior includes abrupt failure as well as beautiful organization.\n\nI therefore follow observables rather than appearances. A striped picture, an irregular time series, and a broad event-size distribution are starting points for questions, not certificates of a mechanism. For each example I want to know what is sustained by a drive, what survives without it, what scale is selected, and what measurement could distinguish one explanation from another. These questions will remain useful when the constituents become cells, people, or computing devices.",
+  "entries": [
+    {
+      "id": "synchronization",
+      "title": "How different clocks find a common rhythm",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "collective-modes",
+        "feedback"
+      ],
+      "body": "I place many clocks in my imagination, each running at a slightly different rate, and allow them to nudge one another. Why should their collective ticking become more regular than their individual rates suggest? The relevant constituent is an oscillator: a system that repeatedly traverses a cycle. Its phase records progress around that cycle, so two clocks can share a frequency while maintaining a fixed phase offset. Synchronization concerns these relations, not necessarily identical positions at every instant.\n\nA minimal model is the Kuramoto equation,\n$$\\dot\\theta_i=\\omega_i+\\frac{K}{N}\\sum_{j=1}^{N}\\sin(\\theta_j-\\theta_i).$$\nHere $\\theta_i$ is oscillator $i$'s phase, $\\omega_i$ its uncoupled angular frequency, $K$ the coupling strength, and $N$ the population size. A clock that lags behind the collective phase is accelerated; one ahead is slowed. I can summarize alignment with $r=|N^{-1}\\sum_j e^{i\\theta_j}|$. Uniformly scattered phases give small $r$, while a coherent group gives a larger value. Under the standard large-population assumptions, sufficiently strong coupling produces a synchronized subset even when the natural frequencies differ.\n\nThis description teaches me what to measure: individual frequencies, phase differences, and their response to a controlled change in coupling. A common external periodic signal can also align many clocks. Observing a shared rhythm alone therefore does not establish mutual synchronization. I must distinguish interaction among units from their separate responses to the same driver, and distinguish stable frequency locking from a fleeting coincidence.\n\nThe phase-only model is most appropriate when coupling perturbs timing more strongly than amplitude. Strong interactions, delays, noise, or a sparse connection pattern can change the outcome substantially. The useful emergent object is a collective timing relation with its own stability and susceptibility. It does not replace the clocks; it tells me which aspects of their motion become predictable together.",
+      "question": "Which intervention would distinguish clocks coupled to one another from clocks separately following the same external signal?",
+      "sources": [
+        {
+          "title": "Strogatz (2000), From Kuramoto to Crawford: exploring the onset of synchronization in populations of coupled oscillators",
+          "url": "https://doi.org/10.1016/S0167-2789(00)00094-4",
+          "note": "Review of the Kuramoto model and its synchronization threshold; the threshold refers to specified distributions and coupling assumptions."
+        },
+        {
+          "title": "Kuramoto (1984), Cooperative dynamics of oscillator community: A study based on lattice of rings",
+          "url": "https://doi.org/10.1143/PTPS.79.223",
+          "note": "Primary treatment of phase reduction for interacting limit-cycle oscillators and collective dynamical order; its phase-coupling assumptions define the model’s scope."
+        }
+      ]
+    },
+    {
+      "id": "chemical-oscillations",
+      "title": "A chemical mixture that keeps time",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "instability"
+      ],
+      "body": "I expect reactants in a stirred beaker to be consumed monotonically. Yet the color of a suitable reacting mixture can repeatedly change. The puzzle disappears once I distinguish the total progress of a reaction from the concentrations of its intermediate species: molecules produced in one step and consumed in another. Those concentrations can rise and fall while fuel is steadily converted into products. A catalyst speeds a reaction while being regenerated overall. Its color can change as it gains or loses electrons; oxidation state is the formal bookkeeping number used to track such electron transfers.\n\nThe Belousov–Zhabotinsky reaction is a concrete example. A reduced description, the Oregonator, retains a few intermediates and feedback loops from a larger chemical mechanism. One stage rapidly amplifies an intermediate through autocatalysis, meaning that a product helps accelerate its own production. Another stage restores an inhibitor that suppresses this amplification. Different reaction times allow the mixture to alternate between activation and recovery. In concentration space, the resulting motion can approach a limit cycle: a closed trajectory to which nearby trajectories return.\n\nI can capture the logical structure without pretending that a sketch is a chemical recipe. Let $x$ represent an activating intermediate and $y$ a slower inhibitory intermediate, with $\\dot x=f(x,y)$ and $\\dot y=g(x,y)$. An increase in $x$ must initially reinforce itself, while the delayed rise of $y$ eventually reverses that increase. Feedback alone is insufficient: the steady state and nonlinear dynamics must actually admit an attracting oscillation. Kinetic rate measurements provide the test.\n\nSustained cycling requires free energy. A sealed batch may oscillate for a time as its stored reactants are depleted; a flow reactor can maintain conditions by adding reagents and removing products. No thermodynamic equilibrium is oscillating indefinitely. I find this distinction especially useful when comparing chemical and biological clocks: similar concentration traces do not imply identical reactions, but they suggest examining energy supply, feedback sign, recovery time, and stability against perturbations.",
+      "question": "If the concentration oscillation persists while its period drifts, which slowly changing fuel or inhibitor concentration should be measured?",
+      "sources": [
+        {
+          "title": "Field and Noyes (1974), Oscillations in chemical systems. IV. Limit cycle behavior in a model of a real chemical reaction",
+          "url": "https://doi.org/10.1063/1.1681288",
+          "note": "Primary Oregonator model: reduced chemical steps produce an attracting closed concentration trajectory; it is a model of a specific reaction mechanism."
+        }
+      ]
+    },
+    {
+      "id": "turing-patterns",
+      "title": "When diffusion creates a pattern",
+      "status": "Model result",
+      "mechanisms": [
+        "instability",
+        "feedback"
+      ],
+      "body": "I normally use diffusion to explain why a concentration difference disappears. How can adding diffusion destabilize a uniform chemical mixture? The missing detail is that several substances can diffuse at different rates while reacting with one another. Diffusion smooths each field locally, but that redistribution can weaken a stabilizing feedback between the fields. The collective system can become less stable even though each diffusion term is individually smoothing.\n\nFor two concentrations $u$ and $v$, I write $\\partial_tu=f(u,v)+D_u\\nabla^2u$ and $\\partial_tv=g(u,v)+D_v\\nabla^2v$. The functions $f$ and $g$ describe local chemical production and consumption, and $D_u,D_v>0$ are diffusivities. At a uniform steady state the reaction Jacobian $J$, the matrix of first derivatives of $f$ and $g$, has eigenvalues with negative real parts. Without spatial transport, small perturbations decay. A spatial Fourier perturbation of wave number $q$ instead evolves with $J-q^2\\operatorname{diag}(D_u,D_v)$. For suitable reaction kinetics and unequal diffusivities, an eigenvalue becomes positive over a range of nonzero $q$.\n\nThe growing mode supplies an initial spacing, roughly $2\\pi/q$, while nonlinear reactions eventually limit its amplitude. Local activation accompanied by longer-range inhibition is an intuitive realization, although the matrix stability test is more precise than the slogan. Boundary conditions and the system's size determine which wavelengths are available, so the final spots or stripes are not determined by chemistry alone.\n\nTuring's construction establishes a possible mechanism, not a universal diagnosis for animal markings or developmental anatomy. Similar patterns can arise from cell movement, mechanical stresses, pre-existing signals, or other instabilities. I would look for the relevant interacting fields, their transport rates, the response to perturbations, and a measured instability of the uniform state. The transferable surprise is specific: a process that erases structure in an isolated field can create structure when it modifies the feedback of an interacting system.",
+      "question": "What measurement would show that transport destabilizes a chemically stable uniform state, rather than merely copying an existing spatial cue?",
+      "sources": [
+        {
+          "title": "Turing (1952), The chemical basis of morphogenesis",
+          "url": "https://doi.org/10.1098/rstb.1952.0012",
+          "note": "Primary mathematical construction of diffusion-driven instability; its biological applications are hypotheses requiring system-specific evidence."
+        }
+      ]
+    },
+    {
+      "id": "convection",
+      "title": "A fluid organizes its own circulation",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "instability",
+        "conservation"
+      ],
+      "body": "I heat a shallow fluid layer from below and ask why heat should ever travel in rolls rather than simply diffuse upward. At weak heating, viscosity suppresses motion and thermal diffusion erases temperature variations. A small rising parcel, however, can remain warmer and less dense than its surroundings. Buoyancy then helps it rise farther. Whether that positive feedback defeats the two smoothing processes determines the stability of the motionless conducting state.\n\nThe competition is summarized by the Rayleigh number,\n$$\\mathrm{Ra}=\\frac{g\\alpha\\Delta T H^3}{\\nu\\kappa}.$$\nHere $g$ is gravitational acceleration, $\\alpha$ the thermal expansion coefficient, $\\Delta T$ the temperature difference across depth $H$, $\\nu$ the kinematic viscosity, and $\\kappa$ the thermal diffusivity. All factors combine into a dimensionless quantity. Increasing depth is especially effective because of its cubic appearance. In the usual approximation, density changes enter the buoyancy force while the rest of the fluid is treated as incompressible. The critical Rayleigh number depends on the mechanical and thermal boundary conditions.\n\nAbove onset, an unstable velocity-temperature mode can grow into a circulation pattern. Warm fluid rises and cooler fluid descends, creating a spatially organized contribution to heat transport. The pattern's amplitude is a new coarse observable: it measures a collective flow involving many molecules without following their individual trajectories. The heat flux, roll spacing, and response to a slight tilt let me test the emergent description experimentally.\n\nThis organization is maintained by the imposed temperature difference. It is not equilibrium crystallization, and no general law requires the fluid to choose the pattern that looks most orderly or transports the most heat. Several patterns may compete; imperfections and preparation can select among them. Stronger forcing can produce time dependence and turbulence, making a near-onset amplitude description inadequate. I learn to locate emergence in a stability change and an experimentally measurable mode, rather than in the visual attractiveness of the resulting circulation.",
+      "question": "How would changing the fluid depth while keeping the temperature difference fixed alter both the onset and the characteristic size of circulation?",
+      "sources": [
+        {
+          "title": "Cross and Hohenberg (1993), Pattern formation outside of equilibrium",
+          "url": "https://doi.org/10.1103/RevModPhys.65.851",
+          "note": "Authoritative review of driven pattern formation, including Rayleigh–Bénard convection and near-onset descriptions."
+        },
+        {
+          "title": "Rayleigh (1916), On convection currents in a horizontal layer of fluid, when the higher temperature is on the under side",
+          "url": "https://doi.org/10.1080/14786441608635602",
+          "note": "Primary linear stability calculation with buoyancy, viscosity, and thermal conduction under specified boundary conditions; it does not determine fully developed nonlinear patterns."
+        }
+      ]
+    },
+    {
+      "id": "deterministic-chaos",
+      "title": "Unpredictability without random forcing",
+      "status": "Model result",
+      "mechanisms": [
+        "instability",
+        "feedback"
+      ],
+      "body": "I know an equation and its parameters exactly, but I know the initial state only to finite precision. Does determinism guarantee a reliable long-term prediction? It guarantees a unique trajectory when the mathematical initial state is fixed under appropriate regularity conditions. It does not guarantee that nearby trajectories remain close. Deterministic chaos makes that distinction physically consequential even in a system with only a few variables.\n\nLorenz's convection model provides a concrete example:\n$$\\dot x=\\sigma(y-x),\\qquad \\dot y=rx-y-xz,\\qquad \\dot z=xy-bz.$$\nThe variables are rescaled amplitudes of a fluid circulation and temperature modes; $\\sigma,r,b$ are dimensionless parameters. In appropriate parameter regimes, trajectories remain bounded but do not settle into a repeating cycle. Nearby initial states can separate approximately as $\\delta(t)\\sim\\delta(0)e^{\\lambda t}$ over a finite interval, where a positive largest Lyapunov exponent $\\lambda$ measures average exponential sensitivity. Nonlinear folding keeps the trajectories in a bounded region even while local stretching separates them.\n\nI can therefore estimate a practical prediction horizon: reducing initial uncertainty by a fixed factor buys an additive amount of forecast time, not an unlimited extension. This is different from an unstable trajectory that simply escapes to infinity. It is also different from stochastic forcing, in which the evolution includes explicitly random inputs. Real measurements may contain both effects, so an irregular time series alone does not establish deterministic chaos.\n\nThe emergent description here is statistical and geometric: a persistent set of visited states, distributions of observables, and rates of divergence can be more useful than a single long trajectory. These are properties of the coupled dynamics, although they need not require a huge number of constituents. Nor is every nonlinear system chaotic. I must identify a regime and measure sensitivity with controls for noise, finite records, and numerical error. The lesson is a limit on one kind of prediction, accompanied by opportunities for other kinds.",
+      "question": "If halving the initial uncertainty extends a forecast by nearly the same time on repeated trials, what does that suggest about the error-growth mechanism?",
+      "sources": [
+        {
+          "title": "Lorenz (1963), Deterministic nonperiodic flow",
+          "url": "https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2",
+          "note": "Primary convection truncation demonstrating bounded nonperiodic dynamics sensitive to initial conditions; not a complete atmospheric forecast model."
+        }
+      ]
+    },
+    {
+      "id": "solitons",
+      "title": "A wave that behaves like a persistent object",
+      "status": "Model result",
+      "mechanisms": [
+        "collective-modes",
+        "conservation"
+      ],
+      "body": "I launch a localized wave packet and expect it to spread because its Fourier components travel at different speeds. Yet some nonlinear media support pulses that preserve their shape. The persistence belongs to the organized field profile, not to a particular set of material particles carried with it. This makes the pulse an effective object, with a position and speed that can be followed through the underlying medium.\n\nA standard dimensionless example is the Korteweg–de Vries equation,\n$$\\partial_tu+6u\\partial_xu+\\partial_x^3u=0.$$\nHere $u(x,t)$ is a rescaled wave amplitude. The nonlinear term makes the propagation depend on amplitude and tends to steepen a profile; the third spatial derivative produces dispersion. Their balance admits $u=(c/2)\\operatorname{sech}^2[\\sqrt c(x-ct-x_0)/2]$ for $c>0$, where $c$ is the pulse speed and $x_0$ its initial center. Its height, width, and speed are related, so an arbitrary pulse shape cannot be assigned arbitrary values of all three.\n\nA solitary wave is a localized traveling wave. The stronger word soliton is appropriate when interactions also preserve the pulse identities in the relevant integrable model: after collision, the pulses recover their shapes and speeds, with position shifts. Zabusky and Kruskal's numerical study made this property vivid. I can understand the calculation as identifying stable collective degrees of freedom hidden inside a nonlinear field equation, rather than discovering tiny rigid bodies inside the fluid.\n\nReal water channels, optical fibers, and plasma systems introduce losses, forcing, higher-order dispersion, and additional modes. Their long-lived pulses can approximate the ideal behavior, but the exact collision property must not be transferred automatically. A useful test follows one pulse before and after interacting with another and measures shape, radiated waves, and phase shift. Persistence then becomes a quantitative statement with a scale and an error tolerance, rather than a claim that a wave has escaped the dynamics of its material support.",
+      "question": "Which before-and-after collision measurements distinguish a soliton from a solitary pulse that merely travels a long distance?",
+      "sources": [
+        {
+          "title": "Zabusky and Kruskal (1965), Interaction of “Solitons” in a Collisionless Plasma and the Recurrence of Initial States",
+          "url": "https://doi.org/10.1103/PhysRevLett.15.240",
+          "note": "Primary numerical study of persistent nonlinear dispersive pulses and their interactions in the Korteweg–de Vries equation."
+        }
+      ]
+    },
+    {
+      "id": "turbulence",
+      "title": "Order in the statistics of irregular motion",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "collective-modes",
+        "conservation"
+      ],
+      "body": "I stir a fluid at one scale and observe motion at many smaller scales. No single eddy persists long enough to provide a complete description, yet measurements can reveal reproducible statistical structure. Turbulence shifts the question from the trajectory of each fluid element to the transfer and distribution of kinetic energy across scales. The constituents of this description are interacting flow modes, themselves coarse descriptions of molecular motion.\n\nFor a three-dimensional fluid driven on a large length scale, nonlinear advection can transfer energy toward smaller scales until viscosity dissipates it. Between the forcing and dissipation ranges, an inertial range can exist: scales where neither direct forcing nor viscosity dominates the energy budget. If the transfer rate per unit mass is approximately $\\varepsilon$ and local statistics are sufficiently homogeneous and isotropic, dimensional reasoning gives a velocity difference $\\delta u_\\ell\\sim(\\varepsilon\\ell)^{1/3}$ across separation $\\ell$. Equivalently, the energy spectrum has the familiar approximate $k^{-5/3}$ scaling, where $k$ is wave number.\n\nI find the mechanism clearer if I resist imagining a perfectly ordered family tree of eddies. The cascade is a net flux through scales in a statistical energy budget; individual transfers can fluctuate in direction and magnitude. Intermittency means intense gradients and dissipation are unevenly concentrated in space and time. It is one reason the simplest similarity estimates do not determine every measured exponent or probability distribution.\n\nThe assumptions matter. Two-dimensional turbulence, rotating flows, stratified fluids, magnetized plasmas, and wall-bounded flows introduce other constraints and transfer routes. A slope over a short interval is therefore insufficient evidence for a universal cascade. I would combine spectra with energy-flux estimates, scale separation, and tests of anisotropy. What emerges is neither complete disorder nor a new deterministic trajectory law, but a useful hierarchy of statistical observables tied to conservation and the dynamics of energy transfer.",
+      "question": "Does a measured power-law spectrum come with an approximately constant energy flux across the same range of scales?",
+      "sources": [
+        {
+          "title": "Kolmogorov (1941), The local structure of turbulence in incompressible viscous fluid for very large Reynolds numbers",
+          "url": "https://rainbow.ldeo.columbia.edu/~alexeyk/Papers/Kolmogorov1941.pdf",
+          "note": "Primary similarity hypotheses for small-scale turbulence; applicability requires the stated high-Reynolds-number and local-statistical assumptions."
+        }
+      ]
+    },
+    {
+      "id": "avalanches",
+      "title": "One small change, many rearrangements",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "instability",
+        "disorder",
+        "feedback"
+      ],
+      "body": "I increase a load very slowly, yet the response arrives in sudden bursts. Why does gentle forcing produce abrupt motion? A disordered material can contain many regions held near different local thresholds. One region slips or switches, redistributing stress or another effective force to its neighbors. Their thresholds may then be crossed in turn. An avalanche is this causally connected sequence of rearrangements, separated from the next event when driving is sufficiently slow.\n\nA useful minimal picture assigns each site a threshold and a state. Slow loading destabilizes one site; its change raises the load on some others and may stabilize still others. If a rearrangement triggers fewer than one further rearrangement on average, bursts tend to die out quickly. Near a branching balance, large events become possible. This reasoning motivates broad event-size distributions, although spatial correlations, conservation rules, and the sign of interactions determine the actual statistics.\n\nIn models of magnetic reversal, for example, externally driven spin changes can produce crackling signals with many event sizes. The observable is not only the largest burst: I can measure size, duration, shape, and how distributions change with field, disorder, and sample dimensions. A distribution resembling a power law over a limited range is suggestive, but finite-size scaling and response to control parameters offer much stronger tests of a critical description.\n\nSlow driving does not automatically tune every system to a critical point. Some avalanche models require parameter tuning; others contain feedback that can maintain proximity to a threshold under particular dissipation and driving conditions. Earthquakes, magnetic switching, and crumpling therefore should not be assigned one mechanism because their time traces look alike. I use the avalanche idea to connect a local instability with a collective event, then ask what transmits the disturbance and what stops it. That question is often more informative than asking whether the system is simply “critical.”",
+      "question": "Which change in driving rate or sample size would distinguish a genuine correlated avalanche from several unrelated events recorded as one burst?",
+      "sources": [
+        {
+          "title": "Sethna, Dahmen, and Myers (2001), Crackling noise",
+          "url": "https://doi.org/10.1038/35065675",
+          "note": "Review of impulsive multiscale responses and scaling, illustrated by disorder-driven magnetic models; it does not assert one mechanism for all crackling systems."
+        },
+        {
+          "title": "Sethna et al. (1993), Hysteresis and hierarchies: Dynamics of disorder-driven first-order phase transformations",
+          "url": "https://arxiv.org/abs/cond-mat/9210018",
+          "note": "Primary zero-temperature random-field Ising model of driven spin avalanches; critical behavior requires appropriate disorder and field, rather than following from slow driving alone."
+        }
+      ]
+    },
+    {
+      "id": "jamming",
+      "title": "Rigidity without a crystal",
+      "status": "Model result",
+      "mechanisms": [
+        "constraints",
+        "disorder"
+      ],
+      "body": "I pour grains through a funnel and then watch them stop while the grains themselves remain unchanged. Solidity need not require particles to arrange into a crystal or form permanent bonds. A disordered assembly can become unable to rearrange because its contacts constrain collective motion. Jamming makes rigidity a question about geometry, forces, and the motions that remain possible.\n\nTo isolate that question, I consider frictionless spheres with short-range repulsion at zero temperature. The packing fraction $\\phi$ is the fraction of space occupied by the particles. At low enough $\\phi$, energy minimization can eliminate overlaps. Under compression, a connected contact structure eventually becomes mechanically constraining, and small shear deformations cost energy. The shear modulus, the ratio of a small shear stress to its resulting strain in linear response, supplies a more direct rigidity test than a visual impression that particles look crowded.\n\nSimple constraint counting gives useful intuition. In $d$ dimensions, $N$ particle centers have approximately $dN$ translational degrees of freedom. Each independent frictionless contact supplies one normal constraint, suggesting a mean contact number near $2d$ at marginal rigidity after appropriate treatment of global motions and unconstrained particles. But counting alone is not a proof: contact geometry, redundant constraints, boundary conditions, and force balance matter. The soft modes near the threshold reveal how a large assembly can be almost rigid and still have unusually easy collective motions.\n\nThe ideal sphere model studied by O'Hern and colleagues supports a sharp zero-temperature jamming description. Its preparation protocol matters, and its threshold is not a universal density for all grains. Friction, particle shape, attraction, and loading history can change rigidity substantially; a funnel arch introduces boundaries absent from a periodic packing. I therefore keep the opening example and the minimal model distinct. Their shared lesson is that resistance to deformation can belong to a network of constraints even when individual constituents remain mobile objects and positional order stays disordered.",
+      "question": "Can two packings with the same density have different rigidity because their contact geometry and preparation histories differ?",
+      "sources": [
+        {
+          "title": "O’Hern, Silbert, Liu, and Nagel (2003), Jamming at zero temperature and zero applied stress: The epitome of disorder",
+          "url": "https://jamming.research.yale.edu/files/papers/PhysRevE.68.011306.pdf",
+          "note": "Primary numerical study of frictionless repulsive particles, preparation-dependent thresholds, mechanical response, and soft modes; no universal grain-packing density is inferred."
+        }
+      ]
+    },
+    {
+      "id": "fracture",
+      "title": "How a tiny crack controls a large solid",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "instability",
+        "disorder"
+      ],
+      "body": "I can break a scratched glass specimen under a load that an apparently similar smooth specimen withstands. The difference is too large to explain by averaging the strength of all its atomic bonds. A crack changes how elastic stress is distributed: load concentrates near its tip, while extending the crack releases stored energy throughout a surrounding region. Failure therefore couples a microscopic separation process to a much larger elastic field.\n\nGriffith's energetic argument compares two changes. Creating new surfaces costs energy, while relaxing the stressed body releases elastic energy. I define the energy-release rate $G$ as the available mechanical energy per unit increase of projected crack area. A crack can advance when $G$ reaches the fracture resistance $G_c$, provided the loading and dynamics allow it. In an ideally brittle material, $G_c$ contains the cost of creating the two surfaces; in real materials it can also include dissipative processes near the crack tip.\n\nFor an isolated crack of characteristic half-length $a$ in a large elastic plate, the scaling $G\\sim\\sigma^2a/E$ explains the flaw sensitivity. Here $\\sigma$ is applied tensile stress and $E$ is Young's modulus, the elastic stiffness in tension; geometry and plane-stress or plane-strain conditions supply additional factors. A larger crack can grow at a lower stress. I can now see why the collective object to track is the crack front and its surrounding field, rather than a uniform fraction of broken bonds.\n\nThis energy criterion does not determine every propagation speed or path. Plastic deformation, branching, fatigue, heterogeneous toughness, and dynamic stress waves can all change the outcome. Even whether growth is stable depends on how the specimen is loaded: fixed displacement and fixed force release energy differently as the crack length changes. Fracture is thus a particularly sharp example of emergence through redistribution. A local defect acquires system-scale consequences because the rest of the material continuously responds to its evolution.",
+      "question": "Would the same crack advance smoothly or run away if the loading apparatus held displacement fixed instead of force?",
+      "sources": [
+        {
+          "title": "Griffith (1921), The phenomena of rupture and flow in solids",
+          "url": "https://doi.org/10.1098/rsta.1921.0006",
+          "note": "Primary energetic theory of brittle fracture and flaw sensitivity; plastic dissipation and dynamic crack selection require extensions."
+        }
+      ]
+    }
+  ]
+}

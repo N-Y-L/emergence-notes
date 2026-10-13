@@ -1,0 +1,221 @@
+{
+  "number": 6,
+  "slug": "ecology",
+  "title": "Ecology and evolution: collectives with histories",
+  "intro": "An organism changes its surroundings, and those surroundings affect which organisms reproduce. I use this loop as the entrance to ecology and evolution. Ecology studies organisms' interactions with one another and their environment; evolution concerns changes in inherited characteristics across generations. Their time scales can differ greatly, but neither must wait politely for the other to finish.\n\nThe first entries ask how selection creates adaptation and new capabilities without foresight. Cooperation and division of labor then raise a sharper problem: a group can perform well even while its members have conflicting reproductive interests. Collective motion shows another kind of organization, where rapid information exchange creates coherence without requiring evolutionary change during the event itself.\n\nThe second half moves to communities. Food webs reveal why the arrangement and strength of interactions matter more than a simple count of species. Resilience and succession ask how communities respond to disturbance and how their histories alter later possibilities. Epidemics supply a clear population threshold, while microbial cross-feeding returns the discussion to physical flows of material. Throughout, I distinguish a model's collective behavior from an empirical claim about a particular ecosystem. The useful common question is which interactions make a population-level outcome persist, change, or fail under an intervention.",
+  "entries": [
+    {
+      "id": "natural-selection",
+      "title": "Population change without a population planner",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "selection",
+        "adaptation"
+      ],
+      "body": "I start with bacteria competing in a fresh nutrient solution. No bacterium needs to anticipate the next generation for the population to become better at growing there. Natural selection is differential reproductive success associated with heritable variation. “Heritable” means descendants tend to retain the relevant differences. Fitness, in this setting, measures reproductive contribution under specified conditions; it is not a universal score of strength, health, or complexity. Selection changes a population's composition even when individual organisms do not improve during their lifetimes.\n\nFor two faithfully inherited variants, let $p$ be the frequency of type $A$ and let $w_A,w_B$ be their expected numbers of descendants. After one generation, $p'=p w_A/[p w_A+(1-p)w_B]$. Subtracting $p$ shows that $A$ increases when $w_A>w_B$. The equation is an accounting result once the reproductive rates are given. The biological work is to explain those rates from resource use, survival, interactions, and the environment. It also makes the context dependence explicit: changing the environment can reverse the sign of $w_A-w_B$.\n\n[Lenski and Travisano's bacterial experiment](https://pubmed.ncbi.nlm.nih.gov/8041701/) followed replicate populations for ten thousand generations and compared descendants with their ancestor. The populations adapted to their shared laboratory conditions while also diverging from one another. This combination is revealing. Repeated environmental filtering can produce a reproducible direction of change without specifying one unique genetic history. Mutations, changes in hereditary sequence, supply variation; genetic drift, random variation in which descendants happen to survive, can change frequencies independently of selective advantage.\n\nThe emergent feature is an evolving distribution of traits, and sometimes a close fit between organisms and their conditions. That fit need not maximize a global quantity. Frequency-dependent competition can change which variant has the advantage, and improving one function can compromise another. I also avoid treating every observed trait as an adaptation, meaning a trait shaped by selection for its effects: some differences are neutral, constrained, or carried along with other changes. A population can acquire apparent purposefulness through repeated reproduction and filtering, but the causal explanation remains local and historical.",
+      "question": "What comparison would distinguish a trait favored in the current environment from one that merely increased because it was inherited alongside a different beneficial change?",
+      "sources": [
+        {
+          "title": "Lenski & Travisano (1994), Dynamics of adaptation and diversification: a 10,000-generation experiment with bacterial populations",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8041701/",
+          "note": "Primary longitudinal experiment measuring adaptation relative to an ancestor and divergence among replicate E. coli populations; not evidence of universal evolutionary progress."
+        }
+      ]
+    },
+    {
+      "id": "evolutionary-innovation",
+      "title": "A new function depends on the route taken",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "selection",
+        "constraints"
+      ],
+      "body": "Why can one lineage acquire a useful capability while another, facing apparently the same opportunity, does not? An evolutionary innovation is a newly available biological capability or organization, judged relative to its ancestors. It need not require inventing a completely new molecule. Existing components can change their regulation, combine differently, or become useful in a new context. I want to understand how a sequence of individually local changes opens a possibility that was previously inaccessible.\n\nThe long-term Escherichia coli experiment provides a particularly concrete case. Its growth medium contained citrate, a carbon-containing molecule, but the ancestral bacteria could not exploit it as a carbon source under the experiment's oxygenated conditions. One population eventually evolved that capability. [Blount, Borland, and Lenski](https://doi.org/10.1073/pnas.0803151105) restarted evolution from stored earlier samples and found that later genetic backgrounds were more likely to produce citrate-using descendants. Subsequent molecular work examined changes that both enabled and refined the new metabolism, the chemical reactions by which cells transform material and energy.\n\nMy minimal representation uses two genetic changes, $a$ and $b$. If the effect of $b$ depends on whether $a$ is present, the changes exhibit epistasis: their combined effect cannot be inferred by adding their separate effects. A capability might require the combination even if one intermediate originally spread for another reason. On a graph of possible hereditary sequences, edges represent changes accessible in one step. Evolution samples this graph through mutation, reproduction, and loss; it does not inspect every endpoint and then choose a shortest path.\n\nThis perspective makes historical contingency precise without making history arbitrary. Physical chemistry constrains what the components can do, and the environment constrains which variants reproduce. The order of changes can nevertheless affect which viable routes become available. I would not generalize one citrate experiment into a claim that every major transition requires an exceptionally unlikely accident. Nor does “innovation” imply inevitable improvement: a new function can be useful only in a narrow setting. The emergent outcome is a new accessible behavior of the organism and its ecological interactions, assembled through a path whose intermediate steps matter.",
+      "question": "If two populations have equal current growth rates, what replay experiment could reveal that they have different probabilities of acquiring a particular new function?",
+      "sources": [
+        {
+          "title": "Blount, Borland & Lenski (2008), Historical contingency and the evolution of a key innovation in an experimental population of Escherichia coli",
+          "url": "https://doi.org/10.1073/pnas.0803151105",
+          "note": "Primary replay experiment establishing dependence of citrate-use innovation on prior evolutionary history."
+        },
+        {
+          "title": "Quandt et al. (2015), Fine-tuning citrate synthase flux potentiates and refines metabolic innovation in the Lenski evolution experiment",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4718724/",
+          "note": "Primary molecular analysis of changes before and after citrate-use innovation; supports a multistep, context-dependent mechanism."
+        }
+      ]
+    },
+    {
+      "id": "cooperation",
+      "title": "A shared benefit survives competition",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "selection",
+        "feedback",
+        "networks"
+      ],
+      "body": "A cell releases a useful enzyme into its surroundings. Other cells benefit, including cells that avoid paying the cost of producing it. Why does production not disappear? In evolutionary biology, cooperation describes behavior that benefits another organism, with costs and benefits assessed through their effects on reproduction. It does not require generosity or intention. The difficult case is a contribution that is costly to its producer when compared under otherwise similar conditions.\n\nI find an instructive example in yeast growing on sucrose, a sugar that must be split before the cells can use its components. Invertase is the enzyme performing that splitting near the cell surface. Much of the resulting food diffuses away. [Gore, Youk, and van Oudenaarden](https://pmc.ncbi.nlm.nih.gov/articles/PMC2888597/) found conditions under which enzyme-producing and nonproducing strains could each increase when rare, leading to coexistence. Producers retained a small direct benefit, and the benefit of available food was nonlinear. Thus the experiment did not reduce to the rule “nonproducers always win.”\n\nFor a minimal description, let $p$ be the producer fraction and $f_P(p),f_N(p)$ the two reproductive rates. Then $\\dot p=p(1-p)[f_P(p)-f_N(p)]$. If producers do better when rare but worse when common, an interior crossing can be stable. The outcome follows from how the payoff difference changes with composition. Other mechanisms create different payoffs: related organisms may share inherited variants, repeated interactions can make benefits return, and spatial structure can keep benefits near contributors. Each requires explicit assumptions about who interacts and who reproduces.\n\nI therefore do not use a favorable group outcome as proof that selection favors cooperation. A high-yield population can still be invaded by a noncontributing variant; alternatively, mixed populations can be stable without maximizing yield. The collective observable might be the maintained producer fraction, total productivity, or resistance to invasion, and these are different quantities. This example transfers naturally to many shared-resource systems, but the transfer should preserve the mechanism. Molecular diffusion and local uptake are concrete causal processes; calling them a “social dilemma” helps only after the biological payoffs have been measured or justified.",
+      "question": "How would increasing the distance over which a secreted resource diffuses change the reproductive advantage of its producer?",
+      "sources": [
+        {
+          "title": "Gore, Youk & van Oudenaarden (2009), Snowdrift game dynamics and facultative cheating in yeast",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2888597/",
+          "note": "Primary experiment showing frequency-dependent coexistence of invertase producers and nonproducers; cooperation outcomes depend on nonlinear benefits and growth conditions."
+        },
+        {
+          "title": "Ohtsuki et al. (2006), A simple rule for the evolution of cooperation on graphs and social networks",
+          "url": "https://www.nature.com/articles/nature04605",
+          "note": "Primary theoretical work on structured populations; graph-based cooperation criteria are conditional on the update rule and model assumptions."
+        }
+      ]
+    },
+    {
+      "id": "division-of-labor",
+      "title": "Similar individuals acquire different jobs",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "adaptation"
+      ],
+      "body": "If every worker can perform every task, how can a colony develop persistent specialists? Division of labor means that different individuals disproportionately perform different activities. It can arise from fixed bodily differences, but those differences are not always necessary. I want to separate the allocation process, which determines who does what now, from the evolutionary history that made the group's behavior possible.\n\nConsider a minimal colony with two tasks, food collection and care of young. Unfinished work increases a local task signal. An individual begins a task when the signal exceeds its response threshold. Performing the task reduces the signal, making it less likely that every other worker joins. If experience also lowers the threshold for that task, an initially small difference in activity can reinforce itself. This is an illustrative feedback model: demand recruits workers, completed work suppresses recruitment, and history can stabilize specialization. It can produce an organized allocation without any individual observing the entire workload.\n\n[Ulrich and colleagues](https://www.nature.com/articles/s41586-018-0422-6) tracked clonal raider ants, a species capable of producing genetically identical descendants, using workers that were extremely similar genetically and in age. Increasing group size produced greater specialization, even in small groups, alongside improved stability of colony conditions and reproductive performance. Their modeling distinguished effects of group size itself from those of division of labor. This matters because a correlation between specialization and success does not establish that specialization caused the whole improvement.\n\nI can formulate a useful counterfactual. If specialists are removed, can other workers take over quickly enough to maintain the colony? Strong reinforcement may improve efficiency but reduce flexibility; weak reinforcement may preserve flexibility while losing benefits from practice or reduced switching. The emergent quantity is a distribution of task participation, including correlations between an individual's activities at different times. A single snapshot of workers doing different things is insufficient evidence for durable specialization. Nor does an ant-colony result imply that human roles are biologically predetermined. The generalizable question is how feedback, heterogeneity, and changing demand balance persistence of roles against the ability to reassign them.",
+      "question": "After removing the busiest workers on one task, what recovery pattern would distinguish fixed specialization from flexible feedback-based allocation?",
+      "sources": [
+        {
+          "title": "Ulrich et al. (2018), Fitness benefits and emergent division of labour at the onset of group living",
+          "url": "https://www.nature.com/articles/s41586-018-0422-6",
+          "note": "Primary tracking experiment and model in clonal ant groups; separates increased group size from specialization as contributors to colony performance."
+        }
+      ]
+    },
+    {
+      "id": "collective-motion",
+      "title": "A moving group finds a common direction",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "collective-modes",
+        "networks"
+      ],
+      "body": "A flock turns coherently even though no bird can directly observe every other bird. I begin by asking what information an individual actually needs. A self-propelled particle continuously converts available energy into motion; an animal is a much richer example, but this abstraction separates sustained motion from the detailed biology of flight or swimming. Interactions can align headings, maintain distance, and avoid collisions. The group's direction is then a dynamical property of many coupled trajectories.\n\nA minimal alignment model assigns particle $i$ a heading $\\theta_i$. At each update it adopts the average heading of selected neighbors plus a random angular perturbation, then moves forward. The polarization $P=|\\sum_i\\mathbf v_i|/\\sum_i|\\mathbf v_i|$ measures directional order: nearly aligned velocities give $P\\simeq1$, while a large disordered group has a much smaller value. Density, noise, and interaction rules determine whether directional order persists. The averaging rule is a model hypothesis, not a statement that birds literally compute arithmetic means.\n\nField measurements can test which neighbors matter. [Ballerini and colleagues](https://arxiv.org/abs/0709.1916) reconstructed starling flocks in three dimensions and reported evidence consistent with interactions involving a limited number of nearest neighbors rather than every bird within one fixed physical radius. That distinction becomes important during expansion or compression: a rule based on neighbor rank can retain connections despite changing distances. The inference was made for particular observed flocks and should not be treated as a universal law for all schooling or flocking species.\n\nI also need more than a large value of $P$ to establish collective coordination. Independent animals following the same external cue can align without strongly influencing one another. Perturbation propagation, response delays, and changes in neighbor relationships help discriminate these mechanisms. A flock's smooth outline alone does not reveal its interaction law. What emerges can include a shared direction, a turning mode, and resistance to fragmentation, but these need not come from the same rule. The transferable lesson is to infer local information and causal response before claiming that an impressive macroscopic pattern has explained itself.",
+      "question": "How could a coordinated turn distinguish genuine propagation between neighbors from independent responses to the same distant stimulus?",
+      "sources": [
+        {
+          "title": "Ballerini et al. (2008), Interaction ruling animal collective behavior depends on topological rather than metric distance: Evidence from a field study",
+          "url": "https://arxiv.org/abs/0709.1916",
+          "note": "Primary field study, author preprint; infers a finite neighbor-rank interaction range from starling flock structure and compares cohesion in models."
+        },
+        {
+          "title": "Vicsek et al. (1995), Novel type of phase transition in a system of self-driven particles",
+          "url": "https://doi.org/10.1103/PhysRevLett.75.1226",
+          "note": "Primary minimal alignment model; establishes model-level collective order, not a complete behavioral model of birds."
+        }
+      ]
+    },
+    {
+      "id": "food-webs",
+      "title": "Persistence depends on who affects whom",
+      "status": "Model result",
+      "mechanisms": [
+        "networks",
+        "feedback",
+        "constraints"
+      ],
+      "body": "A food web records who consumes whom. It is tempting to assume that adding species creates more alternative pathways and therefore always makes an ecosystem more stable. The opposite intuition is equally tempting: every new interaction provides another route for disruption. I cannot resolve this by counting links alone. Stability depends on their signs, strengths, organization, and the state around which the system is perturbed.\n\nLet $n_i$ be the abundance of species $i$. Near a candidate equilibrium, small deviations satisfy $\\dot{\\delta\\mathbf n}=J\\delta\\mathbf n$, where the community matrix $J$ contains derivatives of each population's growth rate with respect to every population abundance. Local stability requires all eigenvalues of $J$ to have negative real parts. A predator-prey pair contributes opposite signs: prey generally benefits the predator, while the predator harms the prey. Competition often gives two negative cross-effects. These sign relationships distinguish biological interactions from arbitrary matrix entries.\n\n[May's classic analysis](https://www.nature.com/articles/238413a0) examined large random matrices with stabilizing diagonal terms. For a standard idealization with diagonal entries $-d$, independent zero-mean off-diagonal interactions of variance $\\sigma^2$ when present, species number $S$, and connection probability $C$, instability appears near $\\sigma\\sqrt{SC}=d$. This is a result for an ensemble of models, not a prediction that adding one real species destabilizes nature. [Allesina and Tang](https://www.nature.com/articles/nature10832) showed how correlations associated with interaction types change stability criteria.\n\nThe emergence claim is that relaxation and instability belong to collective modes of the interaction matrix. No single species carries an ecosystem's leading eigenvalue. Yet the equilibrium must first be feasible, meaning all required abundances are positive, and local return after a small perturbation does not guarantee survival after a large shock. Real food webs are assembled through ecological and evolutionary processes rather than sampled independently from a random-matrix generator. I use the random model as a question generator: which structures or correlations permit persistence where an unstructured comparison predicts fragility? That is more informative than promoting complexity itself into either a cure or a cause.",
+      "question": "Which change could improve the local stability of a food web while reducing its ability to survive a large loss of one species?",
+      "sources": [
+        {
+          "title": "May (1972), Will a Large Complex System be Stable?",
+          "url": "https://www.nature.com/articles/238413a0",
+          "note": "Primary random-matrix stability analysis; applies to local stability of specified random ensembles."
+        },
+        {
+          "title": "Allesina & Tang (2012), Stability criteria for complex ecosystems",
+          "url": "https://www.nature.com/articles/nature10832",
+          "note": "Primary analytical extension showing effects of correlated interaction signs and strengths; does not identify diversity with stability in empirical ecosystems."
+        }
+      ]
+    },
+    {
+      "id": "ecosystem-resilience",
+      "title": "A system can look steady while losing its ability to recover",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "instability"
+      ],
+      "body": "Suppose two ponds look similarly clear today, but a small disturbance leaves one cloudy for much longer. Their present appearance has hidden a difference in dynamics. An ecosystem is a community of organisms together with its physical and chemical environment. Resilience is used in several ways; here I distinguish the speed of return after a small disturbance from the size of disturbance that a system can absorb without entering a different persistent regime. These quantities need not vary together.\n\nFor the first meaning, write a deviation from equilibrium as $\\dot{\\delta x}=-r\\delta x$, with recovery rate $r>0$. The relaxation time is $1/r$. Near certain bifurcations, where a stable state loses stability or disappears, $r$ approaches zero. Random disturbances then persist longer. In an ideal linear system driven by stationary white noise of fixed strength, this also increases variance and correlation between successive observations. The implication is conditional: changing noise or external forcing can produce similar statistical trends without a nearby bifurcation.\n\n[Carpenter and colleagues](https://pubmed.ncbi.nlm.nih.gov/21527677/) manipulated a lake food web by gradually adding top predators while monitoring a reference lake. They observed warning statistics during the resulting reorganization before the transition was complete. Laboratory work on cyanobacteria, photosynthetic bacteria, also directly related slower recovery to proximity to a population tipping point. Such experiments support particular dynamical mechanisms; they do not validate an infallible warning alarm for every ecosystem.\n\nTo understand the second meaning of resilience, I imagine two stable states separated by a boundary in state space. A system can return rapidly within a small neighborhood yet lie close to that boundary. A sufficiently large disturbance can therefore switch it even when its local recovery is fast. Conversely, a transition driven by an abrupt external shock may provide little advance warning. I would measure the disturbance response and the relevant environmental drivers together, instead of interpreting rising variance in isolation. The collective property is the system's response landscape: a relation among organisms, resources, and feedbacks that cannot be read from one species' current abundance.",
+      "question": "What additional observations would you need before treating rising variability in a population as evidence that an ecosystem is approaching a tipping point?",
+      "sources": [
+        {
+          "title": "Carpenter et al. (2011), Early warnings of regime shifts: a whole-ecosystem experiment",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21527677/",
+          "note": "Primary lake manipulation with an adjacent reference ecosystem; observes warning statistics during food-web reorganization."
+        },
+        {
+          "title": "Veraart et al. (2012), Recovery rates reflect distance to a tipping point in a living system",
+          "url": "https://www.nature.com/articles/nature10723",
+          "note": "Primary cyanobacterial microcosm experiment testing recovery rates and autocorrelation; timing of a transition remains stochastic."
+        }
+      ]
+    },
+    {
+      "id": "ecological-succession",
+      "title": "Today’s community changes tomorrow’s possibilities",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "constraints"
+      ],
+      "body": "After a disturbance opens a patch of ground, the organisms present a decade later may differ greatly from the first arrivals. Ecological succession is this change in community composition through time. A community means the populations of different species living and interacting in an area. I want to explain a sequence without imagining that the site follows a predetermined plan toward one final, superior state.\n\nThree mechanisms make different predictions. Facilitation occurs when early occupants improve conditions for later species, perhaps by changing shade or the availability of nutrients. Inhibition occurs when occupants suppress later arrivals by taking space or resources. Tolerance describes cases in which later species can establish under existing conditions and eventually persist better, without requiring the early occupants to prepare the site. [Connell and Slatyer](https://doi.org/10.1086/283241) formulated these alternatives as testable models. A real sequence can involve different mechanisms at different stages rather than belonging permanently to one category.\n\nA minimal two-species model makes the inference problem visible. Let $E$ be the abundance of an early colonist and suppose a rare later species has per-capita growth $g_L=r_L+aE$. Positive $a$ represents facilitation, negative $a$ inhibition, and negligible $a$ no direct influence in this approximation. Merely observing that $E$ appears before the later species does not determine the sign of $a$. Both may respond independently to changing soil or weather. Removing or adding the early species, while controlling the physical disturbance of that intervention, is more informative than chronology alone.\n\nDispersal, the movement of organisms or reproductive material between places, also matters. A species cannot establish before it arrives, even if conditions suit it. Arrival order can alter later opportunities and produce different communities under similar external conditions. Repeated disturbance may prevent any long-lived endpoint, while changing climate can move the endpoint itself. The emergent phenomenon is therefore a history-dependent trajectory of the coupled community and environment. I find the connection to dynamical systems useful, provided “attractor” is treated as a hypothesis about persistence under stated conditions, not as a poetic synonym for the forest that happens to appear last.",
+      "question": "If an early colonist is experimentally removed, what result would distinguish facilitation of a later species from both species merely responding to the same improving environment?",
+      "sources": [
+        {
+          "title": "Connell & Slatyer (1977), Mechanisms of Succession in Natural Communities and Their Role in Community Stability and Organization",
+          "url": "https://doi.org/10.1086/283241",
+          "note": "Primary conceptual model paper defining facilitation, tolerance, and inhibition; sequence alone does not establish the operating mechanism."
+        }
+      ]
+    },
+    {
+      "id": "epidemics",
+      "title": "Individual transmission produces a population threshold",
+      "status": "Model result",
+      "mechanisms": [
+        "networks",
+        "feedback"
+      ],
+      "body": "One infectious person may infect no one, while another introduction can initiate a large outbreak. The distinction is not a property of the infectious agent alone. An epidemic is a rise in infections within a population, and transmission requires susceptible hosts, opportunities for contact, and sufficient infectiousness. I begin with a deliberately simple model to expose the collective threshold, without using it as a forecast for any particular disease.\n\nIn the susceptible-infectious-removed model, $S$, $I$, and $R$ count people who can be infected, can transmit, and no longer participate in transmission. Assume a closed population of size $N$, homogeneous mixing, and rates $\\beta$ for effective infectious contact and $\\gamma$ for removal. Then $\\dot S=-\\beta SI/N$, $\\dot I=\\beta SI/N-\\gamma I$, and $\\dot R=\\gamma I$. Here removal may represent recovery with immunity over the modeled interval; its interpretation must fit the disease. The equations are a memoryless special case within the tradition established by [Kermack and McKendrick](https://doi.org/10.1098/rspa.1927.0118).\n\nInitially, infections grow when $\\beta S/N>\\gamma$. In a fully susceptible population the basic reproduction number is $R_0=\\beta/\\gamma$, the expected secondary infections caused by one typical infectious individual under these assumptions. During an outbreak the effective value decreases as susceptible people are depleted. The peak can therefore occur while many susceptible people remain. An epidemic can subside without exhausting every possible host, a conclusion that comes from interactions between transmission and population composition.\n\nFor a finite population, the first few transmissions are random: $R_0>1$ permits a large outbreak but does not guarantee one from every introduction. Contact networks, varied infectious periods, changing behavior, immunity loss, and interventions can alter both threshold and trajectory. In structured populations, a matrix of transmission between groups can replace the single reproduction number, with its dominant eigenvalue determining initial growth. The emergent variable is a population-level growth mode. Keeping the contact assumptions visible prevents a mathematically clean threshold from being mistaken for a context-free characteristic of a pathogen.",
+      "question": "Why can two populations with the same initial average number of contacts have different outbreak probabilities if their contact networks are arranged differently?",
+      "sources": [
+        {
+          "title": "Kermack & McKendrick (1927), A contribution to the mathematical theory of epidemics",
+          "url": "https://doi.org/10.1098/rspa.1927.0118",
+          "note": "Primary epidemic theory; the constant-rate SIR equations here are a special case, not the entirety of the original infection-age formulation."
+        },
+        {
+          "title": "Kermack & McKendrick (1991 reprint), Contributions to the mathematical theory of epidemics—I. 1927",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2059741/",
+          "note": "Accessible abstract of the primary historical paper emphasizes homogeneous-population assumptions and epidemic thresholds."
+        }
+      ]
+    },
+    {
+      "id": "microbiome-mutualism",
+      "title": "A community creates metabolic opportunities",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "networks",
+        "feedback",
+        "selection"
+      ],
+      "body": "A bacterium may fail to grow on a resource alone yet thrive beside another species. A microbiome refers to a microbial community and its associated biological setting; here I focus on interactions among gut bacteria. Metabolism is the network of chemical transformations supporting an organism's growth and maintenance. Cross-feeding occurs when a product released by one organism becomes material used by another. This immediately makes the capabilities of a community different from the capabilities of its isolated members.\n\nI imagine species $A$ breaking a large food molecule into fragments that species $B$ can absorb. If $B$ merely consumes material that $A$ would otherwise discard, the interaction need not be costly cooperation by $A$. Mutualism requires a benefit to both partners in the specified setting. Establishing it calls for comparing growth or persistence with and without partners, and for identifying the exchanged material or another causal pathway. Correlation of their abundances in a stool sample is insufficient: both might simply respond to the same food.\n\n[Rakoff-Nahoum, Foster, and Comstock](https://pmc.ncbi.nlm.nih.gov/articles/PMC4978124/) provided a concrete experimental case involving Bacteroides species. Inulin is a dietary chain of sugar units. One species released products of its breakdown, and another benefited from those products. Comparing enzyme-producing bacteria with targeted mutants in cultures and defined mouse communities revealed return benefits to the producer in the presence of partners. The study also found a different digestion system where benefits were largely retained by producers, showing why “gut microbes cooperate” is too broad a conclusion.\n\nThe emergent observable can be the rate at which a community processes a resource, or the ability of its members to persist together. Both depend on concentrations, diffusion, resource supply, and competition. A partner that helps under one diet can compete under another; adding a helpful species may fail if it cannot establish. I would therefore specify the resource and interaction before giving the community a functional label. These experiments support particular microbial relationships, not a general claim that all microbiome diversity is beneficial or that changing community composition necessarily improves human health. Community function is a causal property to measure, not a favorable adjective attached to a species list.",
+      "question": "Which pair of interventions would establish that a microbial partner provides a return benefit rather than merely consuming an otherwise unused by-product?",
+      "sources": [
+        {
+          "title": "Rakoff-Nahoum, Foster & Comstock (2016), The evolution of cooperation within the gut microbiota",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4978124/",
+          "note": "Primary enzyme-deletion, culture, and defined-mouse-community experiments supporting specific reciprocal benefits; not a general clinical microbiome claim."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "number": 7,
+  "slug": "brains",
+  "title": "Brains: collective dynamics and the limits of explanation",
+  "intro": "I enter neuroscience through a phenomenon with a strong physical explanation: the action potential. From there, the questions become progressively less settled. Neurons interact through changing connections, and their collective activity can oscillate, encode variables, recover patterns, and support decisions. A successful mathematical model can reveal how such a function is possible without yet proving that a particular brain implements it in that way.\n\nThis chapter therefore keeps three forms of evidence separate. A measured pattern establishes an observation. A model can establish a mechanism within its assumptions. An intervention can help determine whether a proposed component contributes causally to an observed function. Decoding a decision from activity, for example, does not by itself show where the decision was computed. This distinction is especially useful when a familiar equation makes an unfamiliar biological system appear simpler than the evidence warrants.\n\nAfter electrical signaling and network rhythms, I move through representation, memory, perception, decision, learning, and navigation. The last two entries test the limits of the emergence vocabulary. Brain criticality is a dynamical hypothesis requiring more than scale-free-looking statistics. Consciousness requires careful distinctions between experience, report, and measurable neural activity. These topics belong here because they ask important collective questions, not because using the word “emergence” has already answered them.",
+  "entries": [
+    {
+      "id": "action-potentials",
+      "title": "Ion channels create a traveling electrical event",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "collective-modes"
+      ],
+      "body": "A nerve signal travels along a cell without fading like a passive voltage pulse on a leaky wire. A neuron is a cell specialized for electrical and chemical signaling. Its membrane separates fluids containing ions, electrically charged atoms or molecules. Ion channels are membrane proteins that selectively allow those ions to pass. An action potential is a brief, regenerative change in membrane voltage. It is a collective event involving many channels, rather than one ion carrying a message from one end of the neuron to the other.\n\nIn the classic sodium-potassium mechanism, making the interior less negative opens sodium channels. Sodium entry makes it still less negative, opening more channels: positive feedback. Sodium-channel inactivation and delayed opening of potassium channels terminate this rise and help restore the voltage. For a short interval the membrane is less able to fire again, a refractory period. [Hodgkin and Huxley](https://pmc.ncbi.nlm.nih.gov/articles/PMC1392413/) built a quantitative description from measurements on the squid's large axon, the long neuronal process along which signals propagate.\n\nThe electrical bookkeeping is $C_m\\dot V=I_{\\rm ext}-\\sum_a g_a(V,t)(V-E_a)$. Here $C_m$ is membrane capacitance per area, $V$ is voltage, $I_{\\rm ext}$ is applied current per area, and each conductance density $g_a$ connects the voltage to an ionic reversal potential $E_a$. The conductances change because channels open, close, and inactivate. Coupling adjacent membrane segments through current flow allows an excited segment to trigger its neighbor, regenerating the pulse along the axon.\n\nThe effective object is therefore an excitable traveling wave with a characteristic shape and speed. An individual channel opens probabilistically; averaging over many channels can nevertheless produce a reliable voltage event. Reliability has limits in thin processes or small channel populations. Pumps use chemical energy to maintain ionic concentration differences over time, but they are not the rapid switch that repolarizes each spike. I also avoid promoting the squid model into a complete theory of every neuron: different cells express different channels and geometries. The success lies in connecting measured molecular currents to a reproducible macroscopic signal.",
+      "question": "What would distinguish a failure of spike initiation from a failure of propagation along an otherwise excitable axon?",
+      "sources": [
+        {
+          "title": "Hodgkin & Huxley (1952), A quantitative description of membrane current and its application to conduction and excitation in nerve",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1392413/",
+          "note": "Primary squid-axon conductance model; historical full text is scanned."
+        },
+        {
+          "title": "Gerstner et al. (2014), Neuronal Dynamics, section 2.2: Hodgkin–Huxley Model",
+          "url": "https://neuronaldynamics.epfl.ch/online/Ch2.S2.html",
+          "note": "Author-hosted textbook explanation of capacitive membrane dynamics, sodium and potassium gating, and refractory behavior."
+        }
+      ]
+    },
+    {
+      "id": "neural-oscillations",
+      "title": "A network develops a rhythm its cells need not share",
+      "status": "Model result",
+      "mechanisms": [
+        "feedback",
+        "collective-modes"
+      ],
+      "body": "If a population's electrical activity oscillates, must each neuron be an individual clock? No: interactions can generate a population rhythm even when isolated units do not oscillate autonomously. A neuron, a nerve cell, sends signals across synapses, specialized connections that change another cell's electrical state. Excitatory input tends to promote firing, while inhibitory input tends to suppress it in the relevant operating regime. Delayed interplay between these effects provides one route to a collective rhythm.\n\nI reduce the network to two activity variables, $E$ and $I$, representing average excitatory and inhibitory population activity. A simplified rate model is $\\tau_E\\dot E=-E+F(w_{EE}E-w_{EI}I+P)$ and $\\tau_I\\dot I=-I+F(w_{IE}E-w_{II}I+Q)$. The positive coefficients $w$ measure coupling strengths, $P,Q$ are external drives, $\\tau_E,\\tau_I$ are response times, and $F$ converts net input into bounded activity. Excitation recruits inhibition; inhibition suppresses excitation; inhibition then falls, allowing excitation to recover. Under suitable parameters this cycle becomes self-sustaining.\n\n[Wilson and Cowan](https://pubmed.ncbi.nlm.nih.gov/4332108/) developed a more detailed population model and demonstrated steady states, history-dependent switching called hysteresis, and limit cycles, meaning stable periodic trajectories. The equations above are a pedagogical simplification of that approach. To establish an oscillation mathematically, I examine the stability of a steady state and then the nonlinear trajectory; a damped oscillatory response after one pulse is not yet a sustained rhythm. Different combinations of cellular adaptation, delayed coupling, and external periodic drive can produce similar-looking signals.\n\nThe observational question is equally important. An electrode recording combines contributions from many cells, and rhythmic population activity need not mean that every neuron fires on every cycle. Nor does a frequency band carry a universal psychological meaning. To connect a rhythm to a computation, I would perturb its timing or coupling while checking the behavior and relevant nonrhythmic activity. The emergence established by the minimal model is the existence of an interaction-generated collective clock. Identifying which mechanism generates a particular brain rhythm, and what that rhythm contributes to behavior, requires further experiments.",
+      "question": "How would you tell a self-sustained network oscillation from a damped resonance repeatedly excited by irregular input?",
+      "sources": [
+        {
+          "title": "Wilson & Cowan (1972), Excitatory and inhibitory interactions in localized populations of model neurons",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/4332108/",
+          "note": "Primary population-model paper demonstrating limit cycles and multiple stable states; the entry labels its equations as a simplified rate-model form."
+        },
+        {
+          "title": "Gerstner et al. (2014), Neuronal Dynamics, section 20.2: Oscillations: good or bad?",
+          "url": "https://neuronaldynamics.epfl.ch/online/Ch20.S2.html",
+          "note": "Author-hosted textbook distinguishes network oscillations, single-cell firing, and stability of asynchronous activity."
+        }
+      ]
+    },
+    {
+      "id": "population-coding",
+      "title": "An ensemble represents what one neuron cannot specify",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "information",
+        "coarse-graining"
+      ],
+      "body": "Suppose a neuron, a nerve cell, fires strongly when an animal reaches northeast, but also fires moderately for nearby directions. Firing means producing brief electrical spikes; firing rate is their number per unit time. One firing rate does not uniquely identify the movement. A population code represents a variable through the joint activity of multiple neurons. A tuning curve specifies how a neuron's average response changes with a variable such as movement direction. The puzzle is how broad, noisy individual responses can support a more precise collective representation.\n\nI imagine neurons with preferred directions $\\mathbf u_i$, unit vectors indicating where each responds most strongly. A simple decoder forms $\\mathbf p=\\sum_i(r_i-r_{i,0})\\mathbf u_i$, where $r_i$ is observed firing rate and $r_{i,0}$ a baseline. The direction of $\\mathbf p$ estimates movement direction. With evenly distributed preferences and appropriate cosine-like tuning, contributions away from the true direction cancel while aligned components reinforce. [Georgopoulos and colleagues](https://pmc.ncbi.nlm.nih.gov/articles/PMC6569382/) showed that such population vectors tracked reaching direction in recordings from primate motor cortex, a brain region involved in movement.\n\nThis is a decoder, a rule that extracts a variable from activity. Its success does not by itself show that downstream neurons implement exactly that rule. Nor does it establish that the recorded cells represent only direction: posture, force, context, and other variables may influence the same activity. A predictive relationship becomes more convincing when it generalizes to new conditions and when causal interventions test the proposed role. I should say precisely which behavioral or stimulus variable is recoverable, over which conditions.\n\nNoise provides another reason to think collectively. If similarly informative neurons have independent fluctuations, combining them can improve precision. Shared fluctuations can limit that gain, especially when they resemble the activity change caused by the variable itself. Adding neurons therefore does not guarantee a fixed improvement per cell. The emergent object is the geometry and reliability of a joint activity pattern relative to a decoding task. It is neither a tiny symbol hidden in one cell nor evidence that every useful correlation is a code the brain itself reads. That distinction turns an appealing metaphor into an experimentally testable claim.",
+      "question": "If a decoder predicts movement direction accurately, what intervention would test whether the recorded population helps cause the movement rather than merely reflecting it?",
+      "sources": [
+        {
+          "title": "Georgopoulos, Kettner & Schwartz (1988), Primate motor cortex and free arm movements to visual targets in three-dimensional space. II. Coding of the direction of movement by a neuronal population",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6569382/",
+          "note": "Primary recording study using population vectors from directionally tuned cells; supports decodability, not exclusive coding or proof of the downstream decoding mechanism."
+        },
+        {
+          "title": "Moreno-Bote et al. (2014), Information-limiting correlations",
+          "url": "https://www.nature.com/articles/nn.3807",
+          "note": "Primary analytical and numerical work showing that particular noise correlations aligned with signal changes limit population information; correlations are not uniformly harmful."
+        }
+      ]
+    },
+    {
+      "id": "attractor-memory",
+      "title": "A partial cue can recover a whole pattern",
+      "status": "Model result",
+      "mechanisms": [
+        "feedback",
+        "information"
+      ],
+      "body": "How can an incomplete cue recover a familiar pattern? I first pose this as an engineering problem: store several binary patterns in a network and require noisy versions to relax toward the appropriate stored one. Content-addressable memory means retrieval by similarity to a pattern rather than by an explicit numerical address. An attractor is a state or trajectory toward which nearby states evolve. Together, these ideas turn memory retrieval into dynamics.\n\nIn a simple Hopfield network, unit $i$ has state $s_i=\\pm1$ and updates according to the weighted input from other units. For symmetric weights $w_{ij}=w_{ji}$ and no self-couplings, define $E=-\\tfrac12\\sum_{ij}w_{ij}s_is_j+\\sum_i\\theta_i s_i$, where $\\theta_i$ is a threshold. Updating one unit at a time to agree with its local input cannot increase this energy. On a finite network, with an appropriate rule for ties, the dynamics reaches a fixed point. This energy is a mathematical function organizing the dynamics; it is not a measurement of the brain's metabolic energy.\n\nA basic storage prescription is $w_{ij}=N^{-1}\\sum_\\mu\\xi_i^\\mu\\xi_j^\\mu$ for $i\\ne j$, where $N$ is the number of units and $\\xi^\\mu$ the patterns to store. Units that agree across stored patterns acquire reinforcing connections. [Hopfield's original model](https://doi.org/10.1073/pnas.79.8.2554) demonstrated how collective dynamics can complete patterns from sufficiently informative cues. The stored patterns and their neighborhoods are properties of the whole weight matrix, not separate objects kept inside individual units.\n\nThe assumptions also explain the failures. Too many or strongly correlated patterns interfere; unintended fixed points can appear; a heavily corrupted cue can enter the wrong basin of attraction, the set of starting states that converge to a particular attractor. Simultaneous updates or asymmetric weights need not preserve the same energy-descent argument. Biological memories involve changing connections, structured neurons, and ongoing activity, so this model establishes a possible computational mechanism rather than a complete account of human remembering. Its transferable contribution is precise: robustness can come from a basin that corrects many local errors, but every such basin also creates a risk of confidently completing the wrong pattern.",
+      "question": "How would you distinguish a network that retrieves a stored pattern from one that merely reconstructs whichever pattern is statistically most common?",
+      "sources": [
+        {
+          "title": "Hopfield (1982), Neural networks and physical systems with emergent collective computational abilities",
+          "url": "https://doi.org/10.1073/pnas.79.8.2554",
+          "note": "Primary content-addressable memory model; convergence claims depend on symmetric connections and asynchronous updating."
+        },
+        {
+          "title": "Gerstner et al. (2014), Neuronal Dynamics, section 17.2: Hopfield Model",
+          "url": "https://neuronaldynamics.epfl.ch/online/Ch17.S2.html",
+          "note": "Author-hosted textbook derivation of energy descent, retrieval, capacity limits, and additional fixed points."
+        }
+      ]
+    },
+    {
+      "id": "perceptual-inference",
+      "title": "Noisy measurements combine into a percept",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "information",
+        "constraints"
+      ],
+      "body": "I look at an object's height while also feeling it with my fingers. Neither measurement is exact, yet the combined judgment can be more precise than either alone. Perception is the process of forming an interpretation of sensory input. Calling it inference emphasizes that sensory measurements underdetermine their external causes. This is a useful mathematical description, but it does not mean a person consciously calculates probabilities while touching an object.\n\nLet the visual and touch estimates be $x_v$ and $x_h$, independent unbiased Gaussian measurements of a height $x$, with variances $\\sigma_v^2$ and $\\sigma_h^2$. Maximizing their joint likelihood gives $\\hat x=(x_v/\\sigma_v^2+x_h/\\sigma_h^2)/(1/\\sigma_v^2+1/\\sigma_h^2)$. Reliability, measured by inverse variance, sets each weight. The combined variance is $(1/\\sigma_v^2+1/\\sigma_h^2)^{-1}$. This derivation makes a direct prediction: making the visual cue noisier should reduce its influence on the combined judgment.\n\n[Ernst and Banks](https://www.nature.com/articles/415429a) tested visual and touch estimates of object height and found behavior close to this prediction under their experimental conditions. The result supports reliability-sensitive cue integration in that task. It does not establish that all perception is statistically optimal, that errors are independent in every setting, or that neurons explicitly represent Gaussian distributions. A neural circuit can approximate the input-output relationship through learned connections or other dynamics.\n\nThe assumptions suggest useful extensions. If two cues probably come from different objects, fusing them automatically is inappropriate. If measurements share correlated noise, the simple inverse-variance formula double-counts evidence. Prior knowledge, a distribution expressing what was plausible before the current observations, can also shift an estimate through Bayes' rule. I keep these computational hypotheses separate from claims about implementation. The emergent percept is an effective estimate built from interacting sources of evidence, while the deeper scientific question is which circuit operations produce it and where they systematically depart from the ideal observer. An optimal formula is most useful when its failure modes are as explicit as its successes.",
+      "question": "If two sensory cues share the same source of noise, how would the optimal weights differ from those predicted by treating the cues as independent?",
+      "sources": [
+        {
+          "title": "Ernst & Banks (2002), Humans integrate visual and haptic information in a statistically optimal fashion",
+          "url": "https://www.nature.com/articles/415429a",
+          "note": "Primary controlled experiment on visual-touch height judgments; supports near-optimal integration for that task, not a universal Bayesian implementation claim."
+        }
+      ]
+    },
+    {
+      "id": "decision-accumulation",
+      "title": "A noisy stream becomes a discrete choice",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "information",
+        "feedback"
+      ],
+      "body": "A moving-dot display contains weak evidence for leftward motion. Waiting longer can improve a judgment, but waiting forever is not useful. A perceptual decision converts uncertain sensory evidence into a choice. Evidence accumulation is the hypothesis that observations arriving over time are combined into a decision variable until a stopping criterion is reached. The variable is collective because it summarizes many changing sensory signals rather than matching one instantaneous input.\n\nA minimal drift-diffusion model writes $dx=v\\,dt+\\sigma\\,dW_t$, where $x$ is accumulated evidence, $v$ its mean drift, $\\sigma$ the noise amplitude, and $W_t$ a Wiener process with independent increments of variance $dt$. A choice occurs when $x$ first reaches one of two bounds. With fixed drift and noise, moving the bounds farther apart usually improves accuracy while increasing response time. The observed reaction time also includes sensory and motor delays, so it cannot simply be identified with accumulation time.\n\n[Shadlen and Newsome](https://journals.physiology.org/doi/10.1152/jn.2001.86.4.1916) recorded neurons in a parietal brain region while monkeys judged motion direction. Their responses motivated connections between neuronal activity and accumulated evidence. But a signal correlated with the evolving decision need not perform the essential computation. [Katz and colleagues](https://www.nature.com/articles/nature18617) later found that reversible inactivation of one strongly decision-correlated area did not measurably impair the tested motion decisions, whereas inactivation of a sensory motion area did. This makes causal localization more subtle than matching a ramp-shaped trace.\n\nI therefore keep three levels distinct: a successful description of choice and response-time distributions, a candidate neural implementation, and evidence that particular circuit elements are necessary under specified task conditions. Different neural populations can encode related variables, and trial averaging can make abrupt transitions resemble gradual ramps. The useful emergence claim is the reduction of distributed, fluctuating activity to a low-dimensional decision process. It remains useful even when the simplest anatomical story fails, provided the reduction predicts new behavior and its hidden assumptions are tested rather than protected by the flexibility of the fit.",
+      "question": "What experiment could distinguish genuine gradual accumulation on individual trials from abrupt state changes that produce a ramp only after averaging?",
+      "sources": [
+        {
+          "title": "Shadlen & Newsome (2001), Neural Basis of a Perceptual Decision in the Parietal Cortex (Area LIP) of the Rhesus Monkey",
+          "url": "https://journals.physiology.org/doi/10.1152/jn.2001.86.4.1916",
+          "note": "Primary recording study linking task-related neuronal activity to motion decisions; a correlation does not establish necessity."
+        },
+        {
+          "title": "Katz et al. (2016), Dissociated functional significance of decision-related activity in the primate dorsal stream",
+          "url": "https://www.nature.com/articles/nature18617",
+          "note": "Primary reversible-inactivation experiment demonstrating a dissociation between decision correlation and causal impact in the tested tasks."
+        }
+      ]
+    },
+    {
+      "id": "synaptic-learning",
+      "title": "Local changes reshape future network responses",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "learning",
+        "feedback"
+      ],
+      "body": "A network can respond differently tomorrow even when it receives the same input as today. One mechanism is synaptic plasticity: changes in the efficacy of connections between neurons, the electrically signaling cells of nervous systems. A synapse transfers a signal from a presynaptic, or sending, cell to a postsynaptic, or receiving, cell. Its strength affects how much the receiving cell responds. Learning at the network level can therefore arise from many local changes, but not every local change amounts to a useful learned behavior.\n\nA widely studied dependence is on spike timing. Spikes are the brief electrical events neurons use for signaling. [Bi and Poo](https://pmc.ncbi.nlm.nih.gov/articles/PMC6793365/) found that repeated, appropriately timed pairs of spikes could strengthen or weaken certain connections in cultured rat neurons. In their conditions, a sending-cell spike shortly before a receiving-cell spike favored strengthening, while the reversed order favored weakening. The result depended on connection strength and cell type; it is not a universal timing rule for every synapse.\n\nA schematic model writes $\\Delta w=A_+e^{-\\Delta t/\\tau_+}$ when $\\Delta t=t_{\\rm post}-t_{\\rm pre}>0$, and $\\Delta w=-A_-e^{\\Delta t/\\tau_-}$ when $\\Delta t<0$. The quantities $t_{\\rm pre}$ and $t_{\\rm post}$ are the sending and receiving spike times. Here $w$ is connection strength, $A_+,A_-$ set change amplitudes, and $\\tau_+,\\tau_-$ set timing windows. This rule can reinforce consistently predictive input, but temporal order alone does not establish causation: both cells might be driven by a third source. Repeated changes can also create runaway excitation unless other processes constrain overall activity or connection strength.\n\nI find the interesting collective question in the interaction between two time scales. Fast network activity determines which changes occur; slower changes alter the activity that will occur next. This feedback can build selectivity, associations, or a memory attractor, depending on the circuit and rule. It can also destabilize or overwrite earlier responses. Biological learning involves additional signals, cellular mechanisms, and multiple forms of plasticity. The demonstrated emergence is therefore conditional: local activity-dependent modification can reorganize a network's future behavior, while an explanation of a particular learned skill must connect the measured changes to that skill through intervention.",
+      "question": "How could a timing-based plasticity rule distinguish a truly predictive input from two inputs that happen to share a common driver?",
+      "sources": [
+        {
+          "title": "Bi & Poo (1998), Synaptic modifications in cultured hippocampal neurons: dependence on spike timing, synaptic strength, and postsynaptic cell type",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6793365/",
+          "note": "Primary paired-spike experiment; supports timing-dependent changes under specified culture, cell-type, and initial-strength conditions. The exponential window is a schematic model."
+        }
+      ]
+    },
+    {
+      "id": "cognitive-maps",
+      "title": "Neural activity carries relations between places",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "information",
+        "networks"
+      ],
+      "body": "An animal can return to a location even though its view, direction of travel, and body posture have changed. A cognitive map is an internal representation of spatial or relational structure that can support such behavior. I start with the spatial case, because recordings reveal reproducible relationships between neuronal activity and where an animal is. A map here need not be a miniature image of the environment; it can be a pattern of activity from which location-related information is recoverable.\n\nPlace cells are neurons, electrically signaling nerve cells, whose activity is concentrated around particular locations in a given environment. Grid cells have multiple firing locations arranged approximately as a triangular lattice during suitable exploration. [Hafting and colleagues](https://www.nature.com/articles/nature03721) identified grid cells in the entorhinal cortex, a brain region connected with the hippocampus, which is important for spatial behavior and memory. Neighboring grid cells could share spacing and orientation while differing in spatial phase, the offset of their firing lattices. The pattern related neuronal population organization to the geometry of explored space.\n\nI can see why a population is essential by imagining one perfectly periodic cell. Its activity alone cannot distinguish all positions separated by a lattice vector. Different phases and scales jointly resolve ambiguities over a larger range. A separate computational problem is path integration: updating position by accumulating self-motion, ideally $\\mathbf x(t)=\\mathbf x(0)+\\int_0^t\\mathbf v(s)\\,ds$. Here $\\mathbf x$ is position, $\\mathbf v$ velocity, and $t$ elapsed time. Noise in velocity or heading accumulates, so external landmarks can correct drift. Observing spatial firing is evidence about representation, while demonstrating this integration mechanism requires further tests of dynamics and sensory dependence.\n\nContinuous-attractor models offer one possible implementation: a localized activity pattern moves through a connected family of stable population states as the animal moves. Alternative and complementary mechanisms also exist, and spatial responses depend on environment, task, and learning. I would not infer a universal Cartesian coordinate system from a triangular firing map. Nor does evidence for spatial coding automatically establish that abstract concepts use the same mechanism. The useful emergence is a reproducible relational structure across neuronal responses, one that can support navigation while remaining distinct from both the external territory and the particular sensory image seen at one moment.",
+      "question": "If landmark information is temporarily removed, which change in population activity would distinguish a drifting internal position estimate from a map that simply stops updating?",
+      "sources": [
+        {
+          "title": "Hafting et al. (2005), Microstructure of a spatial map in the entorhinal cortex",
+          "url": "https://www.nature.com/articles/nature03721",
+          "note": "Primary grid-cell recording study; establishes spatial lattice-like firing and landmark relationships, while path-integration implementation remains an interpretation."
+        },
+        {
+          "title": "O’Keefe & Dostrovsky (1971), The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat",
+          "url": "https://doi.org/10.1016/0006-8993(71)90358-1",
+          "note": "Primary early place-cell recording study; supports spatially selective activity, not the full mechanism of navigation."
+        }
+      ]
+    },
+    {
+      "id": "brain-criticality",
+      "title": "Do neural cascades identify a critical state?",
+      "status": "Open interpretation",
+      "mechanisms": [
+        "instability",
+        "collective-modes"
+      ],
+      "body": "Some recordings show cascades of neural activity with many small events and a few very large ones. That looks familiar from critical phenomena, where fluctuations span many scales. But a visual resemblance is not a mechanism. A neuronal avalanche is a cluster of detected activity events separated from others by a chosen inactivity criterion. Its definition depends on electrodes, thresholds, and time bins. The claim that brain activity operates near a critical point is stronger than the observation that avalanche sizes have a broad distribution.\n\nI first use a branching process: each active event produces, on average, $m$ descendants in the next generation. For $m<1$, activity dies out rapidly; for $m>1$, an unbounded ideal model permits sustained growth; $m=1$ is the critical boundary. Under standard finite-variance assumptions, critical branching produces a total-progeny distribution with a characteristic power-law tail. This model suggests why a boundary between fading and amplifying activity could support broad cascades. Real neural networks, however, have inhibition, repeated connections, continuous input, and finite size, so an estimated branching ratio is not automatically the parameter of this ideal process.\n\n[Beggs and Plenz](https://pubmed.ncbi.nlm.nih.gov/14657176/) reported avalanche statistics in preparations of rat cortical tissue, helping motivate the criticality hypothesis. Conversely, [Touboul and Destexhe](https://arxiv.org/abs/1503.08033) demonstrated noncritical model regimes that generate power-law statistics and scaling signatures. Their counterexample shows why fitting a straight line on logarithmic axes cannot identify the underlying dynamical state. Sampling and common input can also complicate interpretation.\n\nI would look for convergent tests: robust model comparison, changes under controlled perturbation, consistent scaling as the observed system size changes, and a plausible process that regulates the relevant control parameter. Claims that criticality optimizes information processing add another layer: an optimum proved for one model or objective does not establish that a brain uses it. The emergence at issue is the collective propagation regime, not a mystical border between order and chaos. Some neural systems may operate near useful transitions, but “the brain is critical” remains too underspecified to function as a settled explanation.",
+      "question": "Which intervention could separate a genuinely near-critical neural network from a noncritical network driven by a shared slowly varying input?",
+      "sources": [
+        {
+          "title": "Beggs & Plenz (2003), Neuronal avalanches in neocortical circuits",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/14657176/",
+          "note": "Primary cortical-tissue recording study reporting avalanche statistics and a criticality interpretation."
+        },
+        {
+          "title": "Touboul & Destexhe (2017), Power-law statistics and universal scaling in the absence of criticality",
+          "url": "https://arxiv.org/abs/1503.08033",
+          "note": "Primary mathematical and numerical counterexample: noncritical dynamics can display power laws and scaling; such statistics alone are insufficient evidence."
+        }
+      ]
+    },
+    {
+      "id": "consciousness",
+      "title": "Explaining experience requires more than naming emergence",
+      "status": "Open interpretation",
+      "mechanisms": [
+        "information",
+        "networks"
+      ],
+      "body": "Why is there something it is like to see a color, rather than only a chain of physical events processing light? Consciousness, in the sense relevant here, is subjective experience. I distinguish its contents, such as a seen shape, from wakefulness, the ability to report, and performance on a task. These can come apart. Calling consciousness emergent identifies the desired relationship to neural organization; it does not yet supply a mechanism or settle why particular processes accompany experience.\n\nThere are nevertheless concrete experiments. A neural correlate of consciousness is a reproducible neural feature associated with an experience or conscious state, after relevant alternatives are controlled. Correlation alone can reflect preparation, attention, memory, or reporting rather than the experience itself. [Casali and colleagues](https://pubmed.ncbi.nlm.nih.gov/23946194/) perturbed the cortex, the brain's outer sheet of neural tissue, using magnetic stimulation and quantified the complexity of the resulting electrical response. Their perturbational complexity index distinguished studied states in wakefulness, sleep, anesthesia, and brain injury. This is evidence for a useful measured association, not a universal detector of experience in any possible system.\n\nCompeting theories make different organizational proposals. Global neuronal workspace theory emphasizes information becoming broadly available through interactions among brain systems. Integrated information theory connects experience to a system's irreducible internal causal organization. These are substantive hypotheses, not consequences of the fact that many neurons interact. A preregistered [2025 adversarial comparison](https://www.nature.com/articles/s41586-025-08888-1), whose predictions were specified before the decisive analyses, found support for some predictions and challenges for others from both theories. It tested particular predictions about conscious visual content; it did not deliver a final verdict on every version of either framework.\n\nMy minimal thought experiment is to compare two networks with identical input-output behavior but different internal interactions. A behavioral theory and a theory of internal causal structure might judge them differently. To turn that disagreement into science, I need a specified observable or intervention whose predicted outcome differs, together with an account of how it bears on experience. This is where the atlas must remain deliberately unfinished. Neural organization, report, and state-dependent responses are measurable; a generally accepted derivation of subjective experience from those variables is still missing.",
+      "question": "What observation could distinguish two theories that predict the same reports but assign consciousness to different internal causal organizations?",
+      "sources": [
+        {
+          "title": "Casali et al. (2013), A theoretically based index of consciousness independent of sensory processing and behavior",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23946194/",
+          "note": "Primary perturbational-complexity experiment across specified human states; its empirical discrimination does not establish a universal measure or prove a theory of experience."
+        },
+        {
+          "title": "Cogitate Consortium et al. (2025), Adversarial testing of global neuronal workspace and integrated information theories of consciousness",
+          "url": "https://www.nature.com/articles/s41586-025-08888-1",
+          "note": "Primary preregistered multimodal comparison; reports both supported and challenged predictions, with limits on theory-level inference."
+        }
+      ]
+    }
+  ]
+}

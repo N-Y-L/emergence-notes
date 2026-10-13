@@ -1,0 +1,229 @@
+{
+  "number": 5,
+  "slug": "living-matter",
+  "title": "Living matter: structures that maintain and reproduce themselves",
+  "intro": "I begin this chapter below the level of a complete organism. A lipid mixture can build a boundary, a connected chain can behave as a spring, and a protein can repeatedly occupy a useful family of shapes. These are already substantial reductions from molecular detail to collective behavior. They also prevent a misleading shortcut: orderly structure alone is not a sufficient definition of life.\n\nThe next entries add processes. Autocatalysis amplifies molecular production; chemical handedness asks how symmetry can be broken and inherited; gene switches and clocks turn reactions into memory and timing. Each example has a measurable output and a mechanism that can be tested separately from larger claims about biological purpose. I use “function” for an experimentally identifiable contribution, while keeping its evolutionary origin a further question.\n\nFinally, developmental patterning, homeostasis, and multicellularity connect chemistry to persistent organization. Here energy supply, turnover, reproduction, and historical selection matter alongside geometry and thermodynamics. My reading path is to ask, at each step, what remains stable while its constituents change. Sometimes the answer is a structure near equilibrium, sometimes a maintained dynamical state, and sometimes a reproducible life cycle. These are related problems, but they should not be collapsed into one universal mechanism.",
+  "entries": [
+    {
+      "id": "molecular-self-assembly",
+      "title": "How a membrane assembles itself",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "constraints",
+        "coarse-graining"
+      ],
+      "body": "I start with a puzzle about containers: a cell needs a boundary, yet no miniature builder places its boundary molecules one by one. Many membrane lipids are amphiphiles, molecules with a water-compatible head and water-avoiding tails. In water, their interactions can favor aggregates with the tails sheltered inside. A micelle is a small aggregate with a hydrophobic interior; a bilayer has two facing molecular layers; a vesicle is a closed bilayer enclosing water. These structures already exist in sufficiently simple laboratory mixtures, without a living cell.\n\nThe relevant competition belongs to the whole mixture. Aggregation reduces unfavorable contact between hydrocarbon tails and water, but costs the translational entropy of freely dispersed molecules. Crowded heads repel or constrain one another, while tails cannot fill arbitrary shapes without stretching or leaving gaps. Thus molecular geometry helps select curvature. [Israelachvili, Mitchell, and Ninham's theory](https://pubs.rsc.org/en/content/articlelanding/1976/f2/f29767201525) connects these geometric constraints to aggregate free energy. Saying that tails “dislike” water is only shorthand for this statistical mechanics, not an intention possessed by a molecule.\n\nI can expose the collective variable with a simple counting exercise. Suppose an aggregate contains $n$ molecules. Its free energy is not just $n$ copies of an isolated molecule's energy: it includes the geometry of the shared interface and the loss of independent positions. Equilibrium compares the chemical potential per molecule in aggregates and solution. Above an appropriate concentration, adding material predominantly increases aggregation rather than the concentration of free molecules. The precise crossover depends on molecular species, salt, temperature, and concentration; “amphiphile” alone does not specify a phase diagram.\n\nA membrane then supports quantities that an isolated lipid does not possess: a bending stiffness, an area tension, and a permeability across an extended surface. This is the useful emergence claim. It does not make an assembled vesicle alive. Real cellular membranes also contain proteins, unequal compositions on their two faces, and processes maintained by chemical energy. I would first separate the structures obtainable through equilibration from those requiring continuous molecular traffic; otherwise an equilibrium explanation quietly acquires powers it has not earned.",
+      "question": "Which membrane property would survive if molecular identities changed while their interaction free energies and packing constraints remained comparable?",
+      "sources": [
+        {
+          "title": "Israelachvili, Mitchell & Ninham (1976), Theory of self-assembly of hydrocarbon amphiphiles into micelles and bilayers",
+          "url": "https://pubs.rsc.org/en/content/articlelanding/1976/f2/f29767201525",
+          "note": "Primary theoretical paper; connects thermodynamics, interaction free energies, and molecular geometry to micelles and bilayers."
+        },
+        {
+          "title": "Alberts et al. (2002), The Chemical Components of a Cell",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK26883/",
+          "note": "Textbook account of amphiphilic cell components and noncovalent interactions; biological context, not a claim that cells are equilibrium assemblies."
+        }
+      ]
+    },
+    {
+      "id": "polymer-collectivity",
+      "title": "A molecular chain becomes an entropic spring",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "constraints",
+        "coarse-graining"
+      ],
+      "body": "Why does a long molecule pull back when I stretch it, even before I appreciably stretch any chemical bond? A polymer is a molecule made from many connected units. DNA, the molecule carrying much of a cell's hereditary information, is one example. Its local chemical structure constrains neighboring segments, but many global chain shapes remain possible. Stretching removes possibilities. The restoring force can therefore come mainly from entropy rather than from distortion of individual bonds.\n\nI first replace the molecule with an ideal chain of $N$ independently oriented segments, each of length $b$. Here $b$ is an effective coarse-grained segment length, not necessarily the distance between adjacent atoms. Adding random vectors gives $\\langle R^2\\rangle=Nb^2$, where $R$ is the end-to-end distance. For extensions small compared with the total contour length $Nb$, the Gaussian distribution of end-to-end vectors yields an extension-dependent free energy $F(R)-F(0)\\simeq3k_BT R^2/(2Nb^2)$. Here $k_B$ is Boltzmann’s constant and $T$ is absolute temperature. The force I must apply is consequently $f\\simeq3k_BT R/(Nb^2)$. Temperature appears in the stiffness because the spring is resisting a reduction in conformational multiplicity.\n\nReal DNA is locally stiff. Its persistence length measures how far tangent directions remain correlated along the contour. A wormlike-chain model treats the molecule as a continuously bendable filament with a bending-energy penalty. [Bustamante and colleagues](https://pubmed.ncbi.nlm.nih.gov/8079175/) used this framework in interpreting DNA's entropic elasticity. The ideal random-walk approximation becomes appropriate only over lengths large compared with local orientational correlations; excluded volume, electrostatic interactions, and stretching of the backbone can change the result.\n\nThis example helps me distinguish two meanings of “many.” The chain can be one molecule, yet it contains enough coupled internal coordinates to support an effective mechanical law. Its spring constant is not another chemical bond hidden somewhere inside it. Nor is every biological filament an equilibrium spring: molecular motors, which consume chemical fuel to generate motion, can drive a network of filaments far from equilibrium. The transferable step is to ask which microscopic motions have been constrained by the macroscopic deformation, before assigning that deformation a material constant.",
+      "question": "How would you distinguish entropic elasticity from bond-stretching elasticity by changing temperature while controlling solvent conditions?",
+      "sources": [
+        {
+          "title": "Bustamante et al. (1994), Entropic elasticity of lambda-phage DNA",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8079175/",
+          "note": "Primary paper bibliographic record; the freely jointed-chain calculation here is an explicit pedagogical model, not a fit reported in this record."
+        },
+        {
+          "title": "Marko & Siggia (1995), Stretching DNA",
+          "url": "https://doi.org/10.1021/ma00130a008",
+          "note": "Primary wormlike-chain treatment of DNA stretching; identifies the role of bending stiffness and thermal fluctuations."
+        }
+      ]
+    },
+    {
+      "id": "protein-folding",
+      "title": "A sequence acquires a three-dimensional structure",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "constraints",
+        "disorder"
+      ],
+      "body": "I imagine handing someone a necklace with twenty kinds of bead and asking for its three-dimensional shape in water. That sounds underdetermined. A protein, however, is a chain of amino acids, small molecular building blocks whose chemical side groups interact with water and with one another. Many proteins reliably populate a compact family of structures, enabling binding or catalysis, the acceleration of a chemical reaction. The puzzle is how local chemistry and connectivity yield a reproducible whole without exhaustively testing every chain configuration.\n\nA useful description is a free-energy landscape over molecular conformations. A conformation is one arrangement of the chain in space. Nonpolar groups often become buried, while hydrogen bonds and other interactions favor particular arrangements. The native state means the functional structural ensemble under specified conditions; it is not a perfectly motionless atomic sculpture. Classic refolding experiments showed that some unfolded proteins recover their active structure in a suitable solution, supporting the importance of sequence. The [cell-biology textbook treatment](https://www.ncbi.nlm.nih.gov/books/NBK26830/) also makes clear that living cells often assist folding.\n\nMy minimal model groups conformations into unfolded and folded ensembles with free energies $G_U$ and $G_F$. At equilibrium their probability ratio is $P_F/P_U=\\exp[-(G_F-G_U)/(k_BT)]$. Here $k_B$ is Boltzmann’s constant and $T$ is absolute temperature. This says nothing by itself about the time needed to cross a barrier between them. A low-energy structure can remain inaccessible, and a chain can aggregate with other chains before reaching it. Molecular chaperones are proteins that help other proteins fold or avoid aggregation; many use ATP, a molecule whose chemical conversion can supply free energy. Thus equilibrium preference, kinetics, and active quality control answer different questions.\n\nThe emergent object here is a structural and dynamical ensemble with a characteristic response, not a new fundamental force. Some proteins remain substantially disordered or change structure upon binding, so “every sequence has one fold” is too strong. I also keep prediction separate from mechanism: accurately predicting a final structure does not establish the physical route used by the cell. The interesting reduction is from enormous configuration space to a few recurring structural states, with explicit conditions determining when that reduction succeeds.",
+      "question": "What experiment would separate a protein that lacks a stable folded state from one that has such a state but reaches it too slowly?",
+      "sources": [
+        {
+          "title": "Alberts et al. (2002), The Shape and Structure of Proteins",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK26830/",
+          "note": "Textbook explanation of sequence, stabilizing interactions, folding, and molecular chaperones."
+        },
+        {
+          "title": "Cooper (2000), Protein Folding and Processing",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK9843/",
+          "note": "Textbook distinction between spontaneous refolding in vitro and chaperone-assisted folding in cells."
+        },
+        {
+          "title": "Weinreb et al. (1996), NACP, a protein implicated in Alzheimer’s disease and learning, is natively unfolded",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/8901511/",
+          "note": "Primary conformational measurements showing a protein can occupy a disordered ensemble under the tested solution conditions; cited only for this structural result."
+        }
+      ]
+    },
+    {
+      "id": "autocatalysis",
+      "title": "Chemistry that accelerates its own production",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "networks"
+      ],
+      "body": "If a reaction product helps make more of itself, a small initial amount can change the subsequent trajectory of the entire mixture. That is autocatalysis. A catalyst accelerates a reaction without being consumed overall by that reaction; it does not supply the reaction's free-energy difference. Autocatalysis can involve one molecular species promoting its own production, or a network in which different products promote one another. The latter possibility makes it unnecessary to imagine one miraculous molecule doing everything alone.\n\nI can start with the schematic reaction $A+X\\rightarrow2X$, where $A$ is supplied material and $X$ promotes conversion into more $X$. With concentration $a$ held fixed, mass-action kinetics gives $\\dot x=(ka-d)x$, where $x$ is the concentration of $X$, $k$ the reaction-rate constant, and $d$ a loss rate. Exponential amplification occurs only if production exceeds loss. In a closed vessel, consumption of $A$ invalidates the constant-$a$ approximation, and growth eventually slows. A self-amplifying loop therefore has a resource budget, just as an electronic amplifier does.\n\n[Lincoln and Joyce](https://pmc.ncbi.nlm.nih.gov/articles/PMC2652413/) constructed an instructive chemical example using RNA, a nucleotide-chain molecule that can both carry sequence information and catalyze reactions. Two RNA catalysts promoted each other's assembly by joining supplied RNA fragments. Repeated transfers into fresh substrate maintained amplification. This establishes cross-catalytic replication in an engineered chemical system. It does not show that arbitrary raw ingredients will organize into a cell, or that the supplied fragments would have been available on the early Earth.\n\nThe distinction matters because network closure and physical viability are separate tests. Drawing arrows so every catalyst is produced somewhere in the network does not guarantee sufficient reaction rates, favorable energetics, resistance to side reactions, or persistence after dilution. Conversely, observing growth does not establish open-ended hereditary evolution: copying must preserve variations that affect future reproduction. I see autocatalysis as a concrete bridge from reaction kinetics to population-like dynamics. Its force comes from that demonstrable bridge, while the larger origins-of-life narrative remains a research question rather than an implication of one feedback loop.",
+      "question": "For a proposed autocatalytic network, which failure occurs first as dilution increases: loss of a catalyst, depletion of a precursor, or loss of reproducible composition?",
+      "sources": [
+        {
+          "title": "Lincoln & Joyce (2009), Self-sustained Replication of an RNA Enzyme",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2652413/",
+          "note": "Primary experiment: two RNA enzymes cross-catalyze ligation from supplied fragments; sustained amplification requires substrate replenishment."
+        },
+        {
+          "title": "Hordijk & Steel (2012), Autocatalytic Sets Extended: Dynamics, Inhibition, and a Generalization",
+          "url": "https://arxiv.org/abs/1206.1017",
+          "note": "Primary theoretical analysis; distinguishes structural autocatalytic-set criteria from dynamical and inhibitory constraints."
+        }
+      ]
+    },
+    {
+      "id": "homochirality",
+      "title": "How one molecular handedness can dominate",
+      "status": "Open interpretation",
+      "mechanisms": [
+        "symmetry",
+        "feedback"
+      ],
+      "body": "A left hand and a right hand contain the same kinds of parts, yet rotating one never makes it coincide with the other. Molecules can share this property, called chirality. Two mirror-image versions are enantiomers. Biological proteins predominantly use one amino-acid handedness, while their nucleic-acid sugars also follow a strong handedness preference. The observed asymmetry is clear; the historical explanation for its origin is not. I therefore separate “can chemistry amplify an imbalance?” from “what actually happened before life?”\n\nLet $L$ and $D$ denote concentrations of two mirror forms. Their enantiomeric excess is $e=(L-D)/(L+D)$ when the denominator is nonzero. An equal mixture has $e=0$; a single-handed mixture has $|e|=1$. Mirror-symmetric reaction laws can admit an unstable symmetric solution and stable asymmetric solutions. Autocatalysis supplies positive feedback if each handed product promotes production of its own handedness. Competition for shared material or inhibition between opposite forms can strengthen the amplification. Noise or a small external bias can select a branch without the rate equations explicitly favoring it.\n\nThe [Soai experiment](https://www.nature.com/articles/378767a0) demonstrated amplification of a small initial enantiomeric excess in a particular asymmetric autocatalytic reaction. This is a chemically realized mechanism, not merely a pitchfork bifurcation drawn on paper. Frank's earlier reaction scheme supplies the conceptual model of self-amplification combined with inhibition. I should not infer that every autocatalytic reaction becomes single-handed: its detailed rate laws, catalyst structure, and competing reactions decide whether an imbalance grows or disappears.\n\nA thought experiment sharpens the historical issue. Suppose identical, unbiased vessels choose either sign at random and become strongly asymmetric. Each vessel has broken mirror symmetry, but pooling them could restore an almost balanced mixture. Explaining a persistent biological preference therefore also requires inheritance, spatial separation, mixing, and compatibility between the relevant molecular families. Chemical demonstrations establish possible routes through part of this problem. They do not identify a unique ancestral route or prove that the same chemistry generated biological amino acids. The emergence is a collective composition selected by nonlinear chemistry; its connection to life's particular handedness remains open.",
+      "question": "If independently reacting compartments choose opposite handedness, what coupling or inheritance mechanism could preserve a common preference after they begin exchanging material?",
+      "sources": [
+        {
+          "title": "Soai et al. (1995), Asymmetric autocatalysis and amplification of enantiomeric excess of a chiral molecule",
+          "url": "https://www.nature.com/articles/378767a0",
+          "note": "Primary chemical experiment demonstrating amplification of initial enantiomeric excess; not a reconstruction of prebiotic chemistry."
+        },
+        {
+          "title": "Frank (1953), On spontaneous asymmetric synthesis",
+          "url": "https://doi.org/10.1016/0006-3002(53)90082-1",
+          "note": "Primary theoretical reaction scheme for symmetry breaking through autocatalysis and mutual inhibition."
+        }
+      ]
+    },
+    {
+      "id": "gene-switches",
+      "title": "A cell remembers which genes were active",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "information"
+      ],
+      "body": "How can two cells containing the same hereditary instructions maintain different behaviors? A gene is a stretch of DNA whose sequence contributes to producing a functional RNA or protein. Gene expression is the process of making that product. A regulatory protein can bind DNA and change a gene's production rate. The DNA sequence can therefore remain unchanged while the concentrations of its products form different persistent states. This is a memory stored in ongoing chemistry.\n\nI consider two genes whose protein products repress one another: more of protein $A$ reduces production of $B$, and more $B$ reduces production of $A$. This double negative creates positive feedback. An initial excess of $A$ suppresses its suppressor, allowing $A$ to remain abundant. In the opposite state $B$ wins. [Gardner, Cantor, and Collins](https://www.nature.com/articles/35002131) built such a toggle switch in the bacterium Escherichia coli and showed that a transient input could change its state.\n\nFor a minimal model, let $a$ and $b$ be protein concentrations measured relative to their repression thresholds and let time be measured in protein-loss times. Then $\\dot a=\\alpha/(1+b^n)-a$ and $\\dot b=\\alpha/(1+a^n)-b$. The parameter $\\alpha$ sets maximum production; $n$ describes the steepness of repression. The intersections of the two nullclines, curves where one derivative vanishes, determine possible steady states. Sufficiently strong, steep repression can give two stable asymmetric states separated by an unstable state. Mutual repression alone is not enough: parameter values determine whether the circuit is bistable.\n\nThis calculation also prevents me from treating memory as perfect. Protein production and destruction involve discrete molecular events, so a sufficiently small system can switch through fluctuations. Cell division dilutes and partitions the components; external signals can tilt the dynamics. A durable cell identity usually involves more than one engineered pair of genes. Nevertheless, the toggle makes a precise point: persistence need not mean static molecules. Molecules can turn over while a self-maintaining concentration pattern preserves a record of a past perturbation. The natural observable is the state and its lifetime, not the continued existence of the original protein molecules.",
+      "question": "How would you distinguish genuine bistability from a single stable state approached so slowly that the cell appears to remember its initial condition?",
+      "sources": [
+        {
+          "title": "Gardner, Cantor & Collins (2000), Construction of a genetic toggle switch in Escherichia coli",
+          "url": "https://www.nature.com/articles/35002131",
+          "note": "Primary engineered two-repressor switch with a mathematical bistability model; general cell-fate claims require additional biological evidence."
+        }
+      ]
+    },
+    {
+      "id": "biological-clocks",
+      "title": "A day emerges from molecular reaction cycles",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "collective-modes"
+      ],
+      "body": "I would not expect a handful of reacting proteins, large chain molecules with specific binding and chemical activities, to keep something like a day. Yet a circadian clock, an internal oscillator with a period near twenty-four hours, can persist without daily external forcing. This is different from a system merely responding whenever sunlight arrives. A biological clock must generate its own repeating dynamics, while environmental signals can reset its phase, the position within its cycle.\n\nA striking reduction comes from cyanobacteria, bacteria that obtain energy through photosynthesis. [Nakajima and colleagues](https://pubmed.ncbi.nlm.nih.gov/15831759/) reconstituted oscillations using the proteins KaiA, KaiB, and KaiC together with ATP. They measured the phosphorylation of KaiC: the fraction of molecules carrying attached phosphate groups. ATP supplies chemical free energy through its reactions. The oscillation continued outside a cell, and its period was comparatively insensitive to temperature changes over the tested range. Thus a whole-cell genetic program is not required for this particular biochemical oscillator to operate.\n\nThe changing chemical state of KaiC alters its interactions with its partners. Ordered modification steps and delayed inhibitory interactions provide a route for activity to rise, suppress itself, and recover. Later experiments resolved an ordered sequence of modification at two sites. A minimal dynamical lesson is that feedback must involve internal state or delay: a single autonomous concentration obeying $\\dot x=f(x)$ cannot trace a nonconstant periodic orbit. At least two dynamical variables, or an effective memory of previous states, are required. Those variables need not correspond simply to three total protein concentrations; different chemical states of the same protein can carry the relevant memory.\n\nI also need a distinction between one molecule's cycle and a measurable population rhythm. Independent molecular cycles would tend to lose phase coherence. Interactions and shared binding partners can coordinate the ensemble, making an oscillation visible in bulk measurements. This does not make the apparatus perpetual: maintaining nonequilibrium chemical conditions requires a free-energy source, and a finite preparation has finite resources. Nor should I export the Kai mechanism unchanged to animal clocks. The transferable phenomenon is a reproducible collective time scale built from reaction networks, with temperature compensation and phase resetting as separate properties to explain.",
+      "question": "Which measurement would tell you whether loss of a bulk rhythm reflects stopped molecular cycles or cycles that have merely lost phase coherence?",
+      "sources": [
+        {
+          "title": "Nakajima et al. (2005), Reconstitution of circadian oscillation of cyanobacterial KaiC phosphorylation in vitro",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15831759/",
+          "note": "Primary reconstitution experiment using KaiA, KaiB, KaiC and ATP; tests temperature compensation and mutant periods."
+        },
+        {
+          "title": "Nishiwaki et al. (2007), A sequential program of dual phosphorylation of KaiC as a basis for circadian rhythm in cyanobacteria",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1994132/",
+          "note": "Primary experiment identifying an ordered phosphorylation cycle; does not establish one universal clock mechanism across organisms."
+        }
+      ]
+    },
+    {
+      "id": "morphogenesis",
+      "title": "Chemical position becomes organized form",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "information",
+        "feedback",
+        "constraints"
+      ],
+      "body": "An embryo begins without a little coordinate label attached to every future body part. How can nearby cells adopt different identities reproducibly? Morphogenesis means the generation of biological form through processes including cell movement, growth, shape change, and organization. I start with one ingredient: positional information, where a chemical signal varies across an embryo and influences which genes become active. This narrows the question from “how is a body built?” to “how can molecular interactions distinguish one region from another?”\n\nA morphogen is a signal whose spatial distribution helps specify different developmental responses. In the early fruit-fly embryo, the protein Bicoid forms a concentration profile that contributes to organization along the head-to-tail direction. At this stage many nuclei, the compartments containing DNA, share a common surrounding cellular material. [Gregor and colleagues](https://pmc.ncbi.nlm.nih.gov/articles/PMC2253670/) measured the precision of Bicoid levels and the response of a target gene. Their work makes molecular concentration and its variability experimentally accessible parts of the patterning problem.\n\nFor orientation, I imagine a signal produced at one end, diffusing with coefficient $D$, and removed at rate $\\mu$. Away from the source, a steady one-dimensional profile satisfies $D c''-\\mu c=0$, giving $c(x)=c_0e^{-x/\\lambda}$ with $\\lambda=\\sqrt{D/\\mu}$. Here $x$ is distance from the source and $c_0$ its boundary concentration. A response threshold $c_*$ occurs at $x_* =\\lambda\\ln(c_0/c_*)$. This is an illustrative source-diffusion-removal model, not a complete account of Bicoid dynamics. It immediately reveals a problem: changing source strength moves the boundary unless additional mechanisms compensate.\n\nReading a threshold also faces counting noise because molecules arrive and bind at random. Time averaging, spatial averaging, and interactions among regulatory genes can alter precision. Later, chemical patterning couples to tissue mechanics: cells exert forces and change neighbors, so form cannot be inferred from concentration alone. I therefore regard a concentration-to-response boundary as a concrete emergent observable, while resisting the claim that a single gradient explains an organism. The physics question is productive precisely because it separates creation of a profile, reliable interpretation of that profile, and mechanical realization of a shape.",
+      "question": "How could you tell whether a developmental boundary remains proportional to embryo size because the signal scales or because the responding network compensates?",
+      "sources": [
+        {
+          "title": "Gregor et al. (2007), Probing the limits to positional information",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2253670/",
+          "note": "Primary measurements of Bicoid concentration, fluctuations, target response, and embryo-to-embryo reproducibility; the exponential profile in this entry is an explicit illustrative model."
+        }
+      ]
+    },
+    {
+      "id": "cellular-homeostasis",
+      "title": "A changing cell maintains a stable output",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "feedback",
+        "adaptation"
+      ],
+      "body": "A cell can keep an internal variable near a characteristic value even while the environment changes. Homeostasis names this maintenance of internal conditions through ongoing processes. It is a dynamical achievement: molecules continue to enter, react, and leave. I want to know why an output returns after a disturbance, and whether its final value is robust to variations in reaction rates, rather than simply observing that the cell looks steady.\n\nA particularly tractable example is bacterial chemotaxis, movement biased by chemical conditions. Bacteria alter their swimming behavior in response to changes in attractant concentration. After a sustained stimulus, the signaling system can return close to its previous activity, retaining sensitivity to further changes. Chemical modification of receptors, molecules that detect the external signal, provides a slowly changing internal state. Barkai and Leibler showed that network organization could produce robust adaptation in a model of this process; Yi and colleagues connected that mechanism to integral feedback control.\n\nI can see the control principle without reproducing every biochemical reaction. Let $y$ be the regulated output, $y_0$ its target, and $z$ an internal control variable, with positive response coefficient $k$, obeying $\\dot z=k(y_0-y)$. The variable $z$ accumulates past error and changes the processes driving $y$. If the coupled system reaches a stable steady state with finite $z$, then $\\dot z=0$ forces $y=y_0$. A constant disturbance can change the required value of $z$ while leaving the output unchanged. The conclusion follows from the structure of the equation, rather than from a cancellation between precisely chosen numerical parameters.\n\nThe assumptions are part of the mechanism. If the controller saturates, is diluted too quickly, or destabilizes the network, the argument fails. Real adaptation may be approximate and limited to a stimulus range. Chemotactic adaptation also concerns a signaling output, not the claim that every internal quantity is held fixed. I find the emergent feature in this separation: many changing molecular populations jointly maintain an effective input-output behavior. A cell does not need to represent a numerical “target” consciously; a target can be encoded in the reaction architecture and its parameters.",
+      "question": "Which perturbation would reveal whether apparent adaptation is protected by feedback architecture or produced by a fragile balance of two reaction rates?",
+      "sources": [
+        {
+          "title": "Barkai & Leibler (1997), Robustness in simple biochemical networks",
+          "url": "https://www.nature.com/articles/43199",
+          "note": "Primary theoretical chemotaxis model establishing robust adaptation through network structure."
+        },
+        {
+          "title": "Yi et al. (2000), Robust perfect adaptation in bacterial chemotaxis through integral feedback control",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC18287/",
+          "note": "Primary mathematical interpretation of the adaptation mechanism; exact tracking assumes stable operation and the model constraints."
+        }
+      ]
+    },
+    {
+      "id": "multicellularity",
+      "title": "When a cluster becomes a reproducing individual",
+      "status": "Established phenomenon",
+      "mechanisms": [
+        "selection",
+        "constraints"
+      ],
+      "body": "A clump of cells is not automatically an organism. I can pack many independent cells into a droplet without giving the droplet a coordinated life cycle. The more interesting transition occurs when a group grows, produces descendant groups, and transmits group-level traits. Multicellularity means organization involving multiple cells, but its biological forms range from loose associations to organisms whose cells are deeply interdependent. The puzzle is how selection begins to act on properties of the collective.\n\n[Experimental evolution in yeast](https://pmc.ncbi.nlm.nih.gov/articles/PMC3277146/) makes an early step concrete. Yeast are single-celled fungi that reproduce by producing daughter cells. Ratcliff and colleagues repeatedly retained rapidly settling material from cultures. Descendants evolved branching clusters through cells remaining attached after division. Larger clusters settled more effectively under the imposed procedure, and clusters produced smaller descendants through fragmentation. The experiment connected a cellular change, persistent attachment, to a collective physical property that affected reproduction under selection.\n\nI can describe the key test without deciding where every philosophical boundary of individuality lies. Label groups by a heritable trait such as size at fragmentation. If groups differ in that trait, the trait affects their contribution to the next generation of groups, and offspring resemble their parents, then selection can change the distribution of group traits. Mere growth of a cluster does not establish all three conditions. Nor must the fastest dividing cell make the most successful group: excessive individual proliferation can interfere with transport, mechanical integrity, or coordinated reproduction.\n\nDevelopment from related cells can reduce some internal conflicts, while specialization creates new dependencies. Yet the yeast result is not a replay of the origin of animals, and rapid settling was a deliberately imposed laboratory condition. I would not equate its initial clusters with a modern animal body. What it demonstrates is a route by which interaction geometry and a life cycle create a new object for evolutionary accounting. The transferable question is how boundaries and reproduction become aligned: a collective becomes more than a temporary pile when its organization is repeatedly reconstructed in descendants and influences which descendants persist.",
+      "question": "What observation would show that an apparent improvement in a cell cluster belongs to selection among groups rather than merely faster reproduction of cells inside them?",
+      "sources": [
+        {
+          "title": "Ratcliff et al. (2012), Experimental evolution of multicellularity",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3277146/",
+          "note": "Primary settling-selection experiment in snowflake yeast; supports postdivision attachment, cluster reproduction, and evolved group traits, not a complete account of animal origins."
+        }
+      ]
+    }
+  ]
+}
