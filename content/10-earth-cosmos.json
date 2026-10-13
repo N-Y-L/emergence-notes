@@ -100,7 +100,7 @@
     },
     {
       "id": "climate-feedbacks",
-      "title": "Climate response: the thermostat is a coupled system",
+      "title": "Climate feedbacks: the thermostat is a coupled system",
       "status": "Established phenomenon",
       "mechanisms": [
         "feedback",
@@ -124,7 +124,7 @@
     },
     {
       "id": "ice-albedo",
-      "title": "Ice and sunlight: a feedback can remember",
+      "title": "Ice–albedo feedback: a system can remember",
       "status": "Established phenomenon",
       "mechanisms": [
         "feedback",
@@ -147,7 +147,7 @@
     },
     {
       "id": "plate-tectonics",
-      "title": "Tectonic plates: solid rock learns to flow",
+      "title": "Plate tectonics: solid rock learns to flow",
       "status": "Established phenomenon",
       "mechanisms": [
         "coarse-graining",
@@ -210,7 +210,7 @@
     },
     {
       "id": "gravitational-structure",
-      "title": "The cosmic web: attraction amplifies a slight imbalance",
+      "title": "Gravitational structure: attraction builds a cosmic web",
       "status": "Established phenomenon",
       "mechanisms": [
         "instability",
@@ -233,7 +233,7 @@
     },
     {
       "id": "emergent-spacetime",
-      "title": "Spacetime from quantum structure: a frontier, not a finished example",
+      "title": "Emergent spacetime: a frontier, not a finished example",
       "status": "Open interpretation",
       "mechanisms": [
         "information",

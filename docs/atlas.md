@@ -2031,7 +2031,7 @@ There is no contradiction between uncertain weather and informative climate stat
 - [Lorenz (1963), Deterministic nonperiodic flow](https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2). Primary low-dimensional convection model and implications for predictability; not a full atmospheric calculation.
 - [IPCC (2021), AR6 Working Group I, Chapter 4: Future global climate](https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-4/). Assessment of climate projections, internal variability, and forced response; distinguishes climate statistics from individual weather events.
 
-## 95. Climate response: the thermostat is a coupled system
+## 95. Climate feedbacks: the thermostat is a coupled system
 
 Established phenomenon
 
@@ -2054,7 +2054,7 @@ The one-box equation is a deliberate simplification. A surface layer and a deep 
 - [IPCC (2021), AR6 Working Group I, Chapter 7: The Earth’s energy budget, climate feedbacks, and climate sensitivity](https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/). Assessment of forcing, feedback decomposition, and equilibrium versus transient responses; the displayed one-box solution is an explanatory derivation.
 - [Geoffroy et al. (2013), Transient climate response in a two-layer energy-balance model, Part I](https://doi.org/10.1175/JCLI-D-12-00195.1). Primary calibration of a two-layer model and its fast and slow response modes.
 
-## 96. Ice and sunlight: a feedback can remember
+## 96. Ice–albedo feedback: a system can remember
 
 Established phenomenon
 
@@ -2077,7 +2077,7 @@ Real albedo depends on clouds, snow condition, melt ponds, season, and geography
 - [IPCC (2021), AR6 Working Group I, Chapter 7, §7.4.2.3: Surface-albedo feedback](https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/). Assessment of the positive snow and ice reflectivity feedback; distinguishes surface albedo from planetary albedo.
 - [Budyko (1969), The effect of solar radiation variations on the climate of the Earth](https://doi.org/10.1111/j.2153-3490.1969.tb00466.x). Classic energy-balance model connecting ice cover and absorbed sunlight; model transitions require its assumptions.
 
-## 97. Tectonic plates: solid rock learns to flow
+## 97. Plate tectonics: solid rock learns to flow
 
 Established phenomenon
 
@@ -2122,7 +2122,7 @@ Saturn's rings are useful because several mechanisms coexist visibly. Moon-drive
 - [Hedman et al. (2007), Self-gravity wake structures in Saturn’s A ring revealed by Cassini VIMS](https://doi.org/10.1086/516828). Primary occultation evidence constraining wake structure and viewing-angle effects.
 - [NASA Cassini, Staggering structure](https://science.nasa.gov/resource/staggering-structure/). Mission explanation of the observed Janus-driven spiral density wave.
 
-## 99. The cosmic web: attraction amplifies a slight imbalance
+## 99. Gravitational structure: attraction builds a cosmic web
 
 Established phenomenon
 
@@ -2145,7 +2145,7 @@ The emergent objects include gravitationally bound concentrations called **halos
 - [Springel et al. (2005), Simulating the joint evolution of quasars, galaxies and their large-scale distribution](https://arxiv.org/abs/astro-ph/0504097). Primary large-volume calculation of hierarchical dark-matter structure and modeled luminous populations.
 - [Bertschinger (1995), Cosmological dynamics](https://arxiv.org/abs/astro-ph/9503125). Lecture notes on perturbation growth, gravitational dynamics, and their cosmological assumptions.
 
-## 100. Spacetime from quantum structure: a frontier, not a finished example
+## 100. Emergent spacetime: a frontier, not a finished example
 
 Open interpretation
 
