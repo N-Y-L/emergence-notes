@@ -19,7 +19,7 @@ function chart(series,{xmin,xmax,ymin,ymax,xlabel,ylabel}){
 }
 function grid(cells,size,x0,y0,side,color,shape=false){const w=side/size;return cells.map((v,i)=>v?`<rect x="${x0+(i%size)*w}" y="${y0+Math.floor(i/size)*w}" width="${w-.35}" height="${w-.35}" fill="${color(v,i)}"/>${shape&&v===2?`<circle cx="${x0+(i%size+.5)*w}" cy="${y0+(Math.floor(i/size)+.5)*w}" r="${w*.15}" fill="white"/>`:''}`:'').join('');}
 function draw(key,d){
- if(key==='diffusion')return svg('Many steps, one smooth distribution',chart([
+ if(key==='diffusion')return svg('Exact random-walk probabilities and Gaussian approximation',chart([
  {points:d.gaussian.map(p=>({x:p.x,y:p.density})),color:red,dash:true},
  {points:d.points.map(p=>({x:p.x,y:p.density})),dots:true,color:blue}
  ],{xmin:-d.parameters.steps-1,xmax:d.parameters.steps+1,ymin:0,ymax:Math.max(...d.points.map(p=>p.density),...d.gaussian.map(p=>p.density))*1.15,xlabel:'displacement (step lengths)',ylabel:'probability per unit displacement'}),'Blue dots: exact probability divided by reachable-site spacing 2. Dashed red: Gaussian density with the same mean and variance.');
@@ -42,10 +42,10 @@ function draw(key,d){
 function readout(key,d){
  if(key==='diffusion')return `Mean displacement ${fixed(d.mean)}; variance ${fixed(d.variance)}; total probability ${fixed(d.mass,8)}. Blue dots show exact probability ÷ 2; the dashed red curve is a Gaussian density.`;
  if(key==='meanField')return `Minimum at m ≈ ${d.minima.map(p=>fixed(p.m)).join(' and ')}. Magnetization grid spacing: 0.001. Blue: free energy; red dots: lowest grid values. The infinite-range model has its zero-field transition at kBT/J = 1.`;
- if(key==='synchronization')return `Coherence at time ${d.parameters.duration}: r = ${fixed(d.coherence)}. Seed ${d.parameters.seed}; 24 oscillators. A finite-time result does not establish an infinite-system transition. Dots: oscillator phases; red line: their average vector.`;
+ if(key==='synchronization')return `Coherence at time ${d.parameters.duration}: r = ${fixed(d.coherence)}. Seed ${d.parameters.seed}; 24 oscillators. Dots: oscillator phases; red line: their average vector.`;
  if(key==='turing')return `Uniform growth rate −0.100. Largest sampled growth ${fixed(d.peak.growth)} at k ≈ ${fixed(d.peak.k)}. ${d.peak.growth>0?'A band of spatial disturbances grows.':'All sampled spatial disturbances decay.'}`;
- if(key==='percolation')return `Top-to-bottom path: ${d.spanning?'present':'absent'}. Largest cluster contains ${d.largest} of ${d.occupied} occupied sites. One ${d.parameters.size} × ${d.parameters.size} sample at seed ${d.parameters.seed}; this is not an estimate of the critical occupation probability.`;
- if(key==='segregation')return `Same-group fraction among occupied neighbor pairs: ${fixed(d.history[0].sameNeighborFraction)} → ${fixed(d.final.sameNeighborFraction)}. Unhappy agents remaining: ${d.final.unhappy}. ${d.totalMoves} moves in ${d.final.sweep} sweeps. Seed ${d.parameters.seed}. ${d.final.unhappy?'The run has not settled.':'No agent currently requests a move.'}`;
+ if(key==='percolation')return `Top-to-bottom path: ${d.spanning?'present':'absent'}. Largest cluster contains ${d.largest} of ${d.occupied} occupied sites. One ${d.parameters.size} × ${d.parameters.size} sample at seed ${d.parameters.seed}.`;
+ if(key==='segregation')return `Same-group fraction among occupied neighbor pairs: ${fixed(d.history[0].sameNeighborFraction)} → ${fixed(d.final.sameNeighborFraction)}. Members below their threshold: ${d.final.unhappy}. ${d.totalMoves} moves in ${d.final.sweep} sweeps. Seed ${d.parameters.seed}. ${d.final.unhappy?'The run has not settled.':'No member currently requests a move.'}`;
 }
 return {draw,readout,escape:esc};
 });

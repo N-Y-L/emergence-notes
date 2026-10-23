@@ -1,63 +1,56 @@
 # Notes on emergent properties
 
 **[Read the notes](https://n-y-l.github.io/emergence-notes/)** ·
-[Start here](https://n-y-l.github.io/emergence-notes/start.html) ·
+[Introduction](https://n-y-l.github.io/emergence-notes/start.html) ·
 [Reading paths](https://n-y-l.github.io/emergence-notes/routes.html) ·
-[Six interactive models](https://n-y-l.github.io/emergence-notes/experiments.html)
+[Interactive models](https://n-y-l.github.io/emergence-notes/experiments.html)
 
-In these notes we catalog some interesting emergent properties: what the parts
-do, what appears collectively, why the larger-scale description works, and where
-it stops working. There are 100 examples, each with a question to explore.
-The intended reader knows graduate physics and mathematics; specialized
-biology, neuroscience, economics, and computing vocabulary is introduced locally.
+These notes explain how interactions among many constituents give rise to
+collective properties. Ten chapters develop 100 examples, from pressure and
+magnetism through living matter, neural activity, societies, computation, and
+the cosmos. Each entry explains a mechanism and cites the work supporting it.
 
-The ten chapters cover bulk behavior; ordering and criticality; quantum matter;
-dynamical patterns; living matter; ecology and evolution; brains; societies;
-computation and networks; and landscapes, planets, and the cosmos. This is a
-bounded selection of major families, not a claim of exhaustive coverage.
-Established observations, results about models, and open interpretations are
-labeled separately. Every entry includes a concrete question and annotated sources.
+The assumed background is graduate mathematics, basic graduate quantum
+mechanics, and introductory condensed matter. Other specialized terms are
+defined as they arise. The writing is Codex-assisted; read it with a grain of
+salt and check the cited sources.
 
-## Read offline
+## Reading offline
 
-Download the repository ZIP, extract it, and open **`index.html`** in a browser.
-No installation, server, account, or internet connection is needed to read the
-notes, search, use the models, or render equations. External sources require
-internet. Default figures and accessible mathematical markup are saved in the
-HTML, so the notes also remain readable without JavaScript.
+Download and extract the repository ZIP, then open **`index.html`** in a browser.
+No installation, server, or internet connection is needed to read, search, or
+use the models. External references require internet access. The equations and
+initial figures are saved in the pages, so the notes remain readable without
+JavaScript.
 
-The [complete reading page](all.html) is convenient for printing. The generated
-[Markdown reading copy](docs/notes.md) includes the introduction, all entries,
-and concluding connections. The [glossary](glossary.html) collects recurring terms.
+Use [all.html](all.html) for printing, [docs/notes.md](docs/notes.md) for the
+complete Markdown reading copy, or the [glossary](glossary.html) for recurring
+terms. [Reading paths](routes.html) connect shorter sequences of entries.
 
-## What the models calculate
+## Models and reproducibility
 
-| Model | Calculation and limits |
+| Model | Calculation |
 |---|---|
-| Diffusion | Exact independent-step probabilities and their Gaussian approximation; step length and duration are one. |
-| Collective ordering | Curie–Weiss free energy in the thermodynamic limit, with minima located on a 0.001 magnetization grid; not an exact short-range lattice calculation. |
-| Synchronization | 24 Kuramoto oscillators; fourth-order Runge–Kutta, time step 0.02, recorded initial-phase seed. Finite-time coherence is not a proof of frequency locking. |
-| Turing instability | Eigenvalue growth rates around a uniform Schnakenberg reaction state; no nonlinear final pattern is simulated. |
-| Percolation | Exact cluster enumeration on a finite open square grid; a sample spanning event is not an infinite-system threshold estimate. |
-| Segregation | A specified relocation model with conserved populations and recorded seed; a possibility demonstration, not an empirical model of a particular city. |
+| Random walk | Exact independent-step probabilities and their Gaussian approximation. |
+| Curie–Weiss magnet | Thermodynamic-limit free energy, with minima located on a 0.001 magnetization grid. |
+| Kuramoto oscillators | 24 coupled phases, integrated with fourth-order Runge–Kutta and time step 0.02. |
+| Reaction–diffusion instability | Linear growth rates around a uniform Schnakenberg reaction state. |
+| Site percolation | Exact cluster enumeration on a finite square grid with open boundaries. |
+| Relocation | A specified Schelling-type model with conserved group populations and periodic boundaries. |
 
-The model equations, units, boundaries, algorithms, and limitations are beside
-each figure. “Save figure” exports genuine vector SVG; “Save calculation” exports
-JSON with software version, parameters, seeds, and results. These downloads are
-records, not importable sessions. A link remains available for repeating the
-download until parameters change. All random draws use Mulberry32 with explicit
-unsigned integer seeds. There is no automatic animation or frame-dependent simulation.
+Equations, parameters, units, and limitations accompany the figures. The
+[default calculation records](docs/model-defaults.json) contain numerical
+results, parameters, and seeds; the [SVG figures](assets/figures/) are genuine
+vector graphics. Random draws use Mulberry32 with explicit unsigned integer
+seeds. Parameter changes recompute the models without automatic animation.
 
-## Reproduce and edit
+## Editing and checking
 
-Node.js 22 or newer runs the model tests without installing packages:
+Edit `content/*.json` for prose. These strings contain ordinary Markdown and
+LaTeX. HTML pages, the search index, figures, and `docs/notes.md` are generated;
+edit their sources and rebuild rather than changing the outputs directly.
 
-```sh
-npm test
-npm run check
-```
-
-To edit and regenerate the committed pages:
+With Node.js 22 or newer:
 
 ```sh
 npm ci --ignore-scripts
@@ -66,37 +59,33 @@ npm test
 npm run check
 ```
 
-The documentation dependencies are pinned. The build typesets equations with
-local KaTeX, creates static figure defaults, and generates all reading copies.
-Edit `content/*.json` for prose; the JSON strings contain ordinary Markdown and
-LaTeX. Do not edit generated HTML or `docs/notes.md` directly.
+The model tests and site checks also run without installing dependencies when
+using the committed pages. The build uses pinned local Markdown and KaTeX
+dependencies. Tests cover identities, limiting cases, convergence, connectivity,
+and conservation; the site checker verifies local links, anchors, and figures.
 
-| Location | Purpose |
+| Source | Purpose |
 |---|---|
-| `content/01-*.json` … `content/10-*.json` | Authoritative chapter prose, stable entry IDs, and annotated sources |
-| `content/framework.json`, `content/glossary.json` | Introduction, synthesis, and shared vocabulary |
-| `models.js` | Pure, browser-independent calculations |
-| `lab-specs.js`, `figures.js`, `app.js` | Model explanations, vector drawing, controls, search, and exports |
-| `scripts/build.mjs` | Reproducible reading-page generation |
-| `tests/` | Independent identities, limits, convergence, connectivity, and conservation checks |
-| `scripts/check-site.mjs` | Local links, anchors, saved figures, and rendering-structure checks |
-| `docs/model-defaults.json` | Complete numerical records for the six saved default figures |
-| `docs/content-summary.json` | Generated entry, word, and source counts |
+| `content/01-*.json` … `content/10-*.json` | Chapter prose, entry IDs, and references |
+| `content/framework.json`, `content/glossary.json` | Introduction, concluding comparisons, and definitions |
+| `models.js` | Browser-independent calculations |
+| `lab-specs.js`, `figures.js`, `app.js` | Model explanations, figures, controls, and search |
+| `scripts/build.mjs` | Page and reading-copy generation |
+| `tests/`, `scripts/check-site.mjs` | Numerical tests and site checks |
 
-For an optional local server, run `npm start` and open
-[localhost:8000](http://127.0.0.1:8000). Alternatively run
-`python3 -m http.server 8000 --bind 127.0.0.1`; on Windows use `py -3` in place
-of `python3`. Stop with Ctrl+C. GitHub Pages serves the committed root files;
-there is no runtime service or data collection.
+For a local preview, run `npm start` and open
+[localhost:8000](http://127.0.0.1:8000). This uses Python 3; on Windows, the
+alternative is `py -3 -m http.server 8000 --bind 127.0.0.1`. Stop with Ctrl+C.
+GitHub Pages serves the committed root files. There is no runtime service or
+data collection.
 
-## Sources and license
+## References and license
 
-The [annotated source index](sources.html) states what each reference supports.
-No third-party article text or illustrations are reproduced. The style follows
-the companion [anyon](https://n-y-l.github.io/anyon-playground/) and
-[transport](https://n-y-l.github.io/quantum-transport-notes/) notes.
+The [reference index](sources.html) identifies what each source supports.
+Related physics is developed in the companion [anyon](https://n-y-l.github.io/anyon-playground/)
+and [transport](https://n-y-l.github.io/quantum-transport-notes/) notes.
 
-Original writing and figures: **[CC BY 4.0](LICENSE-CONTENT)**.
+Original text and figures: **[CC BY 4.0](LICENSE-CONTENT)**.
 Original code: **[MIT](LICENSE-CODE)**.
 Copyright © 2026 Neil Yuanting Li. See [LICENSE](LICENSE) for the division and
 suggested attribution. Bundled [KaTeX](vendor/katex/LICENSE) retains its MIT license.

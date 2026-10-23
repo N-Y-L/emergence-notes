@@ -1,27 +1,195 @@
 /* Copyright (c) 2026 Neil Yuanting Li. MIT License; see LICENSE-CODE. */
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.EmergenceLabs=factory();})(globalThis,function(){return [
-{key:'diffusion',title:'Many steps, a smooth law',entry:'diffusion',chapter:'bulk',defaults:{steps:30,right:.5},controls:[['steps','Number of steps',1,100,1],['right','Probability of a right step',.05,.95,.05]],
-intro:'We let a walker take independent steps of length one, right with probability $p$ and left otherwise. The location after $n$ steps is random, but its distribution is exactly calculable. Increase the number of steps and compare the discrete answer with a smooth Gaussian.',
-math:'The mean is $n(2p-1)$ and the variance is $4np(1-p)$. The exact probability of $j$ right steps is $\\binom nj p^j(1-p)^{n-j}$ at position $x=2j-n$. We calculate the probabilities by a stable recurrence. Reachable sites are separated by two, so the dots show probability divided by two, which is comparable with a continuous density.',
-try:'Start at p = 0.5 with one step, then increase to 50. Now bias the walk. Does the distribution still broaden while its center travels?',limit:'This is an independent-step model, not molecular dynamics. The Gaussian comparison is an approximation; it can assign nonzero density outside the exact finite range. Step length and time per step are both one.'},
-{key:'meanField',title:'When the symmetric state stops winning',entry:'ferromagnetism',chapter:'order',defaults:{temperature:.7,field:0},controls:[['temperature','Reduced temperature kBT/J',.2,2,.02],['field','Reduced field h/J',-.3,.3,.01]],
-intro:'We consider $N$ spins $s_i=\\pm1$ with equally strong coupling to every other spin, scaled by $1/N$. Their magnetization is $m=N^{-1}\\sum_i s_i$. The exact thermodynamic-limit free energy of this infinite-range model has the same form as a mean-field approximation to short-range magnets.',
-math:'In units of the interaction scale $J$, the free energy per spin is $f/J=-m^2/2-(h/J)m+(k_BT/J)[(1+m)\\ln((1+m)/2)+(1-m)\\ln((1-m)/2)]/2$. We use $0\\ln0=0$. Its minima balance alignment energy against the number of spin configurations. The plot subtracts $f(0)$ and searches a magnetization grid spaced by 0.001.',
-try:'Keep the field at zero and cross reduced temperature one. Then add a tiny field below one. Which degeneracy does the field remove?',limit:'This free energy is for an infinite-range Ising model in the thermodynamic limit. It is not the exact two-dimensional short-range Ising free energy. No spatial domains or relaxation dynamics are simulated.'},
-{key:'synchronization',title:'Oscillators negotiate a shared rhythm',entry:'synchronization',chapter:'patterns',defaults:{coupling:2,seed:17,duration:20,dt:.02},controls:[['coupling','Coupling K',0,5,.1],['duration','Elapsed model time',0,40,1],['seed','Initial-phase seed',1,100,1]],
-intro:'We give 24 oscillators different natural angular frequencies $\\omega_i$, equally spaced from −1 to 1. Each phase $\\theta_i$ is an angle marking position within a cycle. Coupling encourages phases to align, while frequency differences pull them apart.',
-math:'The model is $\\dot\\theta_i=\\omega_i+(K/N)\\sum_j\\sin(\\theta_j-\\theta_i)$. Its coherence is $r=|N^{-1}\\sum_j e^{i\\theta_j}|$. The red vector is that complex average: a long vector indicates concentrated phases. Fourth-order Runge–Kutta integration uses time step 0.02; the initial phases use the displayed seed.',
-try:'Compare K = 0 and K = 3 with the same seed and elapsed time. Then change the time. Is a large coherence at one instant enough to establish sustained synchronization?',limit:'This is a deterministic finite population with all-to-all sinusoidal coupling and no noise. A snapshot of phase coherence does not establish frequency locking or a thermodynamic transition. No animate-by-frame timing enters the calculation.'},
-{key:'turing',title:'Diffusion can sharpen a difference',entry:'turing-patterns',chapter:'patterns',defaults:{ratio:10},controls:[['ratio','Diffusion ratio Dᵥ / Dᵤ',1,40,.5]],
-intro:'We use two interacting concentrations, $u$ and $v$, whose spatially uniform steady state is stable without diffusion. If one spreads sufficiently faster than the other, some spatial disturbances can nevertheless grow. We inspect their growth rates before attempting to draw a finished pattern.',
-math:'In dimensionless units, $\\partial_tu=0.1-u+u^2v+\\nabla^2u$ and $\\partial_tv=0.9-u^2v+D\\nabla^2v$. The uniform state is $(u,v)=(1,0.9)$. A small Fourier disturbance of wave number $k$ is governed by the matrix $\\left(\\begin{smallmatrix}0.8-k^2&1\\\\-1.8&-1-Dk^2\\end{smallmatrix}\\right)$. The plotted value is the largest real part of its eigenvalues. A positive value predicts exponential growth in the linear regime.',
-try:'Begin with equal diffusion rates. Increase the ratio and watch a band rise above zero while the uniform mode stays stable.',limit:'This is the linear stability calculation for specified Schnakenberg reaction kinetics. It does not compute the nonlinear saturated stripes or spots. The wave-number scan is continuous and sampled; a finite domain admits only particular modes.'},
-{key:'percolation',title:'A connected path appears',entry:'percolation',chapter:'computation',defaults:{occupation:.59,seed:17,size:32},controls:[['occupation','Site occupation probability',0,1,.01],['seed','Disorder seed',1,100,1]],
-intro:'We independently occupy sites on a 32 by 32 square grid with probability $p$. Occupied sites connect only across a shared edge. A cluster is a set joined by such paths. Local occupancy can then produce a global event: one cluster reaches from the top edge to the bottom.',
-math:'The calculation enumerates every connected cluster exactly for the displayed sample. Boundaries are open, with no wraparound. Reusing a seed keeps the underlying random numbers fixed, so increasing $p$ only adds occupied sites. Red squares with white dots mark every spanning cluster.',
-try:'Slowly increase p with a fixed seed until a path forms, then repeat for another seed. Why do the two samples connect at different settings?',limit:'A single finite sample has its own first spanning event. Its displayed occupation is not an estimate of an infinite-lattice threshold or a material conductivity. All random draws use the recorded Mulberry32 seed.'},
-{key:'segregation',title:'A modest local rule, a different global map',entry:'segregation',chapter:'societies',defaults:{threshold:.4,seed:17,sweeps:20,size:24},controls:[['threshold','Requested same-group neighbor fraction',0,1,.05],['sweeps','Maximum relocation sweeps',0,60,1],['seed','Placement and relocation seed',1,100,1]],
-intro:'We place two arbitrary groups on a 24 by 24 grid with about 20% vacancies. A member requests a move if its same-group fraction among occupied neighbors is below the threshold. This is a precisely specified possibility model: it does not estimate anyone’s preferences or the causes of segregation in a real city.',
-math:'The eight surrounding sites form the neighborhood, with periodic boundaries. An isolated member is satisfied. Each sweep visits positions in seeded random order; an unhappy member moves to a uniformly chosen vacancy, whether or not that destination will satisfy it. An arrival is not moved again within the same sweep. Blue solid squares and red squares with a white dot distinguish the groups; blank squares are vacancies.',
-try:'Hold the seed fixed and compare threshold zero, 0.3, and 0.6. Inspect both the neighbor statistic and how many members remain unhappy; a visually separated map need not be a settled state.',limit:'Population counts are conserved. Runs stop when all members are satisfied or the sweep limit is reached. There are no prices, discriminatory institutions, geography, or group-specific rules. This model cannot apportion real-world causes or justify a policy conclusion.'}
-];});
+  {
+    "key": "diffusion",
+    "title": "Diffusion from a random walk",
+    "entry": "diffusion",
+    "chapter": "bulk",
+    "defaults": {
+      "steps": 30,
+      "right": 0.5
+    },
+    "controls": [
+      [
+        "steps",
+        "Number of steps",
+        1,
+        100,
+        1
+      ],
+      [
+        "right",
+        "Probability of a right step",
+        0.05,
+        0.95,
+        0.05
+      ]
+    ],
+    "intro": "A walker takes independent steps of length one, to the right with probability $p$ and to the left with probability $1-p$. After $n$ steps its position varies between realizations, but we can calculate the probability of each possible position exactly. The comparison with a Gaussian shows how a smooth description develops as the number of steps grows.",
+    "math": "If $j$ steps go right, the displacement is $x=2j-n$ and its probability is $\\binom nj p^j(1-p)^{n-j}$. The mean displacement is $n(2p-1)$ and the variance is $4np(1-p)$. The Gaussian has this same mean and variance. Successive reachable sites are two units apart, so the plotted dots show probability divided by two, for comparison with a continuous probability density.",
+    "limit": "Step length and time per step are both one. The Gaussian approximation can assign density outside the finite range of the walk and is poor when too few steps sample the less probable direction.",
+    "caption": "Blue dots show the exact distribution; the dashed red curve shows its Gaussian approximation. A bias shifts the mean while the distribution continues to broaden."
+  },
+  {
+    "key": "meanField",
+    "title": "Ordering in the Curie–Weiss model",
+    "entry": "ferromagnetism",
+    "chapter": "order",
+    "defaults": {
+      "temperature": 0.7,
+      "field": 0
+    },
+    "controls": [
+      [
+        "temperature",
+        "Reduced temperature kBT/J",
+        0.2,
+        2,
+        0.02
+      ],
+      [
+        "field",
+        "Reduced field h/J",
+        -0.3,
+        0.3,
+        0.01
+      ]
+    ],
+    "intro": "The Curie–Weiss model contains $N$ spins $s_i=\\pm1$, each coupled equally to all the others. Their mean $m=N^{-1}\\sum_i s_i$ is the magnetization per spin. The pair coupling is $J/N$, with $J>0$, so the interaction energy per spin remains finite as $N$ grows. A field $h$, measured in energy units, favors one sign.",
+    "math": "At temperature $T$, the free energy per spin in the thermodynamic limit is $f/J=-m^2/2-(h/J)m+(k_BT/J)[(1+m)\\ln((1+m)/2)+(1-m)\\ln((1-m)/2)]/2$, where $k_B$ is Boltzmann’s constant and $0\\ln0=0$. The interaction favors alignment; the entropy favors the many configurations with small magnetization. Equilibrium selects the global minimum of $f$. The plot subtracts $f(0)$ and locates minima on a magnetization grid with spacing 0.001.",
+    "limit": "This free energy is exact for the infinite-range model in the thermodynamic limit. Applied to a short-range magnet it is a mean-field approximation. The calculation contains no spatial domains or relaxation dynamics.",
+    "caption": "At zero field, cooling through kBT/J = 1 changes the minimum at zero magnetization into two symmetry-related minima. A nonzero field favors one of them."
+  },
+  {
+    "key": "synchronization",
+    "title": "Phase coherence in the Kuramoto model",
+    "entry": "synchronization",
+    "chapter": "patterns",
+    "defaults": {
+      "coupling": 2,
+      "seed": 17,
+      "duration": 20,
+      "dt": 0.02
+    },
+    "controls": [
+      [
+        "coupling",
+        "Coupling K",
+        0,
+        5,
+        0.1
+      ],
+      [
+        "duration",
+        "Elapsed model time",
+        0,
+        40,
+        1
+      ],
+      [
+        "seed",
+        "Initial-phase seed",
+        1,
+        100,
+        1
+      ]
+    ],
+    "intro": "Each of $N=24$ oscillators has a phase $\\theta_i$, an angle specifying its position in a cycle, and a natural angular frequency $\\omega_i$. The frequencies are equally spaced from $-1$ to $1$ in the chosen inverse-time unit. Sinusoidal coupling of strength $K$, also measured in inverse time, changes each oscillator’s instantaneous speed according to its phase differences from the others.",
+    "math": "The dynamics are $\\dot\\theta_i=\\omega_i+(K/N)\\sum_j\\sin(\\theta_j-\\theta_i)$. The magnitude $r=|N^{-1}\\sum_j e^{i\\theta_j}|$ measures phase coherence: $r=1$ when all phases agree, while a small $r$ means that their unit vectors largely cancel. The red line represents this average vector. Fourth-order Runge–Kutta integration uses time step 0.02; the seed fixes the initial phases.",
+    "limit": "The display is a finite-time snapshot of a finite population. Frequency locking means equal long-time average frequencies, which cannot be established from a single value of phase coherence.",
+    "caption": "The two circles compare the initial phases with those at the selected time. Increasing the coupling can bring phases together despite different natural frequencies."
+  },
+  {
+    "key": "turing",
+    "title": "A reaction–diffusion instability",
+    "entry": "turing-patterns",
+    "chapter": "patterns",
+    "defaults": {
+      "ratio": 10
+    },
+    "controls": [
+      [
+        "ratio",
+        "Diffusion ratio Dᵥ / Dᵤ",
+        1,
+        40,
+        0.5
+      ]
+    ],
+    "intro": "Two reacting concentrations, $u$ and $v$, have a uniform steady state that is stable without diffusion. Diffusion ordinarily smooths a disturbance. Here unequal diffusion rates can instead destabilize the coupled system, allowing some spatial variations to grow. We calculate the growth rates of small disturbances.",
+    "math": "In dimensionless units the reactions and diffusion obey $\\partial_tu=0.1-u+u^2v+\\nabla^2u$ and $\\partial_tv=0.9-u^2v+D\\nabla^2v$. Here $D$ is the diffusion coefficient of $v$ divided by that of $u$. The uniform state is $(u,v)=(1,0.9)$. A Fourier disturbance with wave number $k$ evolves according to the matrix $\\left(\\begin{smallmatrix}0.8-k^2&1\\\\-1.8&-1-Dk^2\\end{smallmatrix}\\right)$. The largest real part of its eigenvalues is the plotted growth rate. A positive rate means exponential growth within the linear approximation.",
+    "limit": "These are Schnakenberg reaction kinetics. The calculation predicts the onset of instability, not the eventual stripe or spot pattern. It samples a continuous range of wave numbers; a finite domain permits only the modes compatible with its boundaries.",
+    "caption": "At equal diffusion rates all modes decay. A sufficiently large ratio allows a band of nonzero wave numbers to grow while the uniform mode remains stable."
+  },
+  {
+    "key": "percolation",
+    "title": "Connectivity in site percolation",
+    "entry": "percolation",
+    "chapter": "computation",
+    "defaults": {
+      "occupation": 0.59,
+      "seed": 17,
+      "size": 32
+    },
+    "controls": [
+      [
+        "occupation",
+        "Site occupation probability",
+        0,
+        1,
+        0.01
+      ],
+      [
+        "seed",
+        "Disorder seed",
+        1,
+        100,
+        1
+      ]
+    ],
+    "intro": "Each site of a $32\\times32$ square grid is independently occupied with probability $p$. Occupied sites connect across a shared edge. A cluster is a set of occupied sites joined by such connections; a spanning cluster reaches both the top and bottom boundaries. Increasing local occupancy can therefore create a path across the entire grid.",
+    "math": "The calculation identifies every connected cluster in the displayed sample. Boundaries are open, so opposite edges are not joined. Keeping the seed fixed reuses the same random numbers: increasing $p$ adds sites without removing any. Red sites with white dots belong to spanning clusters; blue sites belong to the other clusters.",
+    "limit": "An infinite-lattice critical probability describes a limit of large systems. One sample’s first spanning event does not determine that limit; estimating it requires repeated samples and analysis of size dependence.",
+    "caption": "A spanning path appears at a sample-dependent occupation probability. Changing the seed changes the sample and can move this first spanning event."
+  },
+  {
+    "key": "segregation",
+    "title": "Segregation in a relocation model",
+    "entry": "segregation",
+    "chapter": "societies",
+    "defaults": {
+      "threshold": 0.4,
+      "seed": 17,
+      "sweeps": 20,
+      "size": 24
+    },
+    "controls": [
+      [
+        "threshold",
+        "Requested same-group neighbor fraction",
+        0,
+        1,
+        0.05
+      ],
+      [
+        "sweeps",
+        "Maximum relocation sweeps",
+        0,
+        60,
+        1
+      ],
+      [
+        "seed",
+        "Placement and relocation seed",
+        1,
+        100,
+        1
+      ]
+    ],
+    "intro": "A $24\\times24$ grid holds members of two groups and about 20% vacant sites. A member requests a move when the fraction of its occupied neighbors in the same group falls below a chosen threshold. Repeated moves change the neighborhood of other members, allowing a local rule to reorganize the whole grid.",
+    "math": "The neighborhood consists of the eight surrounding sites; opposite edges of the grid are identified. A member without occupied neighbors makes no move. Each sweep visits positions in a seeded random order. A member below its threshold moves to a uniformly chosen vacancy, even if the new location also fails the threshold. An arrival is not moved again during that sweep. Blue squares and red squares with white dots distinguish the groups; blank sites are vacancies.",
+    "limit": "Both group populations are conserved. A run stops when all members meet their thresholds or the sweep limit is reached. This variant of a Schelling model isolates a possible mechanism; it contains no housing prices, geography, or discriminatory institutions with which to assess their empirical contributions.",
+    "caption": "The panels show the initial and final arrangements. The fraction of occupied neighbor pairs that belong to the same group measures spatial separation. The number of members still below their individual threshold shows whether further moves are possible."
+  }
+];
+});

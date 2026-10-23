@@ -1,256 +1,246 @@
 {
   "number": 10,
   "slug": "earth-cosmos",
-  "title": "Landscapes, planets, and the cosmos",
-  "intro": "We now enlarge the laboratory until its walls disappear. Sand grains build migrating hills; flowing water edits the route of the next flood; clouds change the radiation that drives their own circulation. The materials are familiar, but the useful objects are dunes, drainage basins, storms, and climates.\n\nScale alone does not supply an explanation. We still need to identify a feedback, a conservation law, an instability, or a collective mode. We also need to separate the timescale on which a pattern changes from the timescale on which its constituents move. A ring wave is not a queue of particles following the wave around Saturn. A tectonic plate can remain approximately coherent while the material beneath it slowly deforms.\n\nThe first nine entries concern observed systems and explanatory models with identifiable domains of validity. The final entry deliberately changes status: emergent spacetime is a frontier supported by important theoretical constructions, not a demonstrated account of the origin of our universe. Putting it last lets us carry the discipline learned from simpler examples into a question whose answer remains open.",
+  "title": "Landscapes, planets, and spacetime",
+  "intro": "Wind changes a sand bed, flowing water reshapes a drainage basin, and clouds alter the radiation that drives atmospheric circulation. In each case, the moving material changes its own conditions of motion. Dunes, channels, storms, and climates become useful objects because they summarize that coupled evolution.\n\nConservation laws constrain what these structures can do, while transport and response laws explain which structures form. Their motion can also differ from that of their constituents: a dune migrates through the transfer of grains, and a density wave travels through an orbiting ring. We will keep track of both the physical processes and the scales on which a collective description applies.\n\nThe chapter moves from landscapes and climate to plate motion, planetary rings, and gravitational clustering. The final example changes the status of the argument. Holographic theories provide a precise setting for relating quantum information to geometry, but their application to the origin of spacetime in our universe remains open.",
   "entries": [
     {
       "id": "dunes",
-      "title": "Dunes: a hill made of through-traffic",
+      "title": "Dunes: formation and migration",
       "status": "Established phenomenon",
       "mechanisms": [
         "instability",
         "feedback",
         "conservation"
       ],
-      "body": "We can watch a sand dune travel without assigning the same journey to every grain. Wind carries grains up its windward face; deposition and small avalanches transfer material to the sheltered side. The hill is a persistent arrangement maintained by moving constituents. The striking question is why a nearly flat sand bed should make regularly spaced hills at all.\n\nA small bump changes the airflow above it. In the relevant turbulent-flow regime, the strongest stress on the bed can lie slightly upstream of the crest. This favors erosion and deposition in a pattern that can enlarge the bump. Transport does not adjust instantaneously: grains need a finite distance to accelerate and the moving grain population needs distance to adjust. This **saturation length**, the distance over which transport approaches its local steady value, helps suppress sufficiently short disturbances. Destabilizing flow response and stabilizing transport delay select a range of growing wavelengths. This is a mechanism for initial dunes, not a universal explanation of every wind ripple.\n\nWe can separate conservation from the difficult transport law. In a one-dimensional section,\n\n$$(1-\\phi)\\,\\partial_t h=-\\partial_x q.$$\n\nHere $h(x,t)$ is bed height, $\\phi$ is its pore-volume fraction, and $q$ is the solid-grain volume crossing unit transverse width per unit time. A region rises if more grains enter than leave. A traveling profile $h(x-ct)$ therefore obeys $q=c(1-\\phi)h+q_0$, with speed $c$ and background flux $q_0$. This relation constrains a moving dune without choosing its shape or calculating its speed. Conservation alone does not select the pattern.\n\nThe scale comparison is instructive. Grain density $\\rho_s$, fluid density $\\rho_f$, and grain diameter $d$ form a drag length of order $(\\rho_s/\\rho_f)d$. Claudin and Andreotti tested its connection to initial bedform wavelengths across very different environments. Mature dunes also depend on wind variability, available sand, interactions, and boundaries. We should not read the first unstable wavelength as a lifetime warranty on the final landscape.",
-      "question": "If we keep the grains but greatly increase the fluid density, which length in the instability mechanism changes?",
+      "body": "A dune migrates as wind transports sand along its exposed face and deposition and avalanches transfer material toward its sheltered side. The shape persists even though individual grains continually enter, leave, or change position. Formation of the shape requires a further mechanism: a nearly flat bed must become unstable to disturbances.\n\nA small bump changes the airflow. In the turbulent-flow regime relevant to this instability, maximum bed stress can occur upstream of the crest. If sand transport responded immediately, the resulting erosion and deposition could amplify the bump. Transport instead adjusts over a finite saturation length, the distance needed to approach its local steady value. This lag suppresses sufficiently short disturbances. Its competition with the flow response selects a range of growing wavelengths.\n\nConservation constrains the subsequent motion. In a one-dimensional section,\n\n$$(1-\\phi)\\partial_t h=-\\partial_xq,$$\n\nwhere $h$ is bed height, $\\phi$ is the pore-volume fraction, and $q$ is solid-grain volume transported per unit width per unit time. A traveling profile $h(x-ct)$ obeys\n\n$$q=c(1-\\phi)h+q_0,$$\n\nwith migration speed $c$ and background flux $q_0$. Determining the speed and shape still requires a transport law.\n\nGrain density $\\rho_s$, fluid density $\\rho_f$, and grain diameter $d$ give a drag length of order $(\\rho_s/\\rho_f)d$. Claudin and Andreotti compared its scaling with initial bedform wavelengths across air and water environments. Larger fluid density reduces this length at fixed grains. Mature dunes subsequently evolve through changing winds, sand supply, and interactions, so their final spacing need not equal the first unstable wavelength.",
       "sources": [
         {
           "title": "Claudin and Andreotti (2006), A scaling law for aeolian dunes on Mars, Venus, Earth, and for subaqueous ripples",
           "url": "https://arxiv.org/abs/cond-mat/0603656",
-          "note": "Primary analysis and cross-environment wavelength comparison; the drag-length scaling has stated transport assumptions."
+          "note": "Linear instability analysis and measurements relating initial bedform wavelengths to the drag length across fluid environments."
         },
         {
           "title": "Andreotti and Claudin (2013), Aeolian and subaqueous bedforms in shear flows",
           "url": "https://doi.org/10.1098/rsta.2012.0364",
-          "note": "Review of flow–bed instability, transport adjustment, and nonlinear development."
+          "note": "Review of bed–flow instability, transport saturation, and later bedform evolution."
         }
       ]
     },
     {
       "id": "river-networks",
-      "title": "River networks: flow rewrites its own map",
+      "title": "River networks and landscape evolution",
       "status": "Established phenomenon",
       "mechanisms": [
         "feedback",
         "networks",
         "conservation"
       ],
-      "body": "We pour water onto an uneven surface and it follows the low places. If the water removes material, the low places deepen and attract more water next time. Flow changes the landscape, and the landscape redirects flow. That feedback can turn distributed runoff into a branching drainage network: a connected collection of channels delivering water to an outlet.\n\nThe constituents are water, sediment, and rock; the relevant collective variables are elevation, channel slope, and **drainage area**, the surface area whose runoff reaches a location. More drainage area often means more discharge, the water volume passing per unit time. Larger discharge can increase erosion, but sediment supply, rock strength, thresholds for moving grains, and vegetation all matter. Two visually similar networks need not share the same controlling process.\n\nA useful family of models balances uplift and incision through\n\n$$\\partial_t z=U-K A^m S^n.$$\n\nHere $z$ is surface elevation, $U$ is uplift rate, $A$ is drainage area, $S$ is the positive channel slope, and $K,m,n$ are model parameters. The units of $K$ depend on $m$ because $A$ carries area units. This **stream-power-type law** represents erosion phenomenologically; it is not a deduction from conservation alone. In a steady channel with uniform $U$ and $K$, it gives $S=(U/K)^{1/n}A^{-m/n}$. Thus a measurable relation between slope and contributing area can emerge from local erosion coupled to a whole upstream network.\n\nThis little calculation also tells us what a photograph cannot establish. A branching shape does not demonstrate that the river globally minimizes energy. Optimization models, in which we search for networks with low total dissipation, can reproduce useful statistical regularities, but real landscapes have histories, obstacles, and competing processes. Howard's drainage-basin model makes the erosion dynamics explicit; the optimal-network literature asks a complementary question about selected geometries. We want both the shape and a mechanism that could build it.",
-      "question": "Can the same area–slope relation survive a change in the microscopic erosion law, and what additional measurement would distinguish the laws?",
+      "body": "Water follows low ground, and erosion can deepen the routes it follows. Later runoff then concentrates in those channels, changing the erosion again. This feedback can organize distributed runoff into a branching drainage network that delivers water to an outlet.\n\nDrainage area $A$ is the upstream surface area whose runoff reaches a location. It often provides a proxy for discharge, the volume of water passing per unit time. Discharge and channel slope influence erosion, together with rock strength, sediment supply, vegetation, and thresholds for moving grains.\n\nA common phenomenological model balances uplift against channel incision:\n\n$$\\partial_t z=U-KA^mS^n.$$\n\nHere $z$ is elevation, $U$ is uplift rate, $S$ is positive channel slope, and $K,m,n$ are positive parameters. The term $KA^mS^n$ represents erosion rate rather than following from conservation alone. Since $S$ is dimensionless, $K$ has dimensions of length to the power $1-2m$ divided by time. For a steady channel with uniform $U$ and $K$,\n\n$$S=\\left(\\frac{U}{K}\\right)^{1/n}A^{-m/n}.$$\n\nThis relation connects a local slope to the entire contributing network through $A$. Measuring it constrains the ratio $m/n$, but does not uniquely establish an erosion law. Transient responses and sediment transport supply additional information.\n\nModels that search for networks with low total energy dissipation can reproduce statistical features of drainage geometry. Dynamical erosion models ask how such geometry develops from an initial landscape. A branching shape or area–slope relation must therefore be interpreted together with the processes and history capable of producing it.",
       "sources": [
         {
           "title": "Howard (1994), A detachment-limited model of drainage basin evolution",
           "url": "https://doi.org/10.1029/94WR00757",
-          "note": "Primary dynamical model of coupled channel and hillslope development; not a claim of universal exponents."
+          "note": "Dynamical model coupling channel incision and hillslope evolution, with channel erosion limited by removal of material from the bed."
         },
         {
           "title": "Rodríguez-Iturbe et al. (1992), Energy dissipation, runoff production, and the three-dimensional structure of river basins",
           "url": "https://doi.org/10.1029/91WR03034",
-          "note": "Primary study connecting basin geometry, runoff, and energy dissipation; complements rather than replaces erosion dynamics."
+          "note": "Study of relations among drainage geometry, runoff, and energy dissipation."
         }
       ]
     },
     {
       "id": "cloud-organization",
-      "title": "Cloud organization: storms make their own neighborhood",
+      "title": "Convective self-aggregation",
       "status": "Model result",
       "mechanisms": [
         "feedback",
         "instability"
       ],
-      "body": "We might expect an ocean with uniform surface conditions to produce a fairly uniform sprinkling of showers. Some idealized atmospheric simulations instead gather moist rising air into a few active regions and leave broad dry regions between them. **Convective self-aggregation** is this spontaneous organization under horizontally uniform forcing. Convection means heat and moisture transport by bulk fluid motion; it is not the condensation of individual water molecules by itself.\n\nThe atmosphere supplies several feedback loops. Moist air more readily sustains deep rising motion because mixing it into a cloud causes less evaporation than mixing in dry air. Water vapor and clouds also change radiative cooling. Those cooling differences drive circulation, which redistributes moisture. Surface evaporation supplies energy and water, while rain-cooled air can spread outward and alter where the next clouds form. The system therefore changes the conditions under which its own components form.\n\nTo make the collective variable concrete, we could divide a model domain into columns and assign each a vertically integrated energy-like quantity $h_i$ that includes thermal, gravitational, and moisture contributions. Its horizontal variance $V=N^{-1}\\sum_i(h_i-\\bar h)^2$ measures contrasts among the $N$ columns. If $\\dot h_i=R_i+F_i+T_i$, with radiative, surface-flux, and transport contributions, then\n\n$$\\dot V=\\frac{2}{N}\\sum_i(h_i-\\bar h)(R_i+F_i+T_i).$$\n\nThe mean tendency cancels because the deviations sum to zero. A positive correlation between energy anomalies and a tendency amplifies organization; a negative one erases it. This bookkeeping does not prove which process dominates, but it tells us what to diagnose instead of merely admiring a cloud movie.\n\nThe strongest clean demonstrations are in specified numerical models. Observed tropical cloud systems also organize, with rotation, variable ocean temperatures, winds, and disturbances participating. Work comparing idealized and realistic simulations finds related feedbacks, but does not make every organized storm an instance of pure self-aggregation. Here emergence is a testable interplay of circulation and thermodynamics, with the boundary conditions doing real work.",
-      "question": "Which term would we suppress in a controlled simulation to tell whether radiation initiates organization or merely maintains it?",
+      "body": "Some atmospheric simulations develop a few moist regions with vigorous rising motion, separated by broad dry regions, even when surface conditions and imposed forcing are horizontally uniform. This spontaneous concentration of convection, the transport of heat and moisture by fluid motion, is called convective self-aggregation.\n\nSeveral coupled processes can sustain it. Mixing moist environmental air into a cloud causes less evaporation than mixing dry air, helping rising cloudy air retain buoyancy. Water vapor and clouds also affect radiative cooling. Differences in cooling drive circulation that redistributes moisture, while surface evaporation supplies water and energy. Air cooled by evaporating rain can spread outward and affect where new convection develops.\n\nAn energy budget helps separate these contributions. Let $H_i$ be the vertically integrated moist static energy of column $i$, combining thermal energy, gravitational potential energy, and the energy associated with water phase changes. For $N$ equal-area columns with horizontal mean $\\bar H$, define the variance\n\n$$V=\\frac{1}{N}\\sum_i(H_i-\\bar H)^2.$$\n\nIf its budget is written as $\\dot H_i=R_i+F_i+T_i$, with radiative, surface-flux, and transport contributions, then\n\n$$\\dot V=\\frac{2}{N}\\sum_i(H_i-\\bar H)(R_i+F_i+T_i).$$\n\nA contribution positively correlated with energy anomalies increases column contrasts; a negative correlation reduces them. The variance does not locate the moist regions or establish their spatial coherence, so it complements maps and spatial correlations.\n\nThese diagnostics, together with simulations that remove selected feedbacks, identify how organization develops. Real tropical systems also experience rotation, variable ocean temperatures, and incoming disturbances. Comparisons with more realistic simulations test which mechanisms from idealized self-aggregation remain active under those conditions.",
       "sources": [
         {
           "title": "Wing et al. (2017), Convective self-aggregation in numerical simulations: a review",
           "url": "https://doi.org/10.1007/s10712-017-9408-4",
-          "note": "Review of moisture, radiation, surface-flux, and circulation feedbacks in idealized models."
+          "note": "Review of radiation, moisture, surface-flux, and circulation feedbacks in convective self-aggregation."
         },
         {
           "title": "Holloway (2017), Convective aggregation in realistic convective-scale simulations",
           "url": "https://doi.org/10.1002/2017MS000980",
-          "note": "Primary mechanism-denial comparisons in realistic tropical cases; evidence for connections with idealized aggregation, with limits."
+          "note": "Controlled changes to physical processes in realistic tropical simulations, testing connections with idealized aggregation mechanisms."
         }
       ]
     },
     {
       "id": "weather",
-      "title": "Weather: a reproducible climate need not repeat its days",
+      "title": "Weather predictability and climate statistics",
       "status": "Established phenomenon",
       "mechanisms": [
         "instability",
         "coarse-graining"
       ],
-      "body": "We can specify the equations of motion perfectly and still lose track of tomorrow's detailed fluid configuration if today's state is only approximately known. Weather makes this practical: the atmosphere is driven by uneven heating, rotates with Earth, exchanges water and energy with the surface, and contains instabilities at many scales. A cyclone is an organized circulation of air around a low-pressure region, not an extra constituent added to air.\n\nThe emergent description already starts before the cyclone. Temperature, pressure, and velocity fields replace molecular trajectories. At larger scales, coherent structures such as fronts—narrow transition regions between different air masses—become useful objects. Their growth and interaction depend on energy sources, stratification, rotation, and moisture. The fact that a structure has a name does not make it independent of these conditions.\n\n**Sensitive dependence on initial conditions** means that nearby starting states can separate rapidly under the same deterministic equations. If an initial discrepancy $\\delta_0$ grows approximately as $\\delta(t)=\\delta_0e^{\\lambda t}$ with positive rate $\\lambda$, a tolerated discrepancy $\\Delta$ is reached after\n\n$$t_*\\simeq\\lambda^{-1}\\ln(\\Delta/\\delta_0).$$\n\nThis is a local growth estimate, not a universal forecast horizon. It explains why multiplying measurement accuracy by a large factor may add only a modest amount of prediction time. Growth eventually saturates, and different atmospheric quantities have different predictability.\n\nLorenz's celebrated three-variable convection model isolates deterministic unpredictability; it is not a complete weather model. Operational prediction instead combines physical models with observations and runs ensembles: collections of plausible initial states and model choices. Their spread is useful only after checking how well it corresponds to forecast errors.\n\nThere is no contradiction between uncertain weather and informative climate statistics. We may fail to predict the next particular roll of a biased die while accurately estimating its distribution. Climate is harder because its distribution can itself change with external forcing, but the logical distinction survives. The useful emergent object can be a probability distribution even when a trajectory refuses to sit still.",
-      "question": "Which weather quantity would remain predictable after the exact position of an individual storm becomes uncertain?",
+      "body": "Atmospheric motion is driven by uneven heating and shaped by rotation, stratification, and moisture. Temperature, pressure, and velocity fields replace molecular trajectories; at larger scales, organized circulations and fronts become useful descriptions. A front is a narrow transition between different air masses, while a cyclone is a circulation around a low-pressure region.\n\nDeterministic equations do not ensure accurate long-term trajectories when initial conditions are imperfectly known. Sensitive dependence means that nearby states can separate rapidly under the same dynamics. If a small discrepancy grows as $\\delta(t)\\simeq\\delta_0e^{\\lambda t}$ with positive rate $\\lambda$, it reaches tolerance $\\Delta$ after\n\n$$t_*\\simeq\\lambda^{-1}\\ln(\\Delta/\\delta_0).$$\n\nThus improving initial accuracy by a large factor adds prediction time only logarithmically in this regime. Growth eventually saturates, and different quantities and spatial scales have different predictability.\n\nLorenz's three-variable convection model demonstrated how deterministic dynamics can have this sensitivity. Weather forecasting uses much more detailed models, constrained by observations. An ensemble runs several plausible initial states and model choices to estimate a range of outcomes. Its spread must be checked against actual errors before it can be interpreted as forecast uncertainty.\n\nUncertain trajectories can coexist with predictable statistics. We may lose the exact location of a future storm while retaining information about the distribution of conditions. Climate concerns such distributions over longer periods, including how they respond to external forcing. Predicting their changes requires a physical response model; it does not require predicting every individual weather event along the way.",
       "sources": [
         {
           "title": "Lorenz (1963), Deterministic nonperiodic flow",
           "url": "https://doi.org/10.1175/1520-0469(1963)020%3C0130:DNF%3E2.0.CO;2",
-          "note": "Primary low-dimensional convection model and implications for predictability; not a full atmospheric calculation."
+          "note": "Low-dimensional convection model demonstrating deterministic nonperiodic dynamics and sensitivity to initial conditions."
         },
         {
           "title": "IPCC (2021), AR6 Working Group I, Chapter 4: Future global climate",
           "url": "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-4/",
-          "note": "Assessment of climate projections, internal variability, and forced response; distinguishes climate statistics from individual weather events."
+          "note": "Assessment of forced climate response, internal variability, and the interpretation of climate projections."
         }
       ]
     },
     {
       "id": "climate-feedbacks",
-      "title": "Climate feedbacks: the thermostat is a coupled system",
+      "title": "Climate feedbacks and response times",
       "status": "Established phenomenon",
       "mechanisms": [
         "feedback",
         "coarse-graining",
         "conservation"
       ],
-      "body": "We warm an object and it usually radiates more energy away. That is a restoring tendency, but Earth's response also changes water vapor, clouds, snow, ice, and ocean heat storage. A **climate feedback** is a change caused by an initial climate response that then alters the energy balance. A **forcing** is the imposed perturbation whose response we are studying. Keeping these roles distinct prevents an accounting loop from becoming a causal muddle.\n\nA compact model for a small temperature anomaly $T$ relative to a reference climate is\n\n$$C\\frac{dT}{dt}=F-\\lambda T.$$\n\nHere $C$ is effective heat capacity per area in $\\mathrm{J\\,m^{-2}\\,K^{-1}}$, $F$ is imposed energy input per area per time in $\\mathrm{W\\,m^{-2}}$, and $\\lambda>0$ is the net restoring coefficient in $\\mathrm{W\\,m^{-2}\\,K^{-1}}$. For constant $F$ and $T(0)=0$, we obtain $T(t)=F[1-e^{-t\\lambda/C}]/\\lambda$. The equilibrium response is $F/\\lambda$ and the relaxation time is $C/\\lambda$. These are system properties assembled from several processes; no single molecule has this climate sensitivity.\n\nThe positive sign convention for $\\lambda$ denotes restoration. A feedback that amplifies warming reduces the net restoring coefficient in this convention. For example, warmer air can support more water vapor, which changes infrared absorption. The direct increase of thermal emission with temperature opposes the initial warming. Their competition, together with clouds and other responses, determines the net result. A positive feedback does not by itself imply unlimited runaway growth.\n\nThe one-box equation is a deliberate simplification. A surface layer and a deep ocean have different heat capacities and exchange heat, producing more than one response time. Feedback strengths can depend on the spatial warming pattern and on the reference state. We use the simple solution to distinguish amplitude from delay, then check a more detailed model before assigning a number to Earth. The emergence here is an effective response law, constrained by energy conservation and assembled from coupled processes.",
-      "question": "Can two climates have the same eventual temperature response but different warming histories?",
+      "body": "Earth loses energy by emitting infrared radiation, and warming generally increases that emission. The response also changes water vapor, clouds, snow, ice, and ocean heat uptake. A climate feedback is a change caused by the climate response that then modifies the energy balance. A forcing is the imposed perturbation whose response we are studying.\n\nFor a small temperature anomaly $T$ relative to a reference state, a one-layer energy-balance model is\n\n$$C\\frac{dT}{dt}=F-\\lambda T.$$\n\nHere $C$ is heat capacity per area in $\\mathrm{J\\,m^{-2}\\,K^{-1}}$, $F$ is imposed net energy flux in $\\mathrm{W\\,m^{-2}}$, and $\\lambda>0$ is a restoring coefficient in $\\mathrm{W\\,m^{-2}\\,K^{-1}}$. With constant $F$ and $T(0)=0$,\n\n$$T(t)=\\frac{F}{\\lambda}\\left(1-e^{-t\\lambda/C}\\right).$$\n\nThe equilibrium response $F/\\lambda$ and relaxation time $C/\\lambda$ are distinct. Two systems with the same restoring coefficient but different heat capacities reach the same final anomaly through different warming histories.\n\nIn this sign convention, an amplifying feedback reduces $\\lambda$. Increased water vapor under warming, for example, strengthens infrared absorption and opposes part of the increase in outgoing radiation. A positive feedback can therefore amplify a finite response while the total restoring coefficient remains positive.\n\nThe surface and deep ocean exchange heat and have different heat capacities, giving more than one response time. Feedback strengths also depend on the warming pattern and reference climate. The simple equation separates the roles of heat storage and restoration; quantitative estimates require a model that represents the relevant coupled processes.",
       "sources": [
         {
           "title": "IPCC (2021), AR6 Working Group I, Chapter 7: The Earth’s energy budget, climate feedbacks, and climate sensitivity",
           "url": "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/",
-          "note": "Assessment of forcing, feedback decomposition, and equilibrium versus transient responses; the displayed one-box solution is an explanatory derivation."
+          "note": "Assessment of radiative forcing, feedbacks, and the distinction between equilibrium and transient climate response."
         },
         {
           "title": "Geoffroy et al. (2013), Transient climate response in a two-layer energy-balance model, Part I",
           "url": "https://doi.org/10.1175/JCLI-D-12-00195.1",
-          "note": "Primary calibration of a two-layer model and its fast and slow response modes."
+          "note": "Two-layer energy-balance model calibrated to climate models, separating fast and slow response modes."
         }
       ]
     },
     {
       "id": "ice-albedo",
-      "title": "Ice–albedo feedback: a system can remember",
+      "title": "Ice–albedo feedback and multiple equilibria",
       "status": "Established phenomenon",
       "mechanisms": [
         "feedback",
         "instability"
       ],
-      "body": "We replace a patch of bright ice with darker water. Under sunlight, the surface now absorbs a larger fraction of the incoming energy, favoring additional melting. **Albedo** is the fraction of incident light reflected by a surface or planet. The ice–albedo feedback links a changing material state to a changing energy input; it can amplify either warming or cooling.\n\nWe can see how multiple states become possible with a deliberately simple global energy balance,\n\n$$C\\dot T=\\frac{S}{4}[1-\\alpha(T)]-(A+BT).$$\n\nHere $T$ is the model’s global mean temperature and $C>0$ is effective heat capacity per area, in $\\mathrm{J\\,m^{-2}\\,K^{-1}}$. The quantity $S$ is the sunlight flux at the planet's orbit; the factor four converts an intercepted disk area to a sphere's area. The effective planetary albedo is $\\alpha(T)$, decreasing as the model loses bright ice. The linearized outgoing energy flux has intercept $A$ and positive slope $B$, with units chosen consistently for the temperature variable $T$. The right side can cross zero several times. An equilibrium is locally stable when its temperature derivative is negative: a small warming then produces net cooling.\n\nSince $\\alpha'(T)<0$ in the melting range, the derivative is $-S\\alpha'(T)/4-B$. A sufficiently steep decrease in albedo can overpower the restoring slope $B$ over part of that range. Stable warm and cold branches separated by an unstable branch are then possible. Slowly varying the sunlight can produce **hysteresis**: the state at a given forcing depends on which branch the system approached from. That is a model possibility derived from a feedback law, not a declaration that modern sea ice must possess an irreversible threshold.\n\nReal albedo depends on clouds, snow condition, melt ponds, season, and geography as well as temperature. Heat transport also couples regions. The observed ice–albedo feedback is established; the existence and location of a particular abrupt transition require additional evidence. The model shows how a smoothly varying albedo can produce multiple equilibria and abrupt transitions between them. Whether such a transition occurs depends on the feedback strength and the other processes included.",
-      "question": "How would we distinguish a slowly recovering ice cover from a system that truly has two stable states under the same forcing?",
+      "body": "Albedo is the fraction of incoming light reflected by a surface or planet. Replacing bright ice with darker water increases absorbed sunlight and favors further melting. The same feedback amplifies cooling when expanding ice reflects more sunlight.\n\nA simple global model makes the possibility of multiple equilibria explicit:\n\n$$C\\dot T=\\frac{S}{4}[1-\\alpha(T)]-(A+BT).$$\n\nHere $T$ is mean temperature, $C>0$ is heat capacity per area, and $S$ is sunlight flux at the planet's orbit. The factor four converts intercepted disk area to total spherical area. The effective planetary albedo $\\alpha(T)$ falls as ice is lost. Outgoing radiation is approximated by $A+BT$, with $B>0$ and an intercept $A$ consistent with the chosen temperature scale.\n\nAn equilibrium is locally stable when the derivative of the net heating is negative. Here that derivative is\n\n$$-\\frac{S}{4}\\alpha'(T)-B.$$\n\nIn the melting range, $\\alpha'(T)<0$. A sufficiently steep decline in albedo can overcome the restoring term $B$, permitting an unstable branch between stable warm and cold equilibria. Slowly varying $S$ can then produce hysteresis: the state at a given forcing depends on which stable branch the system occupied previously.\n\nMultiple equilibria differ from slow recovery. A single stable state can take a long time to recover because of heat storage; evidence for two stable states requires persistent different outcomes under the same forcing. Clouds, seasons, geography, and heat transport modify the feedback in Earth’s climate. The observed ice–albedo feedback supports the mechanism, while a particular abrupt transition requires evidence beyond this simple model.",
       "sources": [
         {
           "title": "IPCC (2021), AR6 Working Group I, Chapter 7, §7.4.2.3: Surface-albedo feedback",
           "url": "https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/",
-          "note": "Assessment of the positive snow and ice reflectivity feedback; distinguishes surface albedo from planetary albedo."
+          "note": "Assessment of snow and ice reflectivity feedbacks and the distinction between surface and planetary albedo."
         },
         {
           "title": "Budyko (1969), The effect of solar radiation variations on the climate of the Earth",
           "url": "https://doi.org/10.1111/j.2153-3490.1969.tb00466.x",
-          "note": "Classic energy-balance model connecting ice cover and absorbed sunlight; model transitions require its assumptions."
+          "note": "Energy-balance model connecting changing ice cover with absorbed sunlight and multiple climate states."
         }
       ]
     },
     {
       "id": "plate-tectonics",
-      "title": "Plate tectonics: slow deformation and moving plates",
+      "title": "Plate motion and localized deformation",
       "status": "Established phenomenon",
       "mechanisms": [
         "coarse-graining",
         "feedback",
         "constraints"
       ],
-      "body": "We call a rock solid because it resists deformation on everyday timescales. Give mantle rock geological time, high temperature, and sustained stress, and it can deform through slow changes within and between crystals. **Creep** is this gradual deformation under load. Solid and flowing are therefore compatible descriptions when their timescales are stated.\n\nEarth's **lithosphere** is its relatively rigid outer shell, including crust and uppermost mantle. Its large moving pieces are tectonic plates. Beneath them, the weaker **asthenosphere** can deform more readily; it is not a global ocean of liquid magma. At a **subduction zone**, one plate descends beneath another into the mantle. At an ocean ridge, plates separate and new oceanic crust forms. These terms describe the organized motion, not additional kinds of fundamental matter.\n\nThe collective phenomenon is a strongly heterogeneous flow: broad regions move approximately as coherent plates while much of the deformation concentrates near their boundaries. Temperature-dependent viscosity, material strength, gravity, and past damage help determine that organization. Cold dense sinking slabs can exert substantial pull; mantle flow and plate motion are dynamically coupled. A cartoon of passive rafts carried by one prescribed conveyor belt misses that two-way interaction.\n\nA timescale estimate makes the change of description less mysterious. If a material's stress relaxes over time $\\tau$ and we observe it over time $t_{\\rm obs}$, the ratio $\\tau/t_{\\rm obs}$ helps distinguish an effectively elastic response from one in which relaxation matters. This alone does not derive plates: we also need constitutive laws specifying how stress, temperature, deformation, and damage interact. Uniformly viscous convection need not spontaneously make Earth's long-lived plate boundaries.\n\nPlate motion and subduction are well established from many kinds of observation. Why Earth developed this particular style of surface organization, how it began, and why other rocky planets differ remain active problems. We can therefore recognize an established emergent regime without pretending that its complete historical origin has been solved.",
-      "question": "What ingredient must a mantle-flow model contain before it can produce narrow persistent boundaries instead of deforming everywhere?",
+      "body": "Mantle rock is solid but can deform gradually under sustained stress over geological time. This creep occurs through changes within and between mineral crystals. A material can therefore resist rapid deformation while flowing over a sufficiently long interval.\n\nEarth's lithosphere is its relatively rigid outer shell, comprising crust and uppermost mantle. It is divided into tectonic plates above the more readily deforming asthenosphere, which is also predominantly solid. Plates separate at ocean ridges, where new oceanic crust forms. At subduction zones, one plate descends beneath another into the mantle.\n\nThe collective pattern is a flow with strong spatial contrasts: broad regions move approximately coherently while deformation concentrates near their boundaries. Cold, dense sinking slabs contribute substantial driving forces, and the resulting plate motion is coupled to mantle circulation. Temperature-dependent viscosity and material strength help determine where deformation occurs.\n\nA stress-relaxation time $\\tau$ compared with an observation time $t_{\\rm obs}$ indicates whether elastic response or accumulated relaxation is more important. That comparison explains how solid rock can flow, but does not explain narrow, persistent boundaries. Models also need constitutive laws relating stress and deformation to temperature, grain structure, and damage.\n\nBercovici and Ricard showed in an idealized model how deformation and grain evolution can create weak zones that persist and accumulate into plate boundaries. This supplies one mechanism for localization and inherited weakness. Plate motion itself is well established; explaining when this regime began on Earth and why other rocky planets evolved differently requires additional geological and dynamical evidence.",
       "sources": [
         {
           "title": "USGS, What is a tectonic plate?",
           "url": "https://pubs.usgs.gov/gip/dynamic/tectonic.html",
-          "note": "Authoritative explanation of lithosphere and plates."
+          "note": "Defines tectonic plates as parts of the lithosphere, including crust and uppermost mantle."
         },
         {
           "title": "USGS, Are the tectonic plates floating on magma?",
           "url": "https://www.usgs.gov/faqs/are-tectonic-plates-floating-magma",
-          "note": "Clarifies the solid but deformable material beneath plates."
+          "note": "Explains why plates overlie solid but deformable mantle rather than a global layer of liquid magma."
         },
         {
           "title": "USGS, Understanding plate motions",
           "url": "https://pubs.usgs.gov/gip/dynamic/understanding.html",
-          "note": "Observational and geological description of divergent, convergent, and transform boundaries."
+          "note": "Describes plate boundaries, subduction, and evidence for plate motion."
         },
         {
           "title": "Bercovici and Ricard (2014), Plate tectonics, damage and inheritance",
           "url": "https://doi.org/10.1038/nature13072",
-          "note": "Primary model coupling damage and grain evolution to strain localization; one proposed mechanism, not a unique demonstrated history of Earth."
+          "note": "Model coupling deformation, grain evolution, and inherited weak zones to the formation of plate boundaries."
         }
       ]
     },
     {
       "id": "planetary-rings",
-      "title": "Planetary rings: waves and wakes in an orbiting disk",
+      "title": "Waves and wakes in planetary rings",
       "status": "Established phenomenon",
       "mechanisms": [
         "collective-modes",
         "instability",
         "conservation"
       ],
-      "body": "We could list the orbit of every icy particle in Saturn's rings and still miss the most useful objects in a ring image: waves, gaps, and elongated concentrations. The ring is a granular disk whose particles collide, attract one another, and feel gravity from Saturn and its moons. Collective patterns travel through that material even though individual particles largely continue orbiting.\n\nA **density wave** is a propagating modulation of particle concentration. A moon can excite one near an orbital **resonance**, where recurring gravitational forcing has a frequency matched to a natural orbital response. A **bending wave** instead modulates the disk's vertical displacement. Pattern motion and particle motion must be distinguished, just as the travel of sound through air differs from transport of an air parcel across the room.\n\nParticles' mutual attraction also creates **self-gravity wakes**: temporary elongated concentrations continually assembled by gravity and distorted by differential rotation. Differential rotation means neighboring orbital radii have different angular velocities. Collisions dissipate random motion while gravity and shear rearrange the material. Numerical models incorporating these ingredients produce wakes; their predicted viewing-angle effects can be compared with the way the rings block starlight.\n\nThe emergent description can have measurable material parameters. A ring transports angular momentum through particle motion, collisions, and gravitational stresses. An effective viscosity summarizes part of that transport, but it should be inferred from the actual collective dynamics rather than borrowed from a molecular gas. If clustering changes, the transport law can change even though the composition of the particles stays the same.\n\nSaturn's rings are useful because several mechanisms coexist visibly. Moon-driven waves are forced collective responses; wakes arise from local self-gravity competing with shear; gaps can depend on resonant torques and embedded bodies. Calling all of these self-organization would hide the distinctions we came to learn. The common achievement is a small set of collective structures that makes an immense many-particle system understandable.",
-      "question": "Which observable would tell us whether a ring feature is a persistent material clump or a wave passing through new particles?",
+      "body": "Saturn's rings are a granular disk: particles orbit the planet, collide, and attract one another while also feeling the gravity of nearby moons. Waves, gaps, and elongated concentrations describe the collective dynamics more economically than a list of individual orbits.\n\nA density wave is a modulation of particle concentration; a bending wave changes the disk's vertical displacement. A moon can excite waves near an orbital resonance, where repeated gravitational forcing matches a natural orbital response. The pattern and the particles have different motions, so following a wave does not amount to following the same group of particles.\n\nMutual gravity also forms self-gravity wakes, temporary elongated concentrations stretched by differential rotation. Neighboring orbital radii have different angular velocities, shearing the concentrations as they develop. Collisions dissipate random motion while gravity and shear continually rearrange the material. Simulations produce such structures, and observations of starlight passing through Saturn's rings constrain their geometry through viewing-angle-dependent transmission.\n\nThese patterns affect transport. Particle motion, collisions, and gravitational stresses transfer angular momentum through the ring. An effective viscosity summarizes part of this collective transport; changes in clustering can alter it without changing the particles' composition.\n\nThe distinct structures have distinct causes. Moon-driven waves are forced responses, while wakes reflect competition between local self-gravity and shear. Gaps can depend on resonant torques or embedded bodies. Resolving these mechanisms connects the visible pattern to both the forcing that produces it and the material transport it causes.",
       "sources": [
         {
           "title": "Salo (1992), Gravitational wakes in Saturn’s rings",
           "url": "https://doi.org/10.1038/359619a0",
-          "note": "Primary simulations with mutual gravity and dissipative collisions."
+          "note": "Simulations showing gravitational wakes in a disk of mutually attracting, colliding particles."
         },
         {
           "title": "Hedman et al. (2007), Self-gravity wake structures in Saturn’s A ring revealed by Cassini VIMS",
           "url": "https://doi.org/10.1086/516828",
-          "note": "Primary occultation evidence constraining wake structure and viewing-angle effects."
+          "note": "Cassini observations of starlight transmission constraining the geometry of self-gravity wakes."
         },
         {
           "title": "NASA Cassini, Staggering structure",
           "url": "https://science.nasa.gov/resource/staggering-structure/",
-          "note": "Mission explanation of the observed Janus-driven spiral density wave."
+          "note": "Cassini observation and explanation of a spiral density wave driven by Janus."
         }
       ]
     },
     {
       "id": "gravitational-structure",
-      "title": "Gravitational structure: attraction builds a cosmic web",
+      "title": "Gravitational instability and the cosmic web",
       "status": "Established phenomenon",
       "mechanisms": [
         "instability",
         "networks"
       ],
-      "body": "We start with matter distributed almost uniformly, with slightly denser and less dense regions. A denser region exerts a somewhat stronger gravitational pull, which can draw in more matter and increase its contrast. The result need not be one featureless collapse: expansion, geometry, pressure, orbital motion, and the initial pattern all participate. The **cosmic web** is the observed large-scale arrangement of dense concentrations, filaments, sheets, and relatively empty regions.\n\nFor a simple Newtonian fluid with uniform reference density $\\rho_0$, sound speed $c_s$, and no cosmic expansion, a linear density perturbation with wave number $k$ has the schematic dispersion relation\n\n$$\\omega^2=c_s^2k^2-4\\pi G\\rho_0.$$\n\nHere $G$ is Newton's gravitational constant and $\\omega$ is the mode frequency. Pressure restores short-wavelength disturbances; gravity wins when the right side is negative, giving exponential growth instead of oscillation. This **Jeans instability** calculation requires the usual idealization of the uniform background and applies only to small disturbances within its fluid model. It illustrates the competition; it is not a complete cosmological derivation.\n\nIn an expanding universe, the expansion changes the growth equation and the physical wavelengths. **Dark matter** is matter inferred through gravitational effects that does not emit the light used to map stars and gas. In the cold-dark-matter framework, its early random motions are small enough that density structures can grow on the relevant scales. Simulations follow gravitational clustering from specified initial statistics, then add models for the visible matter. The Millennium simulation is a landmark example, not the final word or a parameter-free recreation of our universe.\n\nThe emergent objects include gravitationally bound concentrations called **halos**, inside which galaxies can form. The observed web supports quantitative structure-formation theories, while the microscopic identity of dark matter remains unresolved. Our description gains galaxies and filaments without declaring them elementary. Equally, we should not mistake a successful large-scale pattern for proof that every small-scale physical assumption is correct.",
-      "question": "Which aspects of a clustering pattern would change if the matter had larger primordial random velocities?",
+      "body": "Small density contrasts can grow under gravity as overdense regions attract additional matter. Expansion, pressure, orbital motion, and the geometry of the initial perturbations shape the result. The cosmic web is the large-scale arrangement of dense concentrations, filaments, sheets, and underdense regions traced by galaxies and other observations.\n\nA simple fluid calculation shows how gravity competes with pressure. Take reference density $\\rho_0$ and sound speed $c_s$, neglect cosmic expansion, and treat the uniform background as fixed while retaining the gravity of perturbations. A small density mode of wave number $k$ then obeys\n\n$$\\omega^2=c_s^2k^2-4\\pi G\\rho_0,$$\n\nwhere $G$ is the gravitational constant. Short wavelengths oscillate under pressure restoration. When the right side is negative, the mode has a growing solution: the Jeans instability. This idealized background construction isolates the competition without describing the expansion of the universe.\n\nCosmological models instead follow density perturbations in an expanding background. Dark matter is inferred through gravitational effects while interacting too weakly with light to be mapped like stars and gas. In the cold-dark-matter framework, its early random velocities are small enough to preserve density fluctuations on the structure-forming scales of interest. Gravity subsequently assembles bound concentrations called halos, within which galaxies can develop.\n\nSimulations such as Millennium follow this clustering from specified initial statistics and add models for luminous populations. Their comparison with observed structure tests the combined assumptions about initial conditions, matter, and galaxy formation. The resulting halos and filaments are collective objects, while the microscopic identity of dark matter remains unresolved.",
       "sources": [
         {
           "title": "Springel et al. (2005), Simulating the joint evolution of quasars, galaxies and their large-scale distribution",
           "url": "https://arxiv.org/abs/astro-ph/0504097",
-          "note": "Primary large-volume calculation of hierarchical dark-matter structure and modeled luminous populations."
+          "note": "Large-volume simulation of dark-matter clustering with models for galaxies and quasars."
         },
         {
           "title": "Bertschinger (1995), Cosmological dynamics",
           "url": "https://arxiv.org/abs/astro-ph/9503125",
-          "note": "Lecture notes on perturbation growth, gravitational dynamics, and their cosmological assumptions."
+          "note": "Derivation and discussion of gravitational perturbation growth in an expanding universe."
         }
       ]
     },
     {
       "id": "emergent-spacetime",
-      "title": "Emergent spacetime: a frontier, not a finished example",
+      "title": "Geometry and quantum entanglement",
       "status": "Open interpretation",
       "mechanisms": [
         "information",
         "collective-modes"
       ],
-      "body": "The preceding entries put constituents somewhere in space. We can now ask a more radical question: could spatial geometry itself be a useful collective description of degrees of freedom that are not initially arranged in that geometry? This is a research question with sharp mathematical examples, not an experimentally established origin story for our universe.\n\n**Holographic duality** is a proposed equivalence between certain theories with gravity in a higher-dimensional spacetime and quantum theories without gravity on a lower-dimensional boundary. The best-developed examples involve **anti-de Sitter space**, a spacetime with constant negative curvature, and a **conformal field theory**, a quantum field theory invariant under conformal transformations, which preserve angles while allowing position-dependent scale factors. The abbreviation AdS/CFT names this pairing. These words specify a special theoretical setting; they do not describe the measured large-scale geometry of our present universe.\n\nIn a **semiclassical** limit we describe geometry classically, with quantum corrections beyond the leading result. Entanglement entropy is the von Neumann entropy of a region’s reduced quantum state. For suitable static states, the Ryu–Takayanagi relation connects the entanglement entropy of a boundary region $A$ to an area in the gravitational description:\n\n$$S(A)=\\frac{\\operatorname{Area}(\\gamma_A)}{4G_N}.$$\n\nWe use $\\hbar=c=k_B=1$. The **bulk** is the higher-dimensional gravitational spacetime. On a constant-time slice of the static bulk, $\\gamma_A$ is the least-area surface ending on the boundary of $A$ and such that the surface and $A$ together bound a spatial bulk region (the **homology condition**); $G_N$ is the bulk gravitational constant. The formula gives the leading classical contribution, with quantum corrections beyond this limit. It turns a question about quantum correlations into a geometric calculation, within theories where the correspondence applies.\n\nVan Raamsdonk's argument explores how changing entanglement can change the connectivity of the corresponding semiclassical geometry. This is much more concrete than saying that everything is information. It still does not prove that arbitrary entanglement creates an ordinary spacetime, that every quantum system has a smooth gravitational dual, or that laboratory observation has confirmed holographic spacetime emergence in our cosmos.\n\nWe include this final entry to keep ambition and evidence on the same page. Emergence has already taught us to replace microscopic variables with collective ones when a controlled description earns its place. The frontier is whether geometry can earn that place too—and precisely which quantum structures, limits, and observables make the claim testable.",
-      "question": "What would count as evidence for emergent geometry beyond a suggestive resemblance between an entropy and an area?",
+      "body": "Most collective descriptions assume that constituents already occupy space. Holographic duality offers a setting in which an additional spatial direction and gravitational geometry can instead be related to a quantum theory formulated without them.\n\nThe best-developed examples concern the proposed equivalence between gravity in asymptotically anti-de Sitter spacetime and a conformal field theory on its boundary, abbreviated AdS/CFT. Anti-de Sitter space has constant negative spacetime curvature. A conformal field theory is invariant under transformations that preserve angles while allowing local changes of scale. The higher-dimensional gravitational region is called the bulk.\n\nIn suitable states with a semiclassical bulk, geometry has a leading classical description. For a boundary region $A$, the entanglement entropy is the von Neumann entropy of its reduced density matrix. In a static bulk described by Einstein gravity, the Ryu–Takayanagi relation gives its leading contribution as\n\n$$S(A)=\\frac{\\operatorname{Area}(\\gamma_A)}{4G_N},$$\n\nusing $\\hbar=c=k_B=1$, with bulk gravitational constant $G_N$. On a constant-time slice, $\\gamma_A$ is the least-area surface ending on the boundary of $A$ and satisfying the homology condition: together, $A$ and $\\gamma_A$ bound a bulk spatial region. Corresponding short-distance cutoffs are needed to compare the generally divergent entropy and area. Quantum corrections lie beyond this leading formula.\n\nThe relation turns a property of a quantum state into a geometric calculation. Van Raamsdonk's argument further connects changes in entanglement with changes in the connectivity of a semiclassical bulk. These are specific theoretical relations, requiring appropriate quantum states and limits; generic entanglement does not ensure a smooth geometry. They give concrete content to spacetime emergence within holographic theories, while their application to our observed universe remains an open question.",
       "sources": [
         {
           "title": "Ryu and Takayanagi (2006), Holographic derivation of entanglement entropy from AdS/CFT",
           "url": "https://arxiv.org/abs/hep-th/0603001",
-          "note": "Primary area–entropy proposal in holographic theories, with a specified classical gravitational setting."
+          "note": "Area–entropy proposal and checks within AdS/CFT at leading classical gravitational order."
         },
         {
           "title": "Van Raamsdonk (2010), Building up spacetime with quantum entanglement",
           "url": "https://arxiv.org/abs/1005.3035",
-          "note": "Argument linking entanglement and semiclassical connected geometry; a theoretical frontier, not direct evidence about our universe."
+          "note": "Argument relating entanglement changes to the connectivity of semiclassical bulk geometry."
         }
       ]
     }
